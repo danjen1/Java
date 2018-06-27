@@ -1,3 +1,5 @@
+package Misc;
+
 public class Droid
 {
     int batterylevel;
@@ -15,7 +17,7 @@ public class Droid
 
     public void chargeBattery(int hours)
     {
-        System.out.println("Droid charging...");
+        System.out.println("Misc.Droid charging...");
         batterylevel = batterylevel + hours;
         if (batterylevel > 100)
         {

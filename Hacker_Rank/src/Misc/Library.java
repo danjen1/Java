@@ -1,3 +1,5 @@
+package Misc;
+
 import java.util.HashMap;
 
 public class Library
