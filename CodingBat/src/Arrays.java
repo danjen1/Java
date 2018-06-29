@@ -1,4 +1,3 @@
-import sun.rmi.runtime.NewThreadAction;
 
 public class Arrays
 {
@@ -309,7 +308,7 @@ public class Arrays
             {
                 return true;
             } else if (nums[nums.length - 2] == 1 && nums[nums.length - 1] == 3)
-                    ||
+
             {
                 return true;
             }
@@ -320,10 +319,48 @@ public class Arrays
         return false;
     }
 
+    public int[] make2(int[] a, int[] b) {
+        int[] newOne = new int[2];
+        int c = a.length;
+        if (c >= 2)
+        {
+            newOne[0] = a[0];
+            newOne[1] = a[1];
+            return newOne;
+        } else if (c == 1)
+        {
+            newOne[0] = a[0];
+            newOne[1] = b[0];
+            return newOne;
+        }else
+        {
+            newOne[0] = b[0];
+            newOne[1] = b[1];
+            return newOne;
+        }
+    }
+
+    public int[] front11(int[] a, int[] b)
+    {
+        if (a.length == 0 && b.length == 0)
+        {
+            return new int[] {};
+        } else if (a.length != 0 && b.length == 0)
+        {
+            return new int[]{a[0]};
+        } else if (a.length == 0 && b.length != 0)
+        {
+            return new int[]{b[0]};
+        } else
+        {
+            return new int[]{a[0], b[0]};
+        }
+    }
+
     public static void main(String[] args)
     {
         Arrays newOne = new Arrays();
-        int[] one = {1, 1, 3, 1};
+        int[] one = {1, 1, 1,  3, 1};
         System.out.println(newOne.unlucky1(one));
 
 
