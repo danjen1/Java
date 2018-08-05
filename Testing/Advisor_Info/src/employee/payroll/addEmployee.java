@@ -558,7 +558,10 @@ public class addEmployee extends javax.swing.JFrame {
             String value14 = txt_salary.getText();
             String value15 = txt_job.getText();
             String value16 = txt_datehired.getText();
-            String sql= "update EmpDetails SET id='"+value4+"',first_name='"+value1+"', nic='"+value0+"', surname='"+value2+"', dob='"+value3+"',email='"+value5+"',telephone='"+value6+"'," + "address='"+value7+"',department='"+value8+"',designation ='"+value12+"', status ='"+value13+"', salary ='"+value14+"', job_title ='"+value15+"', date_hired ='"+value16+"' " + " where id='"+value4+"' ";
+            String sql= "update EmpDetails SET id='"+value4+"',first_name='"+value1+"', nic='"+value0+"', surname='"
+                    +value2+"', dob='"+value3+"',email='"+value5+"',telephone='"+value6+"'," + "address='"
+                    +value7+"',department='"+value8+"',designation ='"+value12+"', status ='"+value13+"', salary ='"+value14+"', job_title ='"+value15+"" +
+                    "', date_hired ='"+value16+"' " + " where id='"+value4+"' ";
             pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Record Updated");

@@ -16,7 +16,7 @@ public class db {
     public static Connection java_db() {
     try{
         Class.forName("org.sqlite.JDBC");
-        Connection conn=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Acer\\Documents\\GIT-Repositories\\Employee-Payroll-Management-System-master\\employeesystem.sqlite");
+        Connection conn=DriverManager.getConnection("jdbc:sqlite:/var/lib/mysql/Advisor/Advisor.sqlite");
         return conn;
     }catch(Exception e){
         JOptionPane.showMessageDialog(null,e);
