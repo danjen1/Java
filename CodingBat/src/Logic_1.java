@@ -85,5 +85,9 @@ public class Logic_1
         }
         return "10:00";
     }
+    public static void main(String[] args) {
+        Logic_1 one = new Logic_1();
+        System.out.println(one.alarmClock(7, false));
+    }
 }
 
