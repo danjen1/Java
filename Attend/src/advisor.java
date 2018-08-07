@@ -1,22 +1,24 @@
 import java.util.*;
 
-public class Advisor
+public class advisor
 {
     private String ID;
-    private String firstName;
-    private String lastName;
-    private String Email;
-    private int age;
-    private double[] grades;
+    private String name;
+    private String surname;
+    private String email;
 
-    public Advisor(String ID, String firstName, String lastName, String Email, int age, double[] grades)
+    private int age;
+    private ArrayList<events> records = new ArrayList<>();
+
+
+    public advisor(String ID, String firstName, String lastName, String Email, int age, ArrayList<events> records)
     {
         setID(ID);
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(Email);
         setAge(age);
-        setGrades(grades);
+        setRecords(records);
     }
 
     public void setID(String ID)
@@ -26,17 +28,17 @@ public class Advisor
 
     public void setFirstName(String firstName)
     {
-        this.firstName = firstName;
+        this.name = firstName;
     }
 
     public void setLastName(String lastName)
     {
-        this.lastName = lastName;
+        this.surname = lastName;
     }
 
     public void setEmail(String Email)
     {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public void setAge(int age)
@@ -44,9 +46,9 @@ public class Advisor
         this.age = age;
     }
 
-    public void setGrades(double[] grades)
+    public void setRecords(ArrayList<events> record)
     {
-        this.grades = grades;
+        this.records = record;
     }
 
     public String getID()
@@ -56,17 +58,17 @@ public class Advisor
 
     public String getFirstName()
     {
-        return firstName;
+        return name;
     }
 
     public String getLastName()
     {
-        return lastName;
+        return surname;
     }
 
     public String getEmail()
     {
-        return Email;
+        return email;
     }
 
     public int getAge()
@@ -74,18 +76,18 @@ public class Advisor
         return age;
     }
 
-    public double[] getGrades()
+    /*public double[] getGrades()
     {
         return grades;
-    }
+    } */
 
     public void print()
     {
-        grades = getGrades();
+        //grades = getGrades();
         System.out.print("ID: " + getID() + "\tFirst Name: " + getFirstName() + "\tLast Name: " +
                 getLastName() + "\tEmail: " + getEmail() + "\tAge: " + getAge());
         System.out.print("\tGrades: {");
-        System.out.println(grades[0] + ", " + grades[1] + ", " + grades[2] + ", " + grades[3] + ", " + grades[4] + "}");
+        //System.out.println(grades[0] + ", " + grades[1] + ", " + grades[2] + ", " + grades[3] + ", " + grades[4] + "}");
     }
 }
 
