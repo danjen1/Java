@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Roster
 {
-    private static ArrayList<Student> roster = new ArrayList<>();
+    private static ArrayList<Advisor> roster = new ArrayList<>();
 
     private static void remove(String ID)
     {
-        for (Student item : roster)
+        for (Advisor item : roster)
         {
             if (ID.equals(item.getID()))
             {
@@ -14,11 +14,11 @@ public class Roster
                return;
             }
         }
-        System.out.println("Student not found, no ID match");
+        System.out.println("Advisor not found, no ID match");
     }
     private static void printAll()
     {
-        for (Student item : roster)
+        for (Advisor item : roster)
         {
             item.print();
         }
@@ -26,7 +26,7 @@ public class Roster
     }
     private static void print_average_grade(String ID)
     {
-        for (Student item : roster)
+        for (Advisor item : roster)
         {
 
             if (ID.equals(item.getID()))
@@ -37,22 +37,22 @@ public class Roster
                     total += grade;
                 }
                 total = total / item.getGrades().length;
-                System.out.print("Student ID " + item.getID() + ": average of " + item.getGrades().length + " grades for " + item.getFirstName() + " is: ");
+                System.out.print("Advisor ID " + item.getID() + ": average of " + item.getGrades().length + " grades for " + item.getFirstName() + " is: ");
                 System.out.printf("%.2f", total);
                 System.out.println("\n");
                 return;
             }
         }
-        System.out.println("Student ID not found");
+        System.out.println("Advisor ID not found");
         System.out.println();
     }
     private static void print_invalid_emails()
     {
-        for (Student item : roster)
+        for (Advisor item : roster)
         {
             if (!(item.getEmail().contains("@")) || (item.getEmail().contains(" ") || (!(item.getEmail().contains(".")))))
             {
-                System.out.println("Student " + item.getFirstName() + " email is invalid: " + item.getEmail());
+                System.out.println("Advisor " + item.getFirstName() + " email is invalid: " + item.getEmail());
                 System.out.println();
                 return;
             }
@@ -64,7 +64,7 @@ public class Roster
     private static void add(String ID, String firstName, String lastName, String Email, int age, double grade1, double grade2, double grade3, double grade4, double grade5)
     {
         double grades[] = {grade1, grade2, grade3, grade4, grade5};
-        Student newStud = new Student(ID, firstName, lastName, Email, age, grades);
+        Advisor newStud = new Advisor(ID, firstName, lastName, Email, age, grades);
         roster.add(newStud);
     }
 

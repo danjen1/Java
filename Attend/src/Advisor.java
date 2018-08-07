@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Student
+public class Advisor
 {
     private String ID;
     private String firstName;
@@ -9,7 +9,7 @@ public class Student
     private int age;
     private double[] grades;
 
-    public Student(String ID, String firstName, String lastName, String Email, int age, double[] grades)
+    public Advisor(String ID, String firstName, String lastName, String Email, int age, double[] grades)
     {
         setID(ID);
         setFirstName(firstName);
