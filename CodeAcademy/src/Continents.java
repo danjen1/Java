@@ -21,7 +21,7 @@ public class Continents {
                 default: location = "Undefined continent!";
             }
             System.out.println(location);
-            char puzzle = (20 > 10) ? 'A' : 'Z';
+            //char puzzle = (20 > 10) ? 'A' : 'Z';
         }
     }
 

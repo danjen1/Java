@@ -1,7 +1,7 @@
 public class Calculator {
-    public void Calculator() {
+    //public void Calculator() {
 
-    }
+    //}
 
     public int add(int a, int b) {
         int answer = a + b;

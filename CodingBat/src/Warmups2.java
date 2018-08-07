@@ -70,7 +70,6 @@ public class Warmups2
 
     public String stringSplosion(String str)
     {
-        int x = str.length();
         String add;
         String result = "";
 
@@ -276,5 +275,11 @@ the "1" differs by 2 or less from the correct value. */
         }
         // If we get here ... none found.
         return false;
+    }
+
+    public static void main(String[] args) {
+        Warmups2 one = new Warmups2();
+        System.out.println(one.stringTimes("dan", 3));
+        
     }
 }
