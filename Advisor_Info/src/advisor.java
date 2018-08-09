@@ -12,11 +12,13 @@ class advisor {
     private String EID;
     private String address1;
     private String address2;
+    private String status;
     private String city;
     private String state;
     private String zip;
     private String hire_date;
     private ArrayList<events> events = new ArrayList<>();
+    private ArrayList<coaching> coaching = new ArrayList<>();
 
     public ArrayList<events> getEvents() {
         return events;
@@ -53,7 +55,7 @@ class advisor {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -135,6 +137,22 @@ class advisor {
 
     private void setAddress2(String address2) {
         this.address2 = address2;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ArrayList<coaching> getCoaching() {
+        return coaching;
+    }
+
+    public void setCoaching(ArrayList<coaching> coaching) {
+        this.coaching = coaching;
     }
 
     public String getCity() {
