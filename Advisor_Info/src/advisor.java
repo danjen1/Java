@@ -1,6 +1,7 @@
 import java.util.*;
 
-class advisor {
+class advisor
+{
     private String name;
     private String surname;
     private String email;
@@ -19,15 +20,7 @@ class advisor {
     private String hire_date;
     private ArrayList<events> events = new ArrayList<>();
     private ArrayList<coaching> coaching = new ArrayList<>();
-
-    public ArrayList<events> getEvents() {
-        return events;
-    }
-
-    public void setEvents(ArrayList<events> events) {
-        this.events = events;
-    }
-
+    private ArrayList<goals> goals = new ArrayList<>();
 
 
     public advisor(String name, String surname, String email, Boolean diff, String mobile, String t_zone, String DSID, String EID,
@@ -47,6 +40,7 @@ class advisor {
         setZip(zip);
         setHire_date(hire_date);
     }
+
 
 
 
@@ -147,14 +141,6 @@ class advisor {
         this.status = status;
     }
 
-    public ArrayList<coaching> getCoaching() {
-        return coaching;
-    }
-
-    public void setCoaching(ArrayList<coaching> coaching) {
-        this.coaching = coaching;
-    }
-
     public String getCity() {
         return city;
     }
@@ -187,17 +173,21 @@ class advisor {
         this.hire_date = hire_date;
     }
 
-    public ArrayList<events> getRecords() {
-        return records;
+    public ArrayList<events> getEvents() {
+        return events;
     }
 
-    public void setRecords(ArrayList<events> records) {
-        this.records = records;
+    public void setEvents(ArrayList<events> events) {
+        this.events = events;
     }
 
-    private ArrayList<events> records = new ArrayList<>();
+    public ArrayList<coaching> getCoaching() {
+        return coaching;
+    }
 
-
+    public void setCoaching(ArrayList<coaching> coaching) {
+        this.coaching = coaching;
+    }
 
 
 
