@@ -1,5 +1,61 @@
 public class events
 {
+    private Boolean submitted;
+    private String date;
+    private float hours;
+    private String comments;
+    private String[] type = {"Full Day", "Early Out / Late In", "Tardy", "Late from Lunch", "Apple DT", "Home DT", "Vacation",
+            "KinCare", "RSL", "LOA", "SSD", "Bereav", "JA", "Parental"};
+
+
+    public Boolean getSubmitted() {
+        return submitted;
+    }
+
+    public void setSubmitted(Boolean submitted) {
+        this.submitted = submitted;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public float getHours() {
+        return hours;
+    }
+
+    public void setHours(float hours) {
+        this.hours = hours;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String[] getType() {
+        return type;
+    }
+
+    public void setType(String[] type) {
+        this.type = type;
+    }
+
+
+
+
+
+
+
+
+
     /*private static void remove(String ID)
     {
         for (advisor item : events)

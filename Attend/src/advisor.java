@@ -1,93 +1,196 @@
 import java.util.*;
 
-public class advisor
-{
-    private String ID;
+class advisor {
     private String name;
     private String surname;
     private String email;
+    private boolean diff;
+    private String schedule;
+    private String mobile;
+    private String t_zone;
+    private String DSID;
+    private String EID;
+    private String address1;
+    private String address2;
+    private String city;
+    private String state;
+    private String zip;
+    private String hire_date;
+    private ArrayList<events> events = new ArrayList<>();
 
-    private int age;
-    private ArrayList<events> records = new ArrayList<>();
-
-
-    public advisor(String ID, String firstName, String lastName, String Email, int age, ArrayList<events> records)
-    {
-        setID(ID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(Email);
-        setAge(age);
-        setRecords(records);
+    public ArrayList<events> getEvents() {
+        return events;
     }
 
-    public void setID(String ID)
-    {
-        this.ID = ID;
+    public void setEvents(ArrayList<events> events) {
+        this.events = events;
     }
 
-    public void setFirstName(String firstName)
-    {
-        this.name = firstName;
+
+
+    public advisor(String name, String surname, String email, Boolean diff, String mobile, String t_zone, String DSID, String EID,
+                   String address1, String address2, String city, String state, String zip, String hire_date) {
+        setName(name);
+        setSurname(surname);
+        setEmail(email);
+        setDiff(diff);
+        setMobile(mobile);
+        setT_zone(t_zone);
+        setDSID(DSID);
+        setEID(EID);
+        setAddress1(address1);
+        setAddress2(address2);
+        setCity(city);
+        setState(state);
+        setZip(zip);
+        setHire_date(hire_date);
     }
 
-    public void setLastName(String lastName)
-    {
-        this.surname = lastName;
-    }
 
-    public void setEmail(String Email)
-    {
-        this.email = Email;
-    }
 
-    public void setAge(int age)
-    {
-        this.age = age;
-    }
+    public String getName() {
 
-    public void setRecords(ArrayList<events> record)
-    {
-        this.records = record;
-    }
-
-    public String getID()
-    {
-        return ID;
-    }
-
-    public String getFirstName()
-    {
         return name;
     }
 
-    public String getLastName()
-    {
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
         return surname;
     }
 
-    public String getEmail()
-    {
+    private void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public int getAge()
-    {
-        return age;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /*public double[] getGrades()
-    {
-        return grades;
-    } */
+    public boolean isDiff() {
+        return diff;
+    }
 
-    public void print()
+    private void setDiff(boolean diff) {
+        this.diff = diff;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    private void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getT_zone() {
+        return t_zone;
+    }
+
+    private void setT_zone(String t_zone) {
+        this.t_zone = t_zone;
+    }
+
+    public String getDSID() {
+        return DSID;
+    }
+
+    private void setDSID(String DSID) {
+        this.DSID = DSID;
+    }
+
+    public String getEID() {
+        return EID;
+    }
+
+    private void setEID(String EID) {
+        this.EID = EID;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    private void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    private void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    private void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    private void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    private void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getHire_date() {
+        return hire_date;
+    }
+
+    private void setHire_date(String hire_date) {
+        this.hire_date = hire_date;
+    }
+
+    public ArrayList<events> getRecords() {
+        return records;
+    }
+
+    public void setRecords(ArrayList<events> records) {
+        this.records = records;
+    }
+
+    private ArrayList<events> records = new ArrayList<>();
+
+
+
+
+
+   /* public void print()
     {
         //grades = getGrades();
         System.out.print("ID: " + getID() + "\tFirst Name: " + getFirstName() + "\tLast Name: " +
-                getLastName() + "\tEmail: " + getEmail() + "\tAge: " + getAge());
+                getLastName() + "\temail: " + getEmail() + "\tAge: " + getAge());
         System.out.print("\tGrades: {");
         //System.out.println(grades[0] + ", " + grades[1] + ", " + grades[2] + ", " + grades[3] + ", " + grades[4] + "}");
     }
+    */
 }
 
