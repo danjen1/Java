@@ -2,15 +2,16 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class records_db {
-//check to see if there's a saved records_db if not create the initial one
-    /*if (array is there) {
-    get array from local storage
-    open command prompt to run reports / modify records in array
-     } else {
-     */
 
-    //Make the initial database array & save it.
     private ArrayList<advisor> records_db = new ArrayList<>();
+
+    public records_db(ArrayList<advisor> records_db)
+    {
+        this.records_db = records_db;
+    }
+    public records_db(){
+
+    }
 
     /*
     make getters / setters to pull down Advisor objects and edit variables including events Array

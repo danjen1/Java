@@ -2,6 +2,7 @@ import java.util.*;
 
 class advisor
 {
+    public ArrayList<advisor> main = new ArrayList<>();
     private String name;
     private String surname;
     private String email;
@@ -40,6 +41,11 @@ class advisor
         setZip(zip);
         setHire_date(hire_date);
     }
+    public advisor(){
+
+    }
+
+
 
 
 

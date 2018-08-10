@@ -14,7 +14,6 @@ public class goals
     private String[] quarter = {"FY18Q4", "FY19Q1", "FY19Q2", "FY19Q3"};
     private String[] cat = {"Teamowrk", "Innovation", "Results"};
 
-
     public String getDate()
     {
         return date;

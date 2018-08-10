@@ -4,8 +4,8 @@ public class events
     private String date;
     private float hours;
     private String comments;
-    private String[] type = {"1x1", "1x1 AD", "1x1 AP", "1x1 DC", "Check-in", "Impromptu", "Follow Up", "NorthStar",
-                            "QDR", "Observations", "Recognition", "Reminder", "LOA", "SSD", "Bereav", "JA", "Parental"};
+    private String[] type = {"Full Day","Early Out / Late In","Tardy","Late from Lunch","Apple DT","Home DT",
+                                "Vacation","KinCare","RSL","LOA","SSD","Bereav","JA","Parental"};
 
     public Boolean getSubmitted() {
         return submitted;
