@@ -19,6 +19,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import static employee.payroll.db.java_db;
+
 /**
  *
  * @author DilinieSeimon
@@ -32,7 +35,7 @@ public class addEmployee extends javax.swing.JFrame {
      */
     public addEmployee() {
         initComponents();
-        conn=db.java_db();
+        conn=java_db();
         
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();

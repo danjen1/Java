@@ -9,7 +9,7 @@
             "name": "Debug (Launch)",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "",
             "args": ""
@@ -19,7 +19,7 @@
             "name": "Debug (Launch)-Arrays",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "Arrays",
             "args": ""
@@ -29,7 +29,7 @@
             "name": "Debug (Launch)-FizzBuzz",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "FizzBuzz",
             "args": ""
@@ -39,7 +39,7 @@
             "name": "Debug (Launch)-Strings",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "Strings",
             "args": ""
@@ -49,7 +49,7 @@
             "name": "Debug (Launch)-Warmups1",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "Warmups1",
             "args": ""
@@ -59,7 +59,7 @@
             "name": "Debug (Launch)-Warmups2",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "Warmups2",
             "args": ""
