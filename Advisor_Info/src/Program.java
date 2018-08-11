@@ -1,26 +1,34 @@
-import java.util.ArrayList;
+import java.io.IOException;
 
-public class program {
-    public static void main(String[] args) {
-        //load array from saved file
-        ArrayList<advisor> main = new ArrayList<>();
-        advisor one = new advisor();
-        one.setName("Daniel");
-        one.setEmail("daniel_jenkins@apple.com");
-        main.add(one);
-        records_db def = new records_db();
-        def.setRecords_db(main);
-        main.add(one);
-        System.out.println(main.get(0).getName());
-        System.out.println(main.get(0).getEmail());
 
+public class Program
+{
+    public static void main(String[] args) throws IOException, ClassNotFoundException
+    {
+        Records_DB records_db = new Records_DB();
+        records_db.readObject();
+        Advisor one = new Advisor();
+        one.addEvents();
+        records_db.add_Adv();
+
+
+
+        //records_db.add_Adv();
+        /*records_db.add_Adv();
+        records_db.add_Adv();
+        //records_db.remove_Adv();
+
+           */
+
+        records_db.printAll();
+        records_db.writeObject();
 
 
 
         /*
         check to see if there's a file saved on the machine if yes provide an alert confirming opening of prior save,
         if not user message indicating they need to add Advisor information in order to use the app.
-        create the records_db array array and ask for user input of Advisor Info and events.
+        create the Records_DB array array and ask for user input of Advisor Info and Events.
         Program Outline:
         What Would you like to do?
         1. Add / Delete / Update Advisor Info

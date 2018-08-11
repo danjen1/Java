@@ -1,11 +1,20 @@
-public class events
+import java.io.Serializable;
+
+public class Events implements Serializable
 {
     private Boolean submitted;
-    private String date;
-    private float hours;
-    private String comments;
-    private String[] type = {"Full Day","Early Out / Late In","Tardy","Late from Lunch","Apple DT","Home DT",
+    private String date, comments, type;
+    private double hours;
+    private String[] categories = {"Full Day","Early Out / Late In","Tardy","Late from Lunch","Apple DT","Home DT",
                                 "Vacation","KinCare","RSL","LOA","SSD","Bereav","JA","Parental"};
+
+    //Contrsuctors
+    public Events(String date, String type, double hours, String comments)
+    {
+        setDate(date); setType(type); setHours(hours); setComments(comments);
+    }
+
+
 
     public Boolean getSubmitted() {
         return submitted;
@@ -23,11 +32,11 @@ public class events
         this.date = date;
     }
 
-    public float getHours() {
+    public double getHours() {
         return hours;
     }
 
-    public void setHours(float hours) {
+    public void setHours(double hours) {
         this.hours = hours;
     }
 
@@ -39,11 +48,11 @@ public class events
         this.comments = comments;
     }
 
-    public String[] getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(String[] type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -57,20 +66,20 @@ public class events
 
     /*private static void remove(String ID)
     {
-        for (advisor item : events)
+        for (Advisor item : Events)
         {
             if (ID.equals(item.getID()))
             {
-                records_db.remove(item);
+                Records_DB.remove(item);
                return;
             }
         }
-        System.out.println("advisor not found, no ID match");
+        System.out.println("Advisor not found, no ID match");
     }
 
     private static void printAll()
     {
-        for (advisor item : records_db)
+        for (Advisor item : Records_DB)
         {
             item.print();
         }
@@ -78,7 +87,7 @@ public class events
     }
     private static void print_average_grade(String ID)
     {
-        for (advisor item : records_db)
+        for (Advisor item : Records_DB)
         {
 
             if (ID.equals(item.getID()))
@@ -89,22 +98,22 @@ public class events
                     //total += grade;
                 }
                 //total = total / item.getGrades().length;
-               // System.out.print("advisor ID " + item.getID() + ": average of " + item.getEvents().length + " grades for " + item.getFirstName() + " is: ");
+               // System.out.print("Advisor ID " + item.getID() + ": average of " + item.getEvents().length + " grades for " + item.getFirstName() + " is: ");
                 System.out.printf("%.2f", total);
                 System.out.println("\n");
                 return;
             }
         }
-        System.out.println("advisor ID not found");
+        System.out.println("Advisor ID not found");
         System.out.println();
     }
     private static void print_invalid_emails()
     {
-        for (advisor item : records_db)
+        for (Advisor item : Records_DB)
         {
             if (!(item.getEmail().contains("@")) || (item.getEmail().contains(" ") || (!(item.getEmail().contains(".")))))
             {
-                System.out.println("advisor " + item.getFirstName() + " email is invalid: " + item.getEmail());
+                System.out.println("Advisor " + item.getFirstName() + " email is invalid: " + item.getEmail());
                 System.out.println();
                 return;
             }
@@ -117,14 +126,14 @@ public class events
     private static void add(String ID, String firstName, String lastName, String Email, int age, double grade1, double grade2, double grade3, double grade4, double grade5)
     {
         double grades[] = {grade1, grade2, grade3, grade4, grade5};
-       // advisor newStud = new advisor(ID, firstName, lastName, Email, age, grades);
-        //records_db.add(newStud);
+       // Advisor newStud = new Advisor(ID, firstName, lastName, Email, age, grades);
+        //Records_DB.add(newStud);
     }
 
     public static void main(String[] args)
     {
         /*
-        Make both records and records_db
+        Make both records and Records_DB
         */
 
         add("001", "IG", "Horowitz", "Horowitz@protonmail.com", 36, 91.91, 92.92, 93.93, 94.94, 75.75);

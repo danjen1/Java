@@ -1,4 +1,4 @@
-public class goals
+public class Goals
 {
     private String date;
     private String[] attribute = {"Assure", "Knowledge", "Guidance", "Professionalism", "Holds",
