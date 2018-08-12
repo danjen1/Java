@@ -1,11 +1,11 @@
-import com.sun.prism.impl.Disposer;
-
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
+import static java.lang.System.out;
 
-public class Records_DB
+
+public class Records_DB implements Serializable
 {
 
     public  ArrayList<Advisor> records_db = new ArrayList<>();
@@ -14,46 +14,14 @@ public class Records_DB
 
     }
 
-    public void printAll()
-    {
-        for (Advisor items : records_db)
-        {
-            items.printAdvAll();
-
-        }
-    }
-
-    //modify Events Info
-
-
-
-    //modify Goals Info
-
-    //modify COachng Info
-
-
-    //Modify Advisor Info
-    public void remove_Adv()
-    {
-        String combined = JOptionPane.showInputDialog("Name of Advisor To Remove", "First Last");
-        String[] splitted = combined.split("\\s+");
-        String name = splitted[0];
-        String surname = splitted[1];
-        for (Advisor item : records_db)
-        {
-            if (name.equals(item.getName()))//&& item.getSurname().equals(surname))
-            {
-
-                records_db.remove(item);
-                return;
-            }
-        }
-
-    }
 
     public void add_Adv()
     {
-        Advisor newAdv = new Advisor();
+        Advisor newAdv = new Advisor("Daniel", "Jenkins", "dan_jenkins1@protonmail.com", true,
+                "801-300-0056", "Active", "M-F 9am-6pm", "EST",
+                "123456789", "123456", "3182 College Ct", "","Elko",
+                "NV", "89801", "03/13/2018");
+        /*
         String name = JOptionPane.showInputDialog("First Name:", "First");
         String surname = JOptionPane.showInputDialog("Surname:", "Last");
         String email = JOptionPane.showInputDialog("email", "@apple.com");
@@ -85,14 +53,49 @@ public class Records_DB
         newAdv.setState(state);
         newAdv.setZip(zip);
         newAdv.setHire_date(hire_date);
-        newAdv.setEvents(null);
-        newAdv.setCoaching(null);
-        newAdv.setGoals(null);
+        */
         records_db.add(newAdv);
 
     }
 
-    //read and write the file
+    public void updateEmail(String name, String email)
+    {
+        for (Advisor items : this.records_db){
+            if (name.equals(items.getName())){
+                items.setEmail(email);
+            }
+        }
+        try
+        {
+            this.writeObject();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void updateName(String EID, String name)
+    {
+        for (Advisor items : records_db){
+            out.println(items.getEID() + items.getName() + items.getSurname());
+            if (EID.equals(items.getEID())){
+                items.setName(name);
+            }
+        }
+        try
+        {
+            this.writeObject();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    //read and write the db file
     public void writeObject() throws IOException
     {
         FileOutputStream fos = new FileOutputStream("database.ser");
@@ -124,23 +127,6 @@ public class Records_DB
         this.records_db = records_db;
     }
 
-    public void updateEmail(String name, String email)
-    {
-        for (Advisor items : records_db){
-            if (name.equals(items.getName())){
-                items.setEmail(email);
-            }
-        }
-    }
-
-    public void updateName(String EID, String name)
-    {
-        for (Advisor items : records_db){
-            if (EID.equals(items.getEID())){
-                items.setSurname(name);
-            }
-        }
-    }
 
 
 }
