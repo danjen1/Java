@@ -1,13 +1,16 @@
 import java.io.IOException;
 
-
 public class Program
 {
+    /* Main Method Testing */
     public static void main(String[] args) throws IOException, ClassNotFoundException
     {
-        Records_DB db = new Records_DB();
+
+        DB db = new DB();
         db.readObject();
-        db.add_Adv();
+
+
+        db.addAdv();
         db.writeObject();
 
     }

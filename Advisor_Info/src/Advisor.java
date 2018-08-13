@@ -1,6 +1,8 @@
 import java.io.Serializable;
 import java.util.*;
 
+import static java.lang.System.out;
+
 public class Advisor implements Serializable
 {
     private String name, surname, email, sched, mobile, t_zone, DSID, EID, address1, address2, status, city, state, zip, hire_date;
@@ -33,9 +35,24 @@ public class Advisor implements Serializable
 
     }
 
+    public void addOccur(String EID)
+    {
+
+        Occur temp = new Occur("8/18", "LOA", "4.5", true, "Testing 1-2");
+        {
+            occur.add(temp);
+        }
+
+    }
 
 
-    /* Getters and Setters */
+
+
+
+
+    /**********************
+     * Getters and Setters*
+     **********************/
     public String getName()
     {
 
