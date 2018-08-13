@@ -107,10 +107,7 @@ public class Records_DB implements Serializable
 
     public void readObject() throws IOException, ClassNotFoundException
     {
-        FileInputStream fis = new FileInputStream("database.ser");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        records_db = (ArrayList<Advisor>) ois.readObject();
-        ois.close();
+`
     }
 
 

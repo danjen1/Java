@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Attend
 {
@@ -8,14 +9,39 @@ public class Attend
     private String type;
     private String comments;
     private double hours;
-    private Boolean submitted;
+    private Boolean submitted = false;
 
     /*
     Constructors
      */
     public Attend()
     {
-
+        Scanner in = new Scanner(System.in);
+        Boolean go = true;
+        while (go)
+        {
+            System.out.println("Advisor: ");
+            advisor = in.nextLine();
+            System.out.println("Date: ");
+            date = in.nextLine();
+            System.out.println("Type: ");
+            type = in.nextLine();
+            System.out.println("Hours: ");
+            hours = in.nextDouble();
+            System.out.println("Comments: ");
+            comments = in.nextLine();
+            System.out.println("Submitted?: (Y/N)");
+            if (in.nextLine().equals("Y") || in.nextLine().equals("Yes") || in.nextLine().equals("yes"))
+            {
+                submitted = true;
+            }
+            go = false;
+        }
+        setAdvisor(advisor);
+        setDate(date);
+        setType(type);
+        setHours(hours);
+        setSubmitted(submitted);
     }
 
     public Attend(String advisor, String date, String type, double hours, String comments, Boolean submitted)

@@ -13,30 +13,11 @@ public class Advisor implements Serializable
     public Advisor(String ID, String name, String email, String DSID)
     {
         ArrayList<Attend> tempAttend = new ArrayList<>();
-        if (ID.isEmpty())
-        {
-            Scanner in = new Scanner(System.in);
-            Boolean go = true;
-            while (go)
-            {
-                System.out.println("Employee ID: ");
-                ID = in.nextLine();
-                System.out.println("Name: ");
-                name = in.nextLine();
-                System.out.println("Email: ");
-                email = in.nextLine();
-                System.out.println("DSID: ");
-                DSID = in.nextLine();
-                go = false;
-            }
-
-        }
         setName(name);
         setID(ID);
         setDSID(DSID);
         setEmail(email);
         setAttend(tempAttend);
-
     }
 
     public Advisor()
@@ -62,7 +43,6 @@ public class Advisor implements Serializable
         setDSID(DSID);
         setEmail(email);
         setAttend(tempAttend);
-
     }
 
 
@@ -71,10 +51,6 @@ public class Advisor implements Serializable
     /*****************
      **Print Methods**
      *****************/
-
-
-
-
     public void printAll()
     {
         System.out.println("Advisor Information: " + getName() + " ");

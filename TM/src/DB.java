@@ -1,17 +1,17 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
 public class DB implements Serializable
 {
-    private String file = "database.ser";
-    private static ArrayList<Advisor> db = new ArrayList<>();
+    public static ArrayList<Advisor> db = new ArrayList<>();
 
     /**********************
      * File Input / Output*
      **********************/
     public void writeObject() throws IOException
     {
-        FileOutputStream fos = new FileOutputStream(file);
+        FileOutputStream fos = new FileOutputStream("database.ser");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(db);
         oos.close();
@@ -19,25 +19,50 @@ public class DB implements Serializable
 
     public void readObject() throws IOException, ClassNotFoundException
     {
-        new File("path/to/file.txt").isFile();
-        FileInputStream fis = new FileInputStream(file);
+        FileInputStream fis = null;
+        try
+        {
+            fis = new FileInputStream("database.ser");
+        } catch (FileNotFoundException e)
+        {
+           // JOptionPane.showMessageDialog(null, "You're new here\nLet's get started");
+            writeObject();
+            Program one = new Program();
+            one.home();
+        }
         ObjectInputStream ois = new ObjectInputStream(fis);
         db = (ArrayList<Advisor>) ois.readObject();
+       // JOptionPane.showMessageDialog(null, "Saved Database Loaded");
         ois.close();
+        Program one = new Program();
+        one.home();
     }
 
     /***************************************************
-     *Advisor Objects methods adding / deleting records*
+     *Advisor Objects print / adding / deleting records*
      ***************************************************/
+
+
+
+
+
+    /***************************
+     *Adding / Deleting Records*
+     ***************************/
+    /*
+    Advisor Records
+     */
     public void addAdv()
     {
-        Advisor newAdv = new Advisor();
-        db.add(newAdv);
-        System.out.println("You added");
-        newAdv.printAll();
+        Advisor adv = new Advisor("12", "Dan", "12", "12");
+        db.add(adv);
+
+        System.out.println("Advisor Added Successfully");
+        adv.printAll();
+        System.out.println();
     }
 
-    private static void delAdv(String name)
+    public void delAdv(String name)
     {
         for (Advisor item : db)
         {
@@ -51,31 +76,9 @@ public class DB implements Serializable
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /*****************************************************************
-    *Attendance Array methods adding / deleting and printing records*
-    *****************************************************************/
+    /*
+    Attendance Records
+     */
     private static void addAtt(String advisor, String date, String type, double hours, String comments, Boolean submitted)
     {
         Attend temp = new Attend(advisor, date, type, hours, comments, submitted);
@@ -99,7 +102,7 @@ public class DB implements Serializable
                     if (things.getDate().equals(date))
                     {
                         System.out.print("Removing: " + things.getDate() + " " + things.getType() + " " + things.getHours() + " " + things.getComments()
-                                            + " " + things.getSubmitted());
+                                + " " + things.getSubmitted());
                         item.getAttend().remove(things);
                         return;
                     }
@@ -108,6 +111,16 @@ public class DB implements Serializable
         }
     }
 
+
+
+    /***************************
+     *     Print Methods       *
+     ***************************/
+
+    public void printAll()
+    {
+
+    }
     private static void printAtt()
     {
         for (Advisor item : db)
@@ -119,6 +132,10 @@ public class DB implements Serializable
     }
 
 
+
+    /*
+    Getters and Setters
+     */
     public static ArrayList<Advisor> getDb()
     {
         return db;
@@ -130,6 +147,15 @@ public class DB implements Serializable
     }
 
 
+
+
+
+
+    /* Main Method Testing */
+    public static void main(String[] args) throws IOException, ClassNotFoundException
+    {
+
+    }
 
 
 
