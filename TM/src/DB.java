@@ -4,16 +4,16 @@ import java.util.*;
 
 public class DB implements Serializable
 {
-    public static ArrayList<Advisor> db = new ArrayList<>();
+    public static ArrayList<Advisor> advDB = new ArrayList<>();
 
     /**********************
      * File Input / Output*
      **********************/
-    public void writeObject() throws IOException
+    public static void writeObject() throws IOException
     {
         FileOutputStream fos = new FileOutputStream("database.ser");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(db);
+        oos.writeObject(advDB);
         oos.close();
     }
 
@@ -31,7 +31,7 @@ public class DB implements Serializable
             one.home();
         }
         ObjectInputStream ois = new ObjectInputStream(fis);
-        db = (ArrayList<Advisor>) ois.readObject();
+        advDB = (ArrayList<Advisor>) ois.readObject();
        // JOptionPane.showMessageDialog(null, "Saved Database Loaded");
         ois.close();
         Program one = new Program();
@@ -52,25 +52,25 @@ public class DB implements Serializable
     /*
     Advisor Records
      */
-    public void addAdv()
+    public static void addAdv(Advisor adv) throws IOException
     {
-        Advisor adv = new Advisor("12", "Dan", "12", "12");
-        db.add(adv);
-
-        System.out.println("Advisor Added Successfully");
-        adv.printAll();
+        advDB.add(adv);
+        System.out.println("Your Advisor was added succesfully: \n");
+        adv.print();
         System.out.println();
+        DB.writeObject();
+
     }
 
     public void delAdv(String name)
     {
-        for (Advisor item : db)
+        for (Advisor item : advDB)
         {
             if (item.getName().equals(name))
             {
                 System.out.print("Removing: ");
-                item.printAll();
-                db.remove(item);
+                item.print();
+                advDB.remove(item);
                 return;
             }
         }
@@ -82,7 +82,7 @@ public class DB implements Serializable
     private static void addAtt(String advisor, String date, String type, double hours, String comments, Boolean submitted)
     {
         Attend temp = new Attend(advisor, date, type, hours, comments, submitted);
-        for (Advisor item : db)
+        for (Advisor item : advDB)
         {
             if (item.getName().equals(advisor))
             {
@@ -93,7 +93,7 @@ public class DB implements Serializable
 
     private static void delAtt(String name, String date)
     {
-        for (Advisor item : db)
+        for (Advisor item : advDB)
         {
             if (item.getName().equals(name))
             {
@@ -119,18 +119,14 @@ public class DB implements Serializable
 
     public void printAll()
     {
-
-    }
-    private static void printAtt()
-    {
-        for (Advisor item : db)
+        int i = 1;
+        for (Advisor item : advDB)
         {
-            System.out.println("Advisor Attendance " + item.getName() + ":");
-            for (Attend items : item.getAttend())
-                items.print();
+            System.out.print(i + ": ");
+            item.print();
+            i++;
         }
     }
-
 
 
     /*
@@ -138,12 +134,12 @@ public class DB implements Serializable
      */
     public static ArrayList<Advisor> getDb()
     {
-        return db;
+        return advDB;
     }
 
     public static void setDb(ArrayList<Advisor> db)
     {
-        DB.db = db;
+        DB.advDB = db;
     }
 
 

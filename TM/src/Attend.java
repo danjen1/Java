@@ -67,6 +67,19 @@ public class Attend
         System.out.println();
     }
 
+    /*private static void printAtt()
+    {
+        int i = 1;
+        for (Advisor item : advDB)
+        {
+            System.out.println(i + "." + " Advisor Attendance " + item.getName() + ":");
+            for (Attend items : item.getAttend())
+                items.print();
+            i++;
+        }
+    */
+
+
 
 
 

@@ -5,9 +5,21 @@ import java.util.Scanner;
 
 public class Program
 {
-    private Scanner in = new Scanner(System.in);
-    String choice;
-    Boolean cont = true;
+
+    /*
+    methods needed:
+    interface:
+    add / remove / update / reports / exit
+    Advisor Attendance Goals Main Menu
+
+    validation:
+    test for valid input loop "please enter valid selection" if invliad #s or letters
+
+    add / remove method same method written for each object Advisor / Attend / Goals
+    loop would you like to add / remove / update more Objects / know the difference
+     */
+
+    Scanner in = new Scanner(System.in);
 
 
     public Program()
@@ -15,23 +27,44 @@ public class Program
 
     }
 
-    public int valid(int sel)
+    public int valNum(int sel)
     //validates the user input and returns the selection within the accepted range
     {
-        boolean test = (sel < 5 && sel > 0);
+        boolean test = (sel < 6 && sel > 0);
         while (!test)
         {
-            System.out.println("Please select valid range 1-4");
+            System.out.println("Please select valid range 1-5");
             sel = in.nextInt();
-            if (sel > 0 && sel < 5)
+            if (sel > 0 && sel < 6)
             {
                 test = true;
                 return sel;
             }
         }
         return sel;
+
     }
 
+    /*
+    public String valLet(String sel)
+
+    //validates the user input and returns the selection within the accepted range
+    {
+        boolean test = (!sel.equals("Yes") ||!sel.equals("Y") || (!sel.equals("y") || (!sel.equals("YES") || (!sel.equals("yes")))));
+        while (!test)
+        {
+            System.out.println("Please select Yes or No");
+            sel = in.nextLine();
+            if (sel.equals("Yes") ||sel.equals("Y") || sel.equals("y") || sel.equals("YES") || sel.equals("yes"))
+            {
+                test = true;
+                return sel;
+            }
+        }
+        return sel
+
+    }
+*/
 
 
     public void exit()
@@ -44,9 +77,9 @@ public class Program
     public void home() throws IOException, ClassNotFoundException
     {
         System.out.println("Action Select: ");
-        System.out.println("1. Add \t2. Remove \t3. Update \t4. Exit");
+        System.out.println("1. Add \n2. Remove \n3. Update \n4. Reports \n5. Exit");
         int sel = in.nextInt();
-        int temp = valid(sel);
+        int temp = valNum(sel);
         System.out.println(temp);
         if (temp == 1)
         {
@@ -60,6 +93,10 @@ public class Program
         }
         else if (temp == 4)
         {
+
+        }
+        else if (temp == 5)
+        {
             exit();
         }
 
@@ -69,13 +106,23 @@ public class Program
     public void addMenu() throws IOException, ClassNotFoundException
     {
         System.out.println("Select Option To Add: ");
-        System.out.println("1. Advisor \t2. Attendance \t3. Goals \t4. Main Menu");
+        System.out.println("1. Advisor \n2. Attendance \n3. Goals \n\n4. Main Menu");
         int sel = in.nextInt();
         in.nextLine();
-        int temp = valid(sel);
+        int temp = valNum(sel);
         if (temp == 1)
         {
-            DB db = new DB();
+            Advisor newAdv = new Advisor();
+            System.out.println("Would you like to add another Advior? (Y/N)");
+            String selLet = in.nextLine();
+            if (selLet.equals("Y") || selLet.equals("Yes") || selLet.equals("YES") || selLet.equals("yes") || selLet.endsWith("y"))
+            {
+                Advisor tempAdv = new Advisor();
+            } else
+            {
+                home();
+            }
+
 
 
         } else if (temp == 2)
@@ -99,6 +146,14 @@ public class Program
     private void updateMenu()
     {
         System.out.println("You Made it to Update Menu");
+
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException
+    {
+        DB DB = new DB();
+        DB.readObject();
+        DB.printAll();
 
     }
 

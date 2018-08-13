@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class Advisor implements Serializable
         setAttend(tempAttend);
     }
 
-    public Advisor()
+    public Advisor() throws IOException
     {
         ArrayList<Attend> tempAttend = new ArrayList<>();
             Scanner in = new Scanner(System.in);
@@ -43,6 +44,7 @@ public class Advisor implements Serializable
         setDSID(DSID);
         setEmail(email);
         setAttend(tempAttend);
+        DB.addAdv(this);
     }
 
 
@@ -51,13 +53,13 @@ public class Advisor implements Serializable
     /*****************
      **Print Methods**
      *****************/
-    public void printAll()
+    public void print()
     {
-        System.out.println("Advisor Information: " + getName() + " ");
+        System.out.println("Advisor Information: \n" + getName() + " ");
         System.out.print("EID: " + getID() + "\tEmail: " + getEmail() + "\tAge: " + getDSID() + "\n");
 
         System.out.println("**************************\n" + "Attendance Records:");
-        System.out.println("In Progress");
+        System.out.println("In Progress\n\n");
         /*for (Attend items : attend)
         {
             items.print();
