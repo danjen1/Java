@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -44,7 +45,7 @@ public class Attend
         setSubmitted(submitted);
     }
 
-    public Attend(String advisor, String date, String type, double hours, String comments, Boolean submitted)
+    public Attend(String advisor, String date, String type, double hours, String comments, Boolean submitted) throws IOException
     {
         setAdvisor(advisor);
         setDate(date);
@@ -52,6 +53,8 @@ public class Attend
         setHours(hours);
         setComments(comments);
         setSubmitted(submitted);
+        Attend temp = new Attend("Dan", "8/18", "LOA", 5, "comments", true);
+        DB.addAtt("Dan", temp);
 
     }
 

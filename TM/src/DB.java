@@ -35,7 +35,7 @@ public class DB implements Serializable
        // JOptionPane.showMessageDialog(null, "Saved Database Loaded");
         ois.close();
         Program one = new Program();
-        one.home();
+        one.menus("home");
     }
 
     /***************************************************
@@ -62,7 +62,7 @@ public class DB implements Serializable
 
     }
 
-    public void delAdv(String name)
+    public static void delAdv(String name) throws IOException
     {
         for (Advisor item : advDB)
         {
@@ -71,27 +71,32 @@ public class DB implements Serializable
                 System.out.print("Removing: ");
                 item.print();
                 advDB.remove(item);
+                writeObject();
                 return;
             }
         }
+        System.out.println("Advisor Not Found");
     }
 
     /*
     Attendance Records
      */
-    private static void addAtt(String advisor, String date, String type, double hours, String comments, Boolean submitted)
+    public static void addAtt(String adv, Attend attend) throws IOException
     {
-        Attend temp = new Attend(advisor, date, type, hours, comments, submitted);
+
         for (Advisor item : advDB)
         {
-            if (item.getName().equals(advisor))
+            if (item.getName().equals(adv))
             {
-                item.getAttend().add(temp);
+                System.out.println(adv + " found.  Adding attendance");
+                item.getAttend().add(attend);
+                System.out.println("Complete");
             }
         }
+        writeObject();
     }
 
-    private static void delAtt(String name, String date)
+    public static void delAtt(String name, String date)
     {
         for (Advisor item : advDB)
         {
@@ -150,6 +155,7 @@ public class DB implements Serializable
     /* Main Method Testing */
     public static void main(String[] args) throws IOException, ClassNotFoundException
     {
+
 
     }
 
