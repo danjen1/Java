@@ -8,46 +8,58 @@ public class Advisor implements Serializable
     private String name;
     private String email;
     private String DSID;
-    private ArrayList<Attend> attend;
+    private ArrayList<Attendance> attendance;
+    private ArrayList<Goal> goal;
+    private ArrayList<Coaching> Coaching;
 
 
-    public Advisor(String ID, String name, String email, String DSID)
+    public Advisor(String ID, String name, String email, String DSID) throws IOException
     {
-        ArrayList<Attend> tempAttend = new ArrayList<>();
+        ArrayList<Attendance> newAttendance = new ArrayList<>();
+        ArrayList<Goal> newGoal = new ArrayList<>();
+        ArrayList<Coaching> newCoaching = new ArrayList<>();
         setName(name);
         setID(ID);
         setDSID(DSID);
         setEmail(email);
-        setAttend(tempAttend);
+        setAttendance(newAttendance);
+        setGoal(newGoal);
+        setCoaching(newCoaching);
+        System.out.println("Adding " + name + " to the database.");
+        DB.add(this);
     }
 
     public Advisor() throws IOException
     {
-        ArrayList<Attend> tempAttend = new ArrayList<>();
-            Scanner in = new Scanner(System.in);
-            Boolean go = true;
-            while (go)
-            {
-                System.out.println("Employee ID: ");
-                ID = in.nextLine();
-                System.out.println("Name: ");
-                name = in.nextLine();
-                System.out.println("Email: ");
-                email = in.nextLine();
-                System.out.println("DSID: ");
-                DSID = in.nextLine();
-                go = false;
+        ArrayList<Attendance> newAttendance = new ArrayList<>();
+        ArrayList<Goal> newGoal = new ArrayList<>();
+        ArrayList<Coaching> newCoaching = new ArrayList<>();
+        Scanner in = new Scanner(System.in);
+        Boolean go = true;
+        while (go)
+        {
+            System.out.println("Employee ID: ");
+            ID = in.nextLine();
+            System.out.println("Name: ");
+            name = in.nextLine();
+            System.out.println("Email: ");
+            email = in.nextLine();
+            System.out.println("DSID: ");
+            DSID = in.nextLine();
+            go = false;
 
         }
         setName(name);
         setID(ID);
         setDSID(DSID);
         setEmail(email);
-        setAttend(tempAttend);
-        DB.addAdv(this);
+        setAttendance(newAttendance);
+        setGoal(newGoal);
+        setCoaching(newCoaching);
+        DB.add(this);
+        System.out.println("Adding " + name + " to the database.");
+
     }
-
-
 
 
     /*****************
@@ -60,7 +72,7 @@ public class Advisor implements Serializable
 
         System.out.println("**************************\n" + "Attendance Records:");
         System.out.println("In Progress\n\n");
-        /*for (Attend items : attend)
+        /*for (Attendance items : attendance)
         {
             items.print();
 
@@ -68,7 +80,7 @@ public class Advisor implements Serializable
         System.out.println();
         */
         /*
-        System.out.println("Goals:");
+        System.out.println("Goal:");
 
         for (Goal items : goals)
         {
@@ -78,33 +90,9 @@ public class Advisor implements Serializable
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*
+    Getters and Setters
+     */
     public void setID(String ID)
     {
         this.ID = ID;
@@ -125,9 +113,9 @@ public class Advisor implements Serializable
         this.DSID = DSID;
     }
 
-    public void setAttend(ArrayList<Attend> attend)
+    public void setAttendance(ArrayList<Attendance> attendance)
     {
-        this.attend = attend;
+        this.attendance = attendance;
     }
 
     public String getID()
@@ -150,20 +138,29 @@ public class Advisor implements Serializable
         return DSID;
     }
 
-    public ArrayList<Attend> getAttend()
+    public ArrayList<Attendance> getAttendance()
     {
-        return attend;
+        return attendance;
     }
 
-    /*
-    public void print()
+    public ArrayList<Goal> getGoal()
     {
-        grades = getGrades();
-        System.out.print("ID: " + getID() + "\tFirst Name: " + getFirstName() + "\tLast Name: " +
-                getLastName() + "\tEmail: " + getEmail() + "\tAge: " + getAge());
-        System.out.print("\tGrades: {");
-        System.out.println(grades[0] + ", " + grades[1] + ", " + grades[2] + ", " + grades[3] + ", " + grades[4] + "}");
+        return goal;
     }
-    */
+
+    public void setGoal(ArrayList<Goal> goal)
+    {
+        this.goal = goal;
+    }
+
+    public ArrayList<Coaching> getCoaching()
+    {
+        return Coaching;
+    }
+
+    public void setCoaching(ArrayList<Coaching> coaching)
+    {
+        Coaching = coaching;
+    }
 }
 

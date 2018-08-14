@@ -1,12 +1,13 @@
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
 public class Program
 {
-    private Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
+    private static String str;
+
 
 
     public Program()
@@ -14,163 +15,236 @@ public class Program
 
     }
 
-    /*public int valid(int sel)
+
+    public static void add(String type) throws IOException
     {
-        return sel;
+
+        String cont = "Would you like to add more " + type + " Records? (Y)/(N)";
+
+        switch(type)
+        {
+            case "Advisor" :
+                new Advisor("1234", "Joey", "1345", "1235");
+                break;
+            case "Attendance":
+                new Attendance("Daniel Jenkins", "8/14", "LOA", 4.5, "Comments", true);
+                break;
+            case "Goal":
+                new Goal();
+                break;
+            case "Coaching":
+                new Coaching();
+                break;
+        }
+        do
+        {
+            System.out.println(cont);
+            str = valid(in.nextLine());
+        } while (!str.equals("n"));
+        System.out.println();
+        System.out.println();
+        nav("home");
     }
-    */
+
 
     /*
-    Making the Menus
+    REMOVE MENUS / METHODS
      */
-    public static void homeMenu()
-    {
-        Scanner in = new Scanner(System.in);
-        String str;
-        int i = 0;
-        System.out.println("Home - Select an Action: ");
-        System.out.println("1. Add \t2. Remove \t3. Update \t4. Reports \t5. Exit");
 
+    public static void rm(String type) throws IOException
+    {
+        String rmvd = type + " Removed";
+        String cont = "Would you like to remove more " + type + " Records? (Y)/(N)";
+        String name;
+        String date;
+        switch(type)
+        {
+            case "Advisor" :
+                System.out.println("Remove Advisor (First Last): ");
+                name = in.nextLine();
+                DB.del(name);
+                break;
+            case "Attendance":
+                System.out.println("Remove Attendance for Advisor: ");
+                name = in.nextLine();
+                System.out.println("Date of Attendance Event to Remove:");
+                date = in.nextLine();
+                DB.del(name, date, type);
+                break;
+            case "Goal":
+                new Goal();
+                break;
+            case "Coaching":
+                new Coaching();
+                break;
+        }
+        do
+        {
+            System.out.println(type +  " " + rmvd);
+            System.out.println(cont);
+            str = valid(in.nextLine());
+            add(type);
+        } while (str.equals("y"));
+        nav("home");
     }
 
-    public static void addMenu()
+
+
+    public static int makeMenu(String menu)
     {
-        Scanner in = new Scanner(System.in);
-        int i = 0;
-        System.out.println("Add Menu - Select Option To Add: ");
-        System.out.println("1. Advisor \t2. Attendance \t3. Goals \t4. Main Menu");
+        int i;
+        String select = " - Select an item: ";
+        String option1 = "1. Add \t2. Remove \t3. Update \t4. Reports \t5. Exit";
+        String option2 = "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
+
+        switch (menu)
+        {
+            case "home":
+                str = "Home";
+                System.out.println(str + select);
+                System.out.println(option1);
+                break;
+            case "addMenu":
+                str = "Add";
+                System.out.println(str + select);
+                System.out.println(option2);
+                break;
+            case "rmvMenu":
+                str = "Remove";
+                System.out.println(str + select);
+                System.out.println(option2);
+                break;
+            case "upMenu":
+                str = "Update";
+                System.out.println(str + select);
+                System.out.println(option2);
+                break;
+            case "reports":
+                str = "Reports";
+                System.out.println(str + select);
+                System.out.println(option2);
+                break;
+        }
+        i = in.nextInt();
+        in.nextLine();
+        System.out.println();
+        return valid(i, menu);
     }
 
-    public static void rmvMenu()
-    {
-        Scanner in = new Scanner(System.in);
-        int i = 0;
-        System.out.println("Remove Menu - Select Option To Remove: ");
-        System.out.println("1. Advisor \t2. Attendance \t3. Goals \t4. Main Menu");
-    }
 
-    public void menus(String cl) throws IOException
+
+    public static void nav(String cl) throws IOException
     {
-        Scanner in = new Scanner(System.in);
-        String str;
         int i = 0;
         switch (cl)
         {
             case "home":
-                homeMenu();
-                i = in.nextInt();
-                valid(i, "home");
+                i = makeMenu("home");
+                //options: "1. Add \t2. Remove \t3. Update \t4. Reports \t5. Exit";
                 switch (i)
                 {
                     case 1: //Add Menu
-                        addMenu();
-                        i = in.nextInt();
-                        in.nextLine();
-                        valid(i, "addMenu");
+                        i = makeMenu("addMenu");
+                        //options "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
                         switch (i)
                         {
                             case 1:
-                                do
-                                {
-                                    Advisor temp = new Advisor("1234", "JOey", "1345", "1235");
-                                    System.out.println("Joey Added");
-                                    System.out.println("\nWould you like to add another Advior? (Y)/(N)");
-                                    str = in.nextLine();
-                                    valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                add("Advisor");
+                                break;
                             case 2:
-                                do
-                                {
-                                    System.out.println("Attend Added");
-                                    System.out.println("\nWould you like to add another Attendance Event? (Y)/(N)");
-                                    str = in.nextLine();
-                                    valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                add("Attendance");
+                                break;
                             case 3:
-                                do
-                                {
-                                    Goals temp = new Goals();
-                                    System.out.println("Attend Added");
-                                    System.out.println("\nWould you like to add another Goal? (Y)/(N)");
-                                    str = in.nextLine();
-                                    valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                add("Goal");
+                                break;
                             case 4:
-                                menus("home");
+                                add("Coaching");
+                                break;
+                            case 5:
+                                makeMenu("home");
+                                break;
                         }
-                    case 2 :
-                        rmvMenu();
-                        i = in.nextInt();
-                        in.nextLine();
-                        i = valid(i, "rmvMenu");
+                    case 2 ://remove Menu
+                        makeMenu("rmvMenu");
+                        //options "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
                         switch (i)
                         {
                             case 1:
-                                do
-                                {
-
-                                    System.out.println("Advisor to Delete: ");
-                                    str = in.nextLine();
-                                    DB.delAdv(str);
-                                    System.out.println("\nWould you like to remove another Advior? (Y)/(N)");
-                                    str = in.nextLine();
-                                    str = valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                rm("Adv");
                             case 2:
-                                do
-                                {
-                                    System.out.println("Advisor to Modify: ");
-                                    str = in.nextLine();
-                                    System.out.println("Date to Delete");
-                                    String date = in.nextLine();
-                                    DB.delAtt(str, date);
-                                    System.out.println("\nWould you like to remove another Attendance Event? (Y)/(N)");
-                                    str = in.nextLine();
-                                    str = valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                rm("Attendance");
                             case 3:
-                                do
-                                {
-                                    System.out.println("Attend Added");
-                                    System.out.println("\nWould you like to add another Goal? (Y)/(N)");
-                                    str = in.nextLine();
-                                    valid(str);
-                                } while (str.equals("y"));
-                                menus("home");
+                                rm("Goal");
                             case 4:
-                                menus("home");
+                                rm("Coaching");
+                            case 5:
+                                nav("home");
                         }
+                    case 3 ://Update Menu
+                        makeMenu("upMenu");
+                        //options "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
+                        switch (i)
+                        {
+                            case 1:
+                                //upAdv();
+                                System.out.println("Coaching 1");
 
+                            case 2:
+                                // upAttend();
+                                System.out.println("Coaching 2");
 
+                            case 3:
+                                // upGoals();
+                                System.out.println("Coaching 3");
 
+                            case 4:
+                                // upCoaching();
+                                System.out.println("Coaching 4");
+                            case 5:
+                                nav("home");
                         }
+                    case 4 ://Reports Menu
+                        makeMenu("reports");
+                        //options "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
+                        switch (i)
+                        {
+                            case 1:
+                                //report1();
+                                System.out.println("report 1");
+                            case 2:
+                                // report2();
+                                System.out.println("report 2");
+                            case 3:
+                                // report3();
+                                System.out.println("report 3");
+                            case 4:
+                                //report4();
+                                System.out.println("report 4");
+                            case 5:
+                                nav("home");
+                        }
+                    case 5 ://Reports Menu
+                        exit();
                 }
-
         }
-
-
-
+    }
 
     /*
      Menu Input Validation, ensures 1 - Max and String "Y/N" variants to navigate the menu
      */
-    private int valid(int sel, String cl)
+    private static int valid(int sel, String cl)
     //validates user menu input within accepted range
     {
         int max = 0;
         switch (cl)
         {
             case "home":
+            case "rmvMenu":
+            case "addMenu":
                 max = 5;
                 break;
-            case "rmvMenu":
+
             case "goals":
-            case "addMenu":
                 max = 4;
                 break;
             default:
@@ -188,8 +262,7 @@ public class Program
         return sel;
     }
 
-
-    private String valid(String sel)
+    private static String valid(String sel)
 
     //validates the user input and returns the selection within the accepted range
     {
@@ -203,123 +276,30 @@ public class Program
             case "YEs":
             case "yES":
             case "yeS":
-                sel = "y";
-                return sel;
+                 sel = "y";
             case "No":
             case "n":
             case "NO":
             case "no":
             case "nO":
-                sel = "n";
-                return sel;
-            default:
+                 sel = "n";
+
         }
         return sel;
     }
 
-
-
-
-
-
-    public void exit()
+    public static void exit() throws IOException
     //exits program when user selects Exit Option
     {
+        DB.writeObject();
         System.out.println("Good Bye");
         System.exit(0);
-    }
-
-
-
-
-
-
-
-    public void home() throws IOException, ClassNotFoundException
-    {
-
-        System.out.print("Action Select: ");
-        System.out.println("1. Add \t2. Remove \t3. Update \t4. Reports \t5. Exit");
-        int sel = parseInt(in.nextLine());
-        in.nextLine();
-        int temp = valid(sel, "home");
-        System.out.println(temp);
-        switch (temp)
-        {
-
-        }
-
-        /*  if (temp == 1)
-        {
-            addMenu();
-        } else if (temp == 2)
-        {
-            rmvMenu();
-        } else if (temp == 3)
-        {
-            updateMenu();
-        }
-        else if (temp == 4)
-        {
-
-        }
-        else if (temp == 5)
-        {
-            exit();
-        }
-        */
-    }
-
-
-    /* public void addMenu() throws IOException, ClassNotFoundException
-     {
-
-         int sel = in.nextInt();
-         in.nextLine();
-         int temp = valid(sel, "addMenu");
-         if (temp == 1)
-         {
-             Advisor newAdv = new Advisor();
-             System.out.println("\nWould you like to add another Advior? (Y/N)");
-             String selLet = in.nextLine();
-             if (selLet.equals("Y") || selLet.equals("Yes") || selLet.equals("YES") || selLet.equals("yes") || selLet.endsWith("y"))
-             {
-                 Advisor tempAdv = new Advisor();
-             } else
-             {
-                 home();
-             }
-
-
-
-         } else if (temp == 2)
-         {
-             Attend newAttend = new Attend();
-         } else if (temp == 3)
-         {
-             Goals newGOal = new Goals();
-         } else if (temp == 4)
-         {
-             home();
-         }
-     }
-     */
-
-
-
-    private void updateMenu()
-    {
-        System.out.println("You Made it to Update Menu");
-
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException
     {
         DB DB = new DB();
-        DB.readObject();
-
-
-
+        nav("home");
     }
 
 }

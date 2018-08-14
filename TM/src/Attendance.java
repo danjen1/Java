@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Attend
+public class Attendance
 {
 
     private String advisor;
@@ -15,7 +15,7 @@ public class Attend
     /*
     Constructors
      */
-    public Attend()
+    public Attendance() throws IOException
     {
         Scanner in = new Scanner(System.in);
         Boolean go = true;
@@ -29,6 +29,7 @@ public class Attend
             type = in.nextLine();
             System.out.println("Hours: ");
             hours = in.nextDouble();
+            in.nextLine();
             System.out.println("Comments: ");
             comments = in.nextLine();
             System.out.println("Submitted?: (Y/N)");
@@ -43,9 +44,11 @@ public class Attend
         setType(type);
         setHours(hours);
         setSubmitted(submitted);
+        DB.add(advisor, this);
+
     }
 
-    public Attend(String advisor, String date, String type, double hours, String comments, Boolean submitted) throws IOException
+    public Attendance(String advisor, String date, String type, double hours, String comments, Boolean submitted) throws IOException
     {
         setAdvisor(advisor);
         setDate(date);
@@ -53,8 +56,7 @@ public class Attend
         setHours(hours);
         setComments(comments);
         setSubmitted(submitted);
-        Attend temp = new Attend("Dan", "8/18", "LOA", 5, "comments", true);
-        DB.addAtt("Dan", temp);
+        DB.add(advisor, this);
 
     }
 
@@ -76,7 +78,7 @@ public class Attend
         for (Advisor item : advDB)
         {
             System.out.println(i + "." + " Advisor Attendance " + item.getName() + ":");
-            for (Attend items : item.getAttend())
+            for (Attendance items : item.getAttendance())
                 items.print();
             i++;
         }
