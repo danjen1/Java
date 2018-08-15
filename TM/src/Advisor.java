@@ -56,8 +56,8 @@ public class Advisor implements Serializable
         setAttendance(newAttendance);
         setGoal(newGoal);
         setCoaching(newCoaching);
-        DB.add(this);
         System.out.println("Adding " + name + " to the database.");
+        DB.add(this);
 
     }
 

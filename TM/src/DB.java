@@ -1,14 +1,21 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class DB implements Serializable
 {
 
     public static ArrayList<Advisor> advDB = new ArrayList<>();
 
-    /**********************
-     * File Input / Output*
-     **********************/
+    public DB() throws IOException, ClassNotFoundException
+    {
+        readObject();
+    }
+    /**********************************************************************
+     *                     Database Load / Save                           *
+     **********************************************************************/
+
     public static void writeObject() throws IOException
     {
         FileOutputStream fos = new FileOutputStream("database.ser");
@@ -17,22 +24,22 @@ public class DB implements Serializable
         oos.close();
     }
 
-    public void readObject() throws IOException, ClassNotFoundException
+    public static void readObject() throws IOException, ClassNotFoundException
     {
         FileInputStream fis = null;
         try
         {
             fis = new FileInputStream("database.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            advDB = (ArrayList<Advisor>) ois.readObject();
+            System.out.println("Saved Database Loade");
+            ois.close();
         } catch (FileNotFoundException e)
         {
-            // JOptionPane.showMessageDialog(null, "You're new here\nLet's get started");
+            //JOptionPane.showMessageDialog(null, "You're new here\nLet's get started");
+            System.out.println("file not found, saving the database");
             writeObject();
         }
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        advDB = (ArrayList<Advisor>) ois.readObject();
-        // JOptionPane.showMessageDialog(null, "Saved Database Loaded");
-        ois.close();
-    }
 
 
     /***************************
@@ -46,9 +53,8 @@ public class DB implements Serializable
         String msg = "Your Advisor was added succesfully: \n";
         advDB.add(adv);
         System.out.println(msg);
-        adv.print();
+        //adv.print();
         System.out.println();
-        DB.writeObject();
     }
 
     public static void add(String adv, Attendance attendance) throws IOException
@@ -63,7 +69,6 @@ public class DB implements Serializable
                 System.out.println(msg);
             }
         }
-        writeObject();
     }
 
     public static void add(String adv, Goal goal) throws IOException
@@ -78,7 +83,6 @@ public class DB implements Serializable
                 System.out.println(msg);
             }
         }
-        writeObject();
     }
 
 
@@ -89,12 +93,11 @@ public class DB implements Serializable
         {
             if (item.getName().equals(adv))
             {
-                System.out.println(adv + " found.  Adding Coachingn Comment");
+                System.out.println(adv + " found.  Adding Coaching Comment");
                 item.getCoaching().add(coaching);
                 System.out.println(msg);
             }
         }
-        writeObject();
     }
 
     public static void del(String name) throws IOException
@@ -106,11 +109,10 @@ public class DB implements Serializable
                 System.out.print("Removing: ");
                 item.print();
                 advDB.remove(item);
-                writeObject();
                 return;
             }
+            System.out.println("Advisor Not Found");
         }
-        System.out.println("Advisor Not Found");
     }
 
     public static void del(String name, String date, String type) throws IOException
@@ -125,40 +127,52 @@ public class DB implements Serializable
                     case "Attendance":
                         for (Attendance things : item.getAttendance())
                         {
-                            if (things.getDate().equals(date))
+                            if (things.getDate().equals(date) && things.getName().equals(item.getName()))
                             {
-                                System.out.print("Removing: " + type + " " + things.getDate() + " " + things.getType() + " " + things.getHours() + " " + things.getComments()
+                                System.out.println("Removing: " + type + " " + things.getDate() + " " + things.getType() + " " + things.getHours() + " " + things.getComments()
                                         + " " + things.getSubmitted());
                                 item.getAttendance().remove(things);
                                 break;
+
                             }
+                            System.out.println("Attendandce Not Found");
                         }
                     case "Goal":
                         for (Goal things : item.getGoal())
                         {
-                            if (things.getDate().equals(date))
+                            if (things.getDate().equals(date) && things.getName().equals(item.getName()))
                             {
-                                System.out.print("Removing: " + type + " " + things.getDate() + " " + things.getName()); //+ " " + things.getHours() + " " + things.getComments() + " " + things.getSubmitted());
+                                System.out.println("Removing: " + type + " " + things.getDate() + " " + things.getName()); //+ " " + things.getHours() + " " + things.getComments() + " " + things.getSubmitted());
                                 item.getGoal().remove(things);
                                 break;
                             }
+                            System.out.println("Goal Not Found1");
+
                         }
                     case "Coaching":
                         for (Coaching things : item.getCoaching())
                         {
-                            if (things.getDate().equals(date))
+                            if (things.getDate().equals(date) && things.getName().equals(item.getName()))
                             {
-                                System.out.print("Removing: " + type + " " + things.getDate() + " " + things.getName()); //+ " " + things.getHours() + " " + things.getComments() + " " + things.getSubmitted());
+                                System.out.println("Removing: " + type + " " + things.getDate() + " " + things.getName()); //+ " " + things.getHours() + " " + things.getComments() + " " + things.getSubmitted());
                                 item.getCoaching().remove(things);
                                 break;
                             }
-                        }
-                }
-            }
+                            System.out.println("Cocahing Not Found");
 
-            System.out.println(type + " Not Found");
+                        }
+
+                }
+                break;
+            }
+            System.out.println("Advisor Not Found");
         }
-        System.out.println("Advisor Not Found");
+
+    }
+
+    public void save() throws IOException
+    {
+        writeObject();
     }
 
 

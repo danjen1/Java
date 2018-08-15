@@ -1,25 +1,24 @@
-import java.io.IOException;
-import java.io.Serializable;
-
-public class Coaching implements Serializable
+public class Attend
 {
     private String name;
     private String date;
 
-    public Coaching(String name, String date) throws IOException
-    {
-        setName(name);
-        setDate(date);
-        DB.add(name, this);
-
-    }
 
 
 
 
-    /*
-    Gettters and Setters
-     */
+
+
+
+
+
+
+
+
+
+    /*******************
+    Getters and Setters
+     *******************/
     public String getName()
     {
         return name;
@@ -39,5 +38,7 @@ public class Coaching implements Serializable
     {
         this.date = date;
     }
+
+
 
 }

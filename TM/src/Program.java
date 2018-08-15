@@ -1,49 +1,78 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-import static java.lang.Integer.parseInt;
 
 public class Program
 {
     private static Scanner in = new Scanner(System.in);
     private static String str;
 
-
-
     public Program()
     {
-
     }
 
 
     public static void add(String type) throws IOException
     {
 
-        String cont = "Would you like to add more " + type + " Records? (Y)/(N)";
+        String test;
+        String cont = "Would you like to add more Records? (Y)/(N)";
 
-        switch(type)
+        switch (type)
         {
-            case "Advisor" :
+            case "Advisor":
                 new Advisor("1234", "Joey", "1345", "1235");
+                do
+                {
+                    System.out.println(cont);
+                    test = valid(in.nextLine());
+                    System.out.println("test is assigned as: " + test);
+
+                } while (test.equals("y"));
+                System.out.println();
+                System.out.println();
+                nav("home");
                 break;
             case "Attendance":
                 new Attendance("Daniel Jenkins", "8/14", "LOA", 4.5, "Comments", true);
+                do
+                {
+                    System.out.println(cont);
+                    test = valid(in.nextLine());
+                    System.out.println("test is assigned as: " + test);
+
+                } while (test.equals("y"));
+                System.out.println();
+                System.out.println();
+                nav("home");
                 break;
             case "Goal":
-                new Goal();
+                new Goal("Daniel", "8/18");
+                do
+                {
+                    System.out.println(cont);
+                    test = valid(in.nextLine());
+                    System.out.println("test is assigned as: " + test);
+
+                } while (test.equals("y"));
+                System.out.println();
+                System.out.println();
+                nav("home");
                 break;
             case "Coaching":
-                new Coaching();
+                new Coaching("Daniel", "8/18");
+                do
+                {
+                    System.out.println(cont);
+                    test = valid(in.nextLine());
+                    System.out.println("test is assigned as: " + test);
+
+                } while (test.equals("y"));
+                System.out.println();
+                System.out.println();
+                nav("home");
                 break;
         }
-        do
-        {
-            System.out.println(cont);
-            str = valid(in.nextLine());
-        } while (!str.equals("n"));
-        System.out.println();
-        System.out.println();
-        nav("home");
     }
 
 
@@ -72,10 +101,10 @@ public class Program
                 DB.del(name, date, type);
                 break;
             case "Goal":
-                new Goal();
+                new Goal("Daniel", "8/18");
                 break;
             case "Coaching":
-                new Coaching();
+                new Coaching("Daniel", "8/18");
                 break;
         }
         do
@@ -83,7 +112,7 @@ public class Program
             System.out.println(type +  " " + rmvd);
             System.out.println(cont);
             str = valid(in.nextLine());
-            add(type);
+            rm(type);
         } while (str.equals("y"));
         nav("home");
     }
@@ -92,7 +121,7 @@ public class Program
 
     public static int makeMenu(String menu)
     {
-        int i;
+        int i = 0;
         String select = " - Select an item: ";
         String option1 = "1. Add \t2. Remove \t3. Update \t4. Reports \t5. Exit";
         String option2 = "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
@@ -103,32 +132,44 @@ public class Program
                 str = "Home";
                 System.out.println(str + select);
                 System.out.println(option1);
-                break;
+                i = in.nextInt();
+                in.nextLine();
+                System.out.println();
+                return valid(i, menu);
             case "addMenu":
                 str = "Add";
                 System.out.println(str + select);
                 System.out.println(option2);
-                break;
+                i = in.nextInt();
+                in.nextLine();`
+                System.out.println();
+                return valid(i, menu);
             case "rmvMenu":
                 str = "Remove";
                 System.out.println(str + select);
                 System.out.println(option2);
-                break;
+                i = in.nextInt();
+                in.nextLine();
+                System.out.println();
+                return valid(i, menu);
             case "upMenu":
                 str = "Update";
                 System.out.println(str + select);
                 System.out.println(option2);
-                break;
+                i = in.nextInt();
+                in.nextLine();
+                System.out.println();
+                return valid(i, menu);
             case "reports":
                 str = "Reports";
                 System.out.println(str + select);
                 System.out.println(option2);
-                break;
+                i = in.nextInt();
+                in.nextLine();
+                System.out.println();
+                return valid(i, menu);
         }
-        i = in.nextInt();
-        in.nextLine();
-        System.out.println();
-        return valid(i, menu);
+        return i;
     }
 
 
@@ -167,18 +208,24 @@ public class Program
                     case 2 ://remove Menu
                         makeMenu("rmvMenu");
                         //options "1. Advisor \t2. Attendance \t3. Goal \t4. Coaching \t5. Main Menu";
+                        System.out.println("i is passed back as: " + i);
                         switch (i)
                         {
                             case 1:
-                                rm("Adv");
+                                rm("Advisor");
+                                break;
                             case 2:
                                 rm("Attendance");
+                                break;
                             case 3:
                                 rm("Goal");
+                                break;
                             case 4:
                                 rm("Coaching");
+                                break;
                             case 5:
                                 nav("home");
+                                break;
                         }
                     case 3 ://Update Menu
                         makeMenu("upMenu");
@@ -263,7 +310,6 @@ public class Program
     }
 
     private static String valid(String sel)
-
     //validates the user input and returns the selection within the accepted range
     {
         switch (sel)
@@ -277,14 +323,18 @@ public class Program
             case "yES":
             case "yeS":
                  sel = "y";
+                 break;
             case "No":
+            case "N":
             case "n":
             case "NO":
             case "no":
             case "nO":
                  sel = "n";
+                 break;
 
         }
+        System.out.println("Sel is returned as: " + sel);
         return sel;
     }
 
@@ -299,8 +349,13 @@ public class Program
     public static void main(String[] args) throws IOException, ClassNotFoundException
     {
         DB DB = new DB();
-        nav("home");
-    }
+        Advisor one = new Advisor("Daniel", "8/18", "dan@dan","123");
+        Goal test = new Goal("Daniel", "8/18");
+        Advisor two = new Advisor("Cara", "Cara", "Cara", "Cara");
+        DB.printAll();
+        DB.writeObject();
 
+
+    }
 }
 

@@ -1,11 +1,12 @@
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Attendance
+public class Attendance implements Serializable
 {
 
-    private String advisor;
+    private String name;
     private String date;
     private String type;
     private String comments;
@@ -22,7 +23,7 @@ public class Attendance
         while (go)
         {
             System.out.println("Advisor: ");
-            advisor = in.nextLine();
+            name = in.nextLine();
             System.out.println("Date: ");
             date = in.nextLine();
             System.out.println("Type: ");
@@ -39,12 +40,12 @@ public class Attendance
             }
             go = false;
         }
-        setAdvisor(advisor);
+        setAdvisor(name);
         setDate(date);
         setType(type);
         setHours(hours);
         setSubmitted(submitted);
-        DB.add(advisor, this);
+        DB.add(name, this);
 
     }
 
@@ -161,14 +162,14 @@ public class Attendance
         this.submitted = submitted;
     }
 
-    public String getAdvisor()
+    public String getName()
     {
-        return advisor;
+        return name;
     }
 
     public void setAdvisor(String advisor)
     {
-        this.advisor = advisor;
+        this.name = advisor;
     }
 
 }

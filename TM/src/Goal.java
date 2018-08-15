@@ -1,13 +1,17 @@
-public class Goal
+import java.io.IOException;
+import java.io.Serializable;
+
+public class Goal implements Serializable
 {
     private String name;
     private String date;
-    public Goal()
+    public Goal(String name, String date) throws IOException
     {
 
-        System.out.println("Goal Class Constructor");
-        setDate("8/18");
-        setName("Daniel");
+        setDate(name);
+        setName(date);
+        DB.add(name, this);
+
     }
 
 

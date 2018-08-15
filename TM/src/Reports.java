@@ -1,4 +1,6 @@
-public class Reports
+import java.io.Serializable;
+
+public class Reports  implements Serializable
 {
     public Reports()
     {
