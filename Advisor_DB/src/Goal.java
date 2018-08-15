@@ -16,8 +16,7 @@ public class Goal implements Serializable
 
     public void print()
     {
-        System.out.println("Date: " + getDate() + "\tComments: " + getComments());
-        System.out.println();
+        System.out.println("Date: " + getDate() + "\tGoal Comments: " + getComments());
     }
 
 

@@ -17,7 +17,6 @@ public class Attendance implements Serializable
     public void print()
     {
         System.out.println("Date: " + getDate() + "\tComments: " + getComments());
-        System.out.println();
     }
 
 

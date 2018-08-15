@@ -1,23 +1,25 @@
+import java.io.IOException;
+
 public class Coaching
 {
     private String name;
 
 
-    private String date;
-    private String type;
-    private String comments;
+    private String date, type, comments;
 
-    public Coaching(String name, String date, String type)
+    public Coaching(String name, String date, String comments) throws IOException
     {
         setName(name);
         setDate(date);
         setType(type);
+        setComments(comments);
+        DB.add(name, this);
     }
 
     public void print()
     {
         System.out.println("Date: " + getDate() + "\tComments: " + getComments());
-        System.out.println();
+
     }
 
 

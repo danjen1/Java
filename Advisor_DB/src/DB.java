@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DB implements Serializable
 {
@@ -18,13 +20,28 @@ public class DB implements Serializable
      *                     Records Management                             *
      **********************************************************************/
 
-    public static void add(Advisor adv) throws IOException
+    public static void add(String name, Advisor adv) throws IOException
     {
-        advisor_DB.add(adv);
-        writeObject();
-        System.out.println("Advisor added to the database successfully");
 
+        boolean found = false;
+        for (Advisor item : advisor_DB)
+        {
+            if (name.equals(item.getName()))
+            {
+                found = true;
+                System.out.println("Advisor already included in Database. Enter unique Advisor");
+                new Advisor();
+                break;
+            }
+        }
+        if (!found)
+        {
+            advisor_DB.add(adv);
+            writeObject();
+            System.out.println("Advisor " + name + " added to the database successfully");
+        }
     }
+
 
     public static void add(String name, Attendance attend) throws IOException
     {
@@ -72,7 +89,7 @@ public class DB implements Serializable
     }
 
 
-    public static void rmv(String name) throws IOException
+    public  void rmv(String name) throws IOException
     {
         for (Advisor item : DB.getAdvisor_DB())
         {
@@ -81,6 +98,59 @@ public class DB implements Serializable
                 advisor_DB.remove(item);
                 System.out.println("Advisor Record: " + name + " removed successfully");
                 writeObject();
+                break;
+            }
+            System.out.println("Advisor Not Found");
+        }
+
+    }
+
+    public void rmv(String name, String date, String type)
+    {
+        for (Advisor item : advisor_DB)
+        {
+            if (item.getName().equals(name))
+            {
+                switch (type)
+                {
+                    case "Attendance":
+                        for (Attendance thing : item.getAttendance())
+                        {
+                            if (thing.getDate().equals(date))
+                            {
+                                System.out.println("Attendance Date Matched");
+                                item.getAttendance().remove(thing);
+                                System.out.println("Attendance Event Dated: " + date + " Removed");
+                                break;
+                            }
+                            System.out.println(date + ": Attendance Event Not Found");
+                        }
+                        break;
+                    case "Goal":
+                        for (Goal thing : item.getGoal())
+                        {
+                            if (thing.getDate().equals(date))
+                            {
+                                item.getGoal().remove(thing);
+                                System.out.println("Goal Dated: " + date + " Removed");
+                                break;
+                            }
+                            System.out.println(date + ": Goal Not Found");
+
+                        }
+                        break;
+                    case "Coaching":
+                        for (Coaching thing : item.getCoach())
+                        {
+                            if (thing.getDate().equals(date))
+                            {
+                                item.getCoach().remove(thing);
+                                System.out.println("Coaching Notes Dated: " + date + " Removed");
+                                break;
+                            }
+                            System.out.println("Coaching Notes Not Found");
+                        }
+                }
                 break;
             }
             System.out.println("Advisor Not Found");
@@ -127,16 +197,26 @@ public class DB implements Serializable
     public void printAll()
     {
         int i = 1;
+        System.out.println("Advisor Information");
+
         for (Advisor item : advisor_DB)
         {
-            System.out.print(i + ": ");
+            for (int j = 0; j < 50; j++)
+            {
+                System.out.print("-");
+            }
+            System.out.println("\n" + i + ". Advisor: " + item.getName() + " ");
+            for (int j = 0; j < 50; j++)
+            {
+                System.out.print("-");
+            }
+            System.out.println();
             item.print();
             i++;
         }
     }
     public void print(String type)
     {
-        int i = 1;
         for (Advisor item : advisor_DB)
         {
             switch (type)
@@ -144,27 +224,34 @@ public class DB implements Serializable
                 case "Attendance":
                     for (Attendance thing : item.getAttendance())
                     {
-                        System.out.print(i + ".");
+                        int i = 1;
+                        System.out.print(i + ". Attendance Comments: ");
                         thing.print();
-
+                        i++;
+                        break;
                     }
                     break;
                 case "Goal":
                     for (Goal thing : item.getGoal())
                     {
-                        System.out.print(i + ".");
+                        int i = 1;
+                        System.out.print(i + ". Goal Comments: ");
                         thing.print();
+                        i++;
+                        break;
                     }
                     break;
                 case "Coaching":
                     for (Coaching thing : item.getCoach())
                     {
-                        System.out.print(i + ".");
+                        int i = 1;
+                        System.out.print(i + ". Coaching Comments: ");
                         thing.print();
+                        i++;
+                        break;
                     }
-                    break;
+                    System.out.println();
             }
-
         }
     }
 
