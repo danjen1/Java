@@ -1,24 +1,16 @@
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Advisor implements Serializable
 {
 
-    private String name;
-    private String EID;
-    private String email;
-    private String DSID;
-    private String status;
-    private String shift_type;
-    private String shift;
+    private String name, EID, email, DSID, status, shift_type, shift, phone, t_zone, bDay, address;
     private Boolean diff = false;
-    private String phone;
-    private String t_zone;
-    private String DOH;
-    private String bDay;
-    private String address;
+    private LocalDate DOH;
     private ArrayList<Attendance> attendance = new ArrayList<>();
     private ArrayList<Goal> goal = new ArrayList<>();
     private ArrayList<Coaching> coach = new ArrayList<>();
@@ -26,6 +18,7 @@ public class Advisor implements Serializable
 
     public Advisor() throws IOException
     {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
         ArrayList<Attendance> attend = new ArrayList<>();
         ArrayList<Goal> goal = new ArrayList<>();
         ArrayList<Coaching> coach = new ArrayList<>();
@@ -33,65 +26,49 @@ public class Advisor implements Serializable
         Boolean go = true;
 
         System.out.println("Employee ID: ");
-        EID = in.nextLine();
+        setEID(in.nextLine());
         System.out.println("Name: ");
-        name = in.nextLine();
+        setName(in.nextLine());
         System.out.println("Email: ");
-        email = in.nextLine();
+        setEmail(in.nextLine());
         System.out.println("DSID: ");
-        DSID = in.nextLine();
+        setDSID(in.nextLine());
         System.out.println("Status: ");
-        status = in.nextLine();
+        setStatus(in.nextLine());
         System.out.println("Shift Type: ");
-        shift_type = in.nextLine();
+        setShift_type(in.nextLine());
         System.out.println("Shift Differential? (y)/(n)");
         String str = in.nextLine();
         if (str.equals("y") || str.equals("yes") || str.equals("Yes") || str.equals("Y"))
         {
-            diff = true;
+            setDiff(true);
         }
         System.out.println("Shift: ");
-        shift = in.nextLine();
+        setShift(in.nextLine());
         System.out.println("Phone Number: ");
-        phone = in.nextLine();
+        setPhone(in.nextLine());
         System.out.println("Time Zone: ");
-        t_zone = in.nextLine();
+        setT_zone(in.nextLine());
         System.out.println("DOH: ");
-        DOH = in.nextLine();
+        setDOH(LocalDate.parse(in.nextLine(), mdy));
         System.out.println("bDay: ");
-        bDay = in.nextLine();
+        setbDay(in.nextLine());
         System.out.println("Address: ");
-        address = in.nextLine();
+        setAddress(in.nextLine());
 
-
-        setName(name);
-        setEID(EID);
-        setDSID(DSID);
-        setEmail(email);
-        setStatus(status);
-        setShift_type(shift_type);
-        setShift(shift);
-        setPhone(phone);
-        setT_zone(t_zone);
-        setDOH(DOH);
-        setbDay(bDay);
-        setAddress(address);
-        setGoal(goal);
-        setCoach(coach);
-        setAttendance(attend);
-        setDiff(diff);
         System.out.println("Adding " + name + " to the database.");
-        DB.add(name, this);
+        DB.add(getName(), this);
 
     }
 
     public Advisor(String name, String EID, String DSID, String email, String status, String shift_type,
-                    String shift, Boolean diff, String phone, String t_zone, String DOH, String bDay,
+                   String shift, Boolean diff, String phone, String t_zone, String DOH, String bDay,
                    String address) throws IOException
     {
         ArrayList<Attendance> attend = new ArrayList<>();
         ArrayList<Goal> goal = new ArrayList<>();
         ArrayList<Coaching> coach = new ArrayList<>();
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
 
         setName(name);
         setEID(EID);
@@ -102,7 +79,7 @@ public class Advisor implements Serializable
         setShift(shift);
         setPhone(phone);
         setT_zone(t_zone);
-        setDOH(DOH);
+        setDOH(LocalDate.parse(DOH, mdy));
         setbDay(bDay);
         setAddress(address);
         setGoal(goal);
@@ -110,13 +87,15 @@ public class Advisor implements Serializable
         setAttendance(attend);
         setDiff(diff);
         System.out.println("Adding " + name + " to the database.");
-        DB.add(name, this);
+        DB.add(getName(), this);
     }
 
     public void print()
     {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
+
         System.out.println("EID: " + getEID() + "\nEmail: " + getEmail() + "\nPhone Number: " + getPhone() + "\nStatus: " + getStatus() + "\nShift Type: " + getShift_type() +
-                "\nShift: " + getShift() + "\nDiff: " + getDiff() + "\nTime Zone: " + getT_zone() + "\nDOH: " + getDOH() + "\nbDay: " + getbDay() + "\nAddress: " + getAddress() + "\n");
+                "\nShift: " + getShift() + "\nDiff: " + getDiff() + "\nTime Zone: " + getT_zone() + "\nDOH: " + getDOH().format(mdy) + "\nbDay: " + getbDay() + "\nAddress: " + getAddress() + "\n");
 
         for (int j = 0; j < 50; j++)
         {
@@ -129,10 +108,10 @@ public class Advisor implements Serializable
         }
         System.out.println();
 
-        for(Attendance item : getAttendance())
+        for (Attendance item : getAttendance())
 
         {
-            item.print();
+           // item.print();
 
         }
         System.out.println();
@@ -146,7 +125,7 @@ public class Advisor implements Serializable
             System.out.print("-");
         }
         System.out.println();
-        for(Goal item : getGoal())
+        for (Goal item : getGoal())
         {
             item.print();
         }
@@ -161,13 +140,16 @@ public class Advisor implements Serializable
             System.out.print("-");
         }
         System.out.println();
-        for(Coaching item : getCoach())
+        for (Coaching item : getCoach())
         {
             item.print();
         }
         System.out.println();
 
     }
+
+
+
 
 
 
@@ -294,12 +276,12 @@ public class Advisor implements Serializable
         this.t_zone = t_zone;
     }
 
-    public String getDOH()
+    public LocalDate getDOH()
     {
         return DOH;
     }
 
-    public void setDOH(String DOH)
+    public void setDOH(LocalDate DOH)
     {
         this.DOH = DOH;
     }

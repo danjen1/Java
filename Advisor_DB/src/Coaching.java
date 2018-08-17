@@ -1,16 +1,19 @@
 import java.io.IOException;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Coaching
+public class Coaching implements Serializable
 {
-    private String name;
+    private String name, type, comments;
+    private LocalDate date;
 
-
-    private String date, type, comments;
 
     public Coaching(String name, String date, String comments) throws IOException
     {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         setName(name);
-        setDate(date);
+        setDate(LocalDate.parse(date, mdy));
         setType(type);
         setComments(comments);
         DB.add(name, this);
@@ -18,7 +21,8 @@ public class Coaching
 
     public void print()
     {
-        System.out.println("Date: " + getDate() + "\tComments: " + getComments());
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
+        System.out.println("Date: " + getDate().format(mdy) + "\tComments: " + getComments());
 
     }
 
@@ -37,12 +41,12 @@ public class Coaching
         this.name = name;
     }
 
-    public String getDate()
+    public LocalDate getDate()
     {
         return date;
     }
 
-    public void setDate(String date)
+    public void setDate(LocalDate date)
     {
         this.date = date;
     }

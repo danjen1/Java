@@ -193,28 +193,6 @@ public class DB implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
-
-    public void printAll()
-    {
-        int i = 1;
-        System.out.println("Advisor Information");
-
-        for (Advisor item : advisor_DB)
-        {
-            for (int j = 0; j < 50; j++)
-            {
-                System.out.print("-");
-            }
-            System.out.println("\n" + i + ". Advisor: " + item.getName() + " ");
-            for (int j = 0; j < 50; j++)
-            {
-                System.out.print("-");
-            }
-            System.out.println();
-            item.print();
-            i++;
-        }
-    }
     public void print(String type)
     {
         for (Advisor item : advisor_DB)
@@ -226,7 +204,7 @@ public class DB implements Serializable
                     {
                         int i = 1;
                         System.out.print(i + ". Attendance Comments: ");
-                        thing.print();
+                        //thing.print();
                         i++;
                         break;
                     }
@@ -251,9 +229,88 @@ public class DB implements Serializable
                         break;
                     }
                     System.out.println();
+                case "All":
+                    int i = 1;
+                    System.out.println("Advisor Information");
+
+                {
+                    for (int j = 0; j < 50; j++)
+                    {
+                        System.out.print("-");
+                    }
+                    System.out.println("\n" + i + ". Advisor: " + item.getName() + " ");
+                    for (int j = 0; j < 50; j++)
+                    {
+                        System.out.print("-");
+                    }
+                    System.out.println();
+                    item.print();
+                    i++;
+                }
             }
         }
     }
+
+    public double[] printattendCats(String type)
+    {
+        double[] catTotals = new double[9];
+        double fullDay = 0, eoLI = 0, vac = 0, hDT = 0, aDT = 0, iLOA = 0, LOA = 0, kinCare = 0, total = 0;
+
+        for (Advisor thing : advisor_DB)
+        {
+            for (Attendance item : thing.getAttendance())
+            {
+                switch (type)
+                {
+                    case "Full Day":
+                        if (item.getType().equals("Full Day"))
+                        {
+                            catTotals[0] = fullDay;
+                        }
+                    case "Early Out / Late In":
+                        if (item.getType().equals("Early Out / Late In"))
+                        {
+                            eoLI += item.getHours();
+                        }
+                    case "Vacation":
+                        if (item.getType().equals("Vacation"))
+                        {
+                            vac += item.getHours();
+                        }
+                    case "Home DT":
+                        if (item.getType().equals("Home DT"))
+                        {
+                            hDT += item.getHours();
+                        }
+                    case "Apple DT":
+                        if (item.getType().equals("Full Day"))
+                        {
+                            aDT += item.getHours();
+                        }
+                    case "iLOA":
+                        if (item.getType().equals("iLOA"))
+                        {
+                            iLOA += item.getHours();
+                        }
+                    case "LOA":
+                        if (item.getType().equals("LOA"))
+                        {
+                            LOA += item.getHours();
+                        }
+                    case "KinCare":
+                        if (item.getType().equals("KinCare"))
+                        {
+                            kinCare += item.getHours();
+                        }
+                    case "All":
+                        total += item.getHours();
+                        item.print(catTotals);
+                }
+            }
+        }
+        return catTotals;
+    }
+
 
 
 
