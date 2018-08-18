@@ -21,23 +21,73 @@ public class Attendance implements Serializable
         setName(name);
         setDate(LocalDate.parse(date, mdy));
         setType(type);
+        setHours(hours);
         setComments(comments);
         DB.add(name, this);
     }
 
 
-    public void print(double[] totals)
+    /*public double[][] getAttendTotals()
     {
-        System.out.println("Attendance Totals");
-        String header ="Full Day \tEarly Out / Late in \t Vacation \t Home DT \t AppleDT \t iLOA \t LOA \t KinCare";
-        System.out.println("***********************************************************************************************");
-        System.out.println(header);
-        System.out.println("***********************************************************************************************");
-        System.out.println(totals[0] + "\t" + totals[1]);
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
+        LocalDate today = LocalDate.now();
+        LocalDate thirty = today.minusDays(30);
+        LocalDate sixty = today.minusDays(60);
+        LocalDate ninety = today.minusDays(90);
+        LocalDate oneEighty = today.minusDays(180);
+        double sum30 = 0;
+        double sum60 = 0;
+        double sum90 = 0;
+        double sum180 = 0;
+        double sumTotal = 0;
+        double[][] totals = new double[9][5];
+        for (Attendance item : getAttendance())
+        {
+            if (item.getType().equals("Full Day"))
+            {
+                if (item.getDate().isBefore(today) && item.getDate().isAfter(thirty))
+                {
+                    sum30 += item.getHours();
+                }
+                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
+                {
+                    sum60 += item.getHours();
 
-        System.out.println("**********************************************************");
+                }
+                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
+                {
+                    sum90 += item.getHours();
 
-        System.out.println("Date: " + getDate() + "\tComments: " + getComments());
+                }
+                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
+                {
+                    sum180 += item.getHours();
+                }
+                sumTotal += item.getHours();
+                totals[0][0] = sum30;
+                totals[0][1] = sum60;
+                totals[0][2] = sum90;
+                totals[0][3] = sum180;
+                totals[0][4] = sumTotal;
+            }
+        }
+        return totals;
+    }
+
+*/
+
+
+    public void printSumm(double[][] totals)
+    {
+
+    }
+    public void print()
+    {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
+        String rowData = String.format(".\t%-12s%-15s%-7s%-17s", getDate().format(mdy), getType(), getHours(), getComments());
+
+        System.out.println(rowData);
+
     }
 
 

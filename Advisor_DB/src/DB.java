@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,8 +53,9 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Attendance Event ");
                 item.getAttendance().add(attend);
+                writeObject();
                 System.out.println(msg);
-                //item.print();
+
             }
         }
     }
@@ -67,6 +69,7 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Goal ");
                 item.getGoal().add(goal);
+                writeObject();
                 System.out.println(msg);
                 //item.print();
             }
@@ -82,6 +85,7 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Coaching Notes ");
                 item.getCoach().add(coach);
+                writeObject();
                 System.out.println(msg);
                 //item.print();
             }
@@ -89,7 +93,7 @@ public class DB implements Serializable
     }
 
 
-    public  void rmv(String name) throws IOException
+    public void rmv(String name) throws IOException
     {
         for (Advisor item : DB.getAdvisor_DB())
         {
@@ -107,6 +111,8 @@ public class DB implements Serializable
 
     public void rmv(String name, String date, String type)
     {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
+        LocalDate input = LocalDate.parse(date, mdy);
         for (Advisor item : advisor_DB)
         {
             if (item.getName().equals(name))
@@ -116,47 +122,53 @@ public class DB implements Serializable
                     case "Attendance":
                         for (Attendance thing : item.getAttendance())
                         {
-                            if (thing.getDate().equals(date))
+                            if (thing.getDate().isEqual(input))
                             {
+
                                 System.out.println("Attendance Date Matched");
                                 item.getAttendance().remove(thing);
                                 System.out.println("Attendance Event Dated: " + date + " Removed");
                                 break;
                             }
-                            System.out.println(date + ": Attendance Event Not Found");
                         }
+                        System.out.println(date + ": Attendance Event Not Found");
+
+
                         break;
                     case "Goal":
                         for (Goal thing : item.getGoal())
                         {
-                            if (thing.getDate().equals(date))
+                            if (thing.getDate().isEqual(input))
                             {
                                 item.getGoal().remove(thing);
                                 System.out.println("Goal Dated: " + date + " Removed");
                                 break;
                             }
-                            System.out.println(date + ": Goal Not Found");
-
                         }
+                        System.out.println(date + ": Goal Not Found");
+
                         break;
                     case "Coaching":
                         for (Coaching thing : item.getCoach())
                         {
-                            if (thing.getDate().equals(date))
+                            if (thing.getDate().isEqual(input))
                             {
                                 item.getCoach().remove(thing);
                                 System.out.println("Coaching Notes Dated: " + date + " Removed");
                                 break;
                             }
-                            System.out.println("Coaching Notes Not Found");
                         }
-                }
+                        System.out.println("Coaching Notes Not Found");
                 break;
+                }
+
             }
-            System.out.println("Advisor Not Found");
         }
+        System.out.println("Advisor Not Found");
 
     }
+
+
 
     /**********************************************************************
      *                     Database Load / Save                           *
@@ -193,124 +205,68 @@ public class DB implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
-    public void print(String type)
+    void printEvertything()
+    {
+
+    }
+
+    public void printAdv(String adv)
     {
         for (Advisor item : advisor_DB)
         {
-            switch (type)
+            if (item.getName().equals(adv))
             {
-                case "Attendance":
-                    for (Attendance thing : item.getAttendance())
-                    {
-                        int i = 1;
-                        System.out.print(i + ". Attendance Comments: ");
-                        //thing.print();
-                        i++;
-                        break;
-                    }
-                    break;
-                case "Goal":
-                    for (Goal thing : item.getGoal())
-                    {
-                        int i = 1;
-                        System.out.print(i + ". Goal Comments: ");
-                        thing.print();
-                        i++;
-                        break;
-                    }
-                    break;
-                case "Coaching":
-                    for (Coaching thing : item.getCoach())
-                    {
-                        int i = 1;
-                        System.out.print(i + ". Coaching Comments: ");
-                        thing.print();
-                        i++;
-                        break;
-                    }
-                    System.out.println();
-                case "All":
-                    int i = 1;
-                    System.out.println("Advisor Information");
+                item.printAdvInfo(adv);
 
-                {
-                    for (int j = 0; j < 50; j++)
-                    {
-                        System.out.print("-");
-                    }
-                    System.out.println("\n" + i + ". Advisor: " + item.getName() + " ");
-                    for (int j = 0; j < 50; j++)
-                    {
-                        System.out.print("-");
-                    }
-                    System.out.println();
-                    item.print();
-                    i++;
-                }
             }
         }
     }
-
-    public double[] printattendCats(String type)
+    public void printAdvAll()
     {
-        double[] catTotals = new double[9];
-        double fullDay = 0, eoLI = 0, vac = 0, hDT = 0, aDT = 0, iLOA = 0, LOA = 0, kinCare = 0, total = 0;
-
-        for (Advisor thing : advisor_DB)
+        for (Advisor item : advisor_DB)
         {
-            for (Attendance item : thing.getAttendance())
-            {
-                switch (type)
-                {
-                    case "Full Day":
-                        if (item.getType().equals("Full Day"))
-                        {
-                            catTotals[0] = fullDay;
-                        }
-                    case "Early Out / Late In":
-                        if (item.getType().equals("Early Out / Late In"))
-                        {
-                            eoLI += item.getHours();
-                        }
-                    case "Vacation":
-                        if (item.getType().equals("Vacation"))
-                        {
-                            vac += item.getHours();
-                        }
-                    case "Home DT":
-                        if (item.getType().equals("Home DT"))
-                        {
-                            hDT += item.getHours();
-                        }
-                    case "Apple DT":
-                        if (item.getType().equals("Full Day"))
-                        {
-                            aDT += item.getHours();
-                        }
-                    case "iLOA":
-                        if (item.getType().equals("iLOA"))
-                        {
-                            iLOA += item.getHours();
-                        }
-                    case "LOA":
-                        if (item.getType().equals("LOA"))
-                        {
-                            LOA += item.getHours();
-                        }
-                    case "KinCare":
-                        if (item.getType().equals("KinCare"))
-                        {
-                            kinCare += item.getHours();
-                        }
-                    case "All":
-                        total += item.getHours();
-                        item.print(catTotals);
-                }
-            }
+            item.printAdvInfo(item.getName());
+
         }
-        return catTotals;
     }
 
+    public void printAttend(String adv)
+    {
+        for (Advisor item : advisor_DB)
+        {
+            if (item.getName().equals(adv))
+            {
+                item.printAttendEvents();
+            }
+
+        }
+    }
+
+    public double[][]  printAttendTotals(String adv)
+    {
+        double[][] totals = new double[9][5];
+        for (Advisor item : advisor_DB)
+        {
+            if (item.getName().equals(adv))
+            {
+                totals = item.getAttendTotals();
+                item.printAttendTotals(totals);
+                break;
+
+            }
+        }
+        return totals;
+    }
+
+    public void printCoaching(String adv)
+    {
+
+    }
+
+    public void printGoals(String adv)
+    {
+
+    }
 
 
 
