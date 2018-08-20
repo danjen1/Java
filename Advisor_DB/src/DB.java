@@ -1,13 +1,14 @@
-import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class DB implements Serializable
 {
     private static ArrayList<Advisor> advisor_DB = new ArrayList<>();
+    private String[] cat = {"Attendance", "Goal", "Coaching", "Metrics"};
+    private LocalDate date;
 
 
     public DB() throws IOException, ClassNotFoundException
@@ -23,7 +24,6 @@ public class DB implements Serializable
 
     public static void add(String name, Advisor adv) throws IOException
     {
-
         boolean found = false;
         for (Advisor item : advisor_DB)
         {
@@ -53,6 +53,7 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Attendance Event ");
                 item.getAttendance().add(attend);
+                item.getAttendance().sort(Comparator.comparing(Attendance::getDate).reversed());
                 writeObject();
                 System.out.println(msg);
 
@@ -69,6 +70,7 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Goal ");
                 item.getGoal().add(goal);
+                item.getGoal().sort(Comparator.comparing(Goal::getDate).reversed());
                 writeObject();
                 System.out.println(msg);
                 //item.print();
@@ -85,6 +87,7 @@ public class DB implements Serializable
             {
                 System.out.println(name + " found.  Adding Coaching Notes ");
                 item.getCoach().add(coach);
+                item.getCoach().sort(Comparator.comparing(Coaching::getDate).reversed());
                 writeObject();
                 System.out.println(msg);
                 //item.print();
@@ -92,8 +95,7 @@ public class DB implements Serializable
         }
     }
 
-
-    public void rmv(String name) throws IOException
+    public static void rmvAdv(String name) throws IOException
     {
         for (Advisor item : DB.getAdvisor_DB())
         {
@@ -132,8 +134,6 @@ public class DB implements Serializable
                             }
                         }
                         System.out.println(date + ": Attendance Event Not Found");
-
-
                         break;
                     case "Goal":
                         for (Goal thing : item.getGoal())
@@ -146,7 +146,6 @@ public class DB implements Serializable
                             }
                         }
                         System.out.println(date + ": Goal Not Found");
-
                         break;
                     case "Coaching":
                         for (Coaching thing : item.getCoach())
@@ -159,7 +158,7 @@ public class DB implements Serializable
                             }
                         }
                         System.out.println("Coaching Notes Not Found");
-                break;
+                        break;
                 }
 
             }
@@ -167,8 +166,6 @@ public class DB implements Serializable
         System.out.println("Advisor Not Found");
 
     }
-
-
 
     /**********************************************************************
      *                     Database Load / Save                           *
@@ -205,10 +202,21 @@ public class DB implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
-    void printEvertything()
+    public static void printEvertything()
     {
+        for (Advisor item : advisor_DB)
+
+        {
+            item.printAdvInfo(item.getName());
+            DB.printAttend(item.getName());
+            DB.printCoaching(item.getName());
+            DB.printGoals(item.getName());
+            DB.printMetrics(item.getName());
+        }
 
     }
+
+
 
     public void printAdv(String adv)
     {
@@ -221,7 +229,7 @@ public class DB implements Serializable
             }
         }
     }
-    public void printAdvAll()
+    public  void printAdvAll()
     {
         for (Advisor item : advisor_DB)
         {
@@ -230,19 +238,9 @@ public class DB implements Serializable
         }
     }
 
-    public void printAttend(String adv)
-    {
-        for (Advisor item : advisor_DB)
-        {
-            if (item.getName().equals(adv))
-            {
-                item.printAttendEvents();
-            }
 
-        }
-    }
 
-    public double[][]  printAttendTotals(String adv)
+    public static double[][]  printAttend(String adv)
     {
         double[][] totals = new double[9][5];
         for (Advisor item : advisor_DB)
@@ -251,6 +249,7 @@ public class DB implements Serializable
             {
                 totals = item.getAttendTotals();
                 item.printAttendTotals(totals);
+                item.printAttendEvents();
                 break;
 
             }
@@ -258,12 +257,25 @@ public class DB implements Serializable
         return totals;
     }
 
-    public void printCoaching(String adv)
+    public static void printCoaching(String adv)
+    {
+        for (Advisor item : advisor_DB)
+        {
+            if (item.getName().equals(adv))
+            {
+                item.printCoachingSumm();
+                break;
+
+            }
+        }
+    }
+
+    public static void printGoals(String adv)
     {
 
     }
 
-    public void printGoals(String adv)
+    public static void printMetrics(String adv)
     {
 
     }
@@ -279,8 +291,28 @@ public class DB implements Serializable
         return advisor_DB;
     }
 
-    public static void setAdvisor_DB(ArrayList<Advisor> advisor_DB)
+    public  void setAdvisor_DB(ArrayList<Advisor> advisor_DB)
     {
         DB.advisor_DB = advisor_DB;
+    }
+
+    public String[] getCat()
+    {
+        return cat;
+    }
+
+    public void setCat(String[] cat)
+    {
+        this.cat = cat;
+    }
+
+    public LocalDate getDate()
+    {
+        return date;
+    }
+
+    public void setDate(LocalDate date)
+    {
+        this.date = date;
     }
 }

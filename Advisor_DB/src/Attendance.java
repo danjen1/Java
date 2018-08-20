@@ -83,9 +83,8 @@ public class Attendance implements Serializable
     }
     public void print()
     {
-        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         String rowData = String.format(".\t%-12s%-15s%-7s%-17s", getDate().format(mdy), getType(), getHours(), getComments());
-
         System.out.println(rowData);
 
     }

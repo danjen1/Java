@@ -9,7 +9,7 @@ public class Coaching implements Serializable
     private LocalDate date;
 
 
-    public Coaching(String name, String date, String comments) throws IOException
+    public Coaching(String name, String date, String type, String comments) throws IOException
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         setName(name);
@@ -21,8 +21,11 @@ public class Coaching implements Serializable
 
     public void print()
     {
+
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        System.out.println("Date: " + getDate().format(mdy) + "\tComments: " + getComments());
+        String rowData = String.format(".\t%-12s%-10s%-40s", getDate().format(mdy), getType(), getComments());
+
+        System.out.println(rowData);
 
     }
 

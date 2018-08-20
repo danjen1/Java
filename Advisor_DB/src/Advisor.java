@@ -14,8 +14,17 @@ public class Advisor implements Serializable
     private ArrayList<Attendance> attendance = new ArrayList<>();
     private ArrayList<Goal> goal = new ArrayList<>();
     private ArrayList<Coaching> coach = new ArrayList<>();
+    private String[] types = {"Full Day", "Partial Day", "KinCare", "HomeDT", "AppleDT", "iLOA", "LOA", "Vacation", "Total", "ROD"};
+
+    private LocalDate today = LocalDate.now();
+    private LocalDate thirty = today.minusDays(30);
+    private LocalDate sixty = today.minusDays(60);
+    private LocalDate ninety = today.minusDays(90);
+    private LocalDate oneEighty = today.minusDays(180);
 
     private String head = "***********************************************************************";
+
+
 
     public Advisor() throws IOException
     {
@@ -91,298 +100,61 @@ public class Advisor implements Serializable
         DB.add(getName(), this);
     }
 
-
     public double[][] getAttendTotals()
     {
 
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        LocalDate today = LocalDate.now();
-        LocalDate thirty = today.minusDays(30);
-        LocalDate sixty = today.minusDays(60);
-        LocalDate ninety = today.minusDays(90);
-        LocalDate oneEighty = today.minusDays(180);
+
         double[][] totals = new double[9][5];
-        double[] fd = new double[5];
-        double[] pd = new double[5];
-        double[] kc = new double[5];
-        double[] hd = new double[5];
-        double[] ad = new double[5];
-        double[] il = new double[5];
-        double[] lo = new double[5];
-        double[] vac = new double[5];
-
-
-
         for (Attendance item : getAttendance())
         {
             double sum30 = 0, sum60 = 0, sum90 = 0, sum180 = 0, sumTotal = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                if (item.getType().equals(types[i]))
+                {
 
-            if (item.getType().equals("Full Day"))
-            {
-
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println("sum 30 runs");
-                    System.out.println(sum30);
+                    if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
+                    {
+                        sum30 += item.getHours();
+                    }
+                    if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
+                    {
+                        sum60 += item.getHours();
+                    }
+                    if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
+                    {
+                        sum90 += item.getHours();
+                    }
+                    if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
+                    {
+                        sum180 += item.getHours();
+                    }
+                    sumTotal = sum30 + sum60 + sum90 + sum180;
+                    totals[i][0] += sum30;
+                    totals[i][1] += sum60;
+                    totals[i][2] += sum90;
+                    totals[i][3] += sum180;
+                    totals[i][4] += sumTotal;
                 }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    System.out.println("sum 60 runs");
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    System.out.println("sum 90 runs");
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    System.out.println("sum 180 runs");
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                fd[0] += sum30;
-                fd[1] += sum60;
-                fd[2] += sum90;
-                fd[3] += sum180;
-                fd[4] += sumTotal;
             }
-            if (item.getType().equals("Partial Day"))
+            for (int i = 0; i < 8; i++)
             {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                pd[0] += sum30;
-                pd[1] += sum60;
-                pd[2] += sum90;
-                pd[3] += sum180;
-                pd[4] += sumTotal;
+                 sum30 += totals[i][0];
+                 sum60 += totals[i][1];
+                 sum90 += totals[i][2];
+                 sum180 += totals[i][3];
+                 sumTotal += totals[i][4];
             }
-            if (item.getType().equals("KinCare"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                kc[0] += sum30;
-                kc[1] += sum60;
-                kc[2] += sum90;
-                kc[3] += sum180;
-                kc[4] += sumTotal;
-            }
-            if (item.getType().equals("HomeDT"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                hd[0] += sum30;
-                hd[1] += sum60;
-                hd[2] += sum90;
-                hd[3] += sum180;
-                hd[4] += sumTotal;
-            }
-            if (item.getType().equals("AppleDT"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                ad[0] += sum30;
-                ad[1] += sum60;
-                ad[2] += sum90;
-                ad[3] += sum180;
-                ad[4] += sumTotal;
-            }
-            if (item.getType().equals("iLOA"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                il[0] += sum30;
-                il[1] += sum60;
-                il[2] += sum90;
-                il[3] += sum180;
-                il[4] += sumTotal;
-            }
-            if (item.getType().equals("LOA"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                lo[0] += sum30;
-                lo[1] += sum60;
-                lo[2] += sum90;
-                lo[3] += sum180;
-                lo[4] += sumTotal;
-            }
-            if (item.getType().equals("Vacation"))
-            {
-                if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
-                {
-                    sum30 += item.getHours();
-                    System.out.println(sum30);
-                }
-                if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
-                {
-                    sum60 += item.getHours();
-                }
-                if (item.getDate().isAfter(ninety) && item.getDate().isBefore(sixty))
-                {
-                    sum90 += item.getHours();
-                }
-                if (item.getDate().isAfter(oneEighty) && item.getDate().isBefore(ninety))
-                {
-                    sum180 += item.getHours();
-                }
-                sumTotal = sum30 + sum60 + sum90 + sum180;
-                vac[0] += sum30;
-                vac[1] += sum60;
-                vac[2] += sum90;
-                vac[3] += sum180;
-                vac[4] += sumTotal;
-            }
-
+            totals[8][0] = sum30;
+            totals[8][1] = sum60;
+            totals[8][2] = sum90;
+            totals[8][3] = sum180;
+            totals[8][4] = sumTotal;
         }
-        totals[0][0] = fd[0];
-        totals[0][1] = fd[1];
-        totals[0][2] = fd[2];
-        totals[0][3] = fd[3];
-        totals[0][4] = fd[4];
-        totals[1][0] = pd[0];
-        totals[1][1] = pd[1];
-        totals[1][2] = pd[2];
-        totals[1][3] = pd[3];
-        totals[1][4] = pd[4];
-        totals[2][0] = kc[0];
-        totals[2][1] = kc[1];
-        totals[2][2] = kc[2];
-        totals[2][3] = kc[3];
-        totals[2][4] = kc[4];
-        totals[3][0] = hd[0];
-        totals[3][1] = hd[1];
-        totals[3][2] = hd[2];
-        totals[3][3] = hd[3];
-        totals[3][4] = hd[4];
-        totals[4][0] = ad[0];
-        totals[4][1] = ad[1];
-        totals[4][2] = ad[2];
-        totals[4][3] = ad[3];
-        totals[4][4] = ad[4];
-        totals[5][0] = il[0];
-        totals[5][1] = il[1];
-        totals[5][2] = il[2];
-        totals[5][3] = il[3];
-        totals[5][4] = il[4];
-        totals[6][0] = lo[0];
-        totals[6][1] = lo[1];
-        totals[6][2] = lo[2];
-        totals[6][3] = lo[3];
-        totals[6][4] = lo[4];
-        totals[7][0] = vac[0];
-        totals[7][1] = vac[1];
-        totals[7][2] = vac[2];
-        totals[7][3] = vac[3];
-        totals[7][4] = vac[4];
-        totals[8][0] = totals[0][0] + totals[1][0] + totals[2][0] + totals[3][0] + totals[4][0] +  totals[5][0] + totals[6][0] + totals[7][0];
-        totals[8][1] = totals[0][1] + totals[1][1] + totals[2][1] + totals[3][1] + totals[4][1] +  totals[5][1] + totals[6][1] + totals[7][1];
-        totals[8][2] = totals[0][2] + totals[1][2] + totals[2][2] + totals[3][2] + totals[4][2] +  totals[5][2] + totals[6][2] + totals[7][2];
-        totals[8][3] = totals[0][3] + totals[1][3] + totals[2][3] + totals[3][3] + totals[4][3] +  totals[5][3] + totals[6][3] + totals[7][3];
-        totals[8][4] = totals[0][4] + totals[1][4] + totals[2][4] + totals[3][4] + totals[4][4] +  totals[5][4] + totals[6][4] + totals[7][4];
 
         return totals;
     }
-
-
-
 
 
     /***************************
@@ -391,40 +163,23 @@ public class Advisor implements Serializable
 
     public void printAttendTotals(double[][] totals)
     {
-        String fd = "Full Day:";
-        String eoLI = "Partial Day:";
-        String hDT = "HomeDT:";
-        String aDT = "AppleDT:";
-        String iLOA = "iLOA:";
-        String LOA = "LOA:";
-        String kinCare = "KinCare:";
-        String vac = "Vacation:";
-        String total = "Totals:";
+
         String headerT = String.format("%22s%9s%9s%9s%9s", "30 Days", "60 Days", "90 Days", "180 Days", "Annual");
-        String fdRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", fd, totals[0][0], totals[0][1], totals[0][2], totals[0][3], totals[0][4]);
-        String eoliRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", eoLI, totals[1][0], totals[1][1], totals[1][2], totals[1][3], totals[1][4]);
-        String kinRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", kinCare, totals[2][0], totals[2][1], totals[2][2], totals[2][3], totals[2][4]);
-        String hDTRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", hDT, totals[3][0], totals[3][1], totals[3][2], totals[3][3], totals[3][4]);
-        String aDTRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", aDT, totals[4][0], totals[4][1], totals[4][2], totals[4][3], totals[4][4]);
-        String iLOARow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", iLOA, totals[5][0], totals[5][1], totals[5][2], totals[5][3], totals[5][4]);
-        String LOARow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", LOA, totals[6][0], totals[6][1], totals[6][2], totals[6][3], totals[6][4]);
-        String vacRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", vac, totals[7][0], totals[7][1], totals[7][2], totals[7][3], totals[7][4]);
-        String totRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", total, totals[8][0], totals[8][1], totals[8][2], totals[8][3], totals[8][4]);
+
         System.out.println("\nAttendance Totals: " + getName());
-        System.out.println("***********************************************************************");
+        System.out.println(head);
         System.out.println(headerT);
+        System.out.println(head);
+
+        for (int i = 0; i < 8; i++)
+        {
+            String dataRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[i], totals[i][0], totals[i][1], totals[i][2], totals[i][3], totals[i][4]);
+            System.out.println(dataRow);
+
+        }
         System.out.println("***********************************************************************");
-        System.out.println(fdRow);
-        System.out.println(eoliRow );
-        System.out.println(kinRow);
-        System.out.println(hDTRow);
-        System.out.println(aDTRow);
-        System.out.println(iLOARow);
-        System.out.println(LOARow);
-        System.out.println(vacRow);
-        System.out.println("***********************************************************************");
+        String totRow = String.format("%-14s%5.2f%9.2f%9.2f%9.2f%10.2f", types[8], totals[8][0], totals[8][1], totals[8][2], totals[8][3], totals[8][4]);
         System.out.println(totRow);
-        System.out.println();
 
     }
 
@@ -442,7 +197,7 @@ public class Advisor implements Serializable
     public void printAttendEvents()
     {
         int i = 1;
-        System.out.println("\n" + getName() + " Attendance:");
+        System.out.println("\nAttendance Events: " + getName());
         String headerT = String.format("%10s%12s%13s%13s", "Date", "Type", "Hours", "Comments");
         System.out.println("***********************************************************************");
         System.out.println(headerT);
@@ -450,9 +205,12 @@ public class Advisor implements Serializable
         for (Attendance item : getAttendance())
 
         {
-            System.out.print(i);
-            item.print();
-            i++;
+            if (item.getDate().isAfter(oneEighty))
+            {
+                System.out.print(i);
+                item.print();
+                i++;
+            }
         }
     }
 
@@ -462,8 +220,21 @@ public class Advisor implements Serializable
     }
     public void printCoachingSumm ()
     {
+        int i = 1;
+        System.out.println("\nCoaching Comments: " + getName());
+        String headerT = String.format("%8s%11s%15s", "Date", "Type", "Comments");
+        System.out.println("***********************************************************************");
+        System.out.println(headerT);
+        System.out.println("***********************************************************************");
+        for (Coaching item : getCoach())
 
+        {
+            System.out.print(i);
+            item.print();
+            i++;
+        }
     }
+
     public void printGoals ()
     {
 
