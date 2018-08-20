@@ -5,32 +5,43 @@ import java.time.format.DateTimeFormatter;
 
 public class Goal implements Serializable
 {
-    private String name, comments, update;
-
-
+    private String name;
+    private String goal;
+    private String comments;
+    private String update;
+    private String due;
+    private String type;
+    private String cat;
     private int rvwd;
-    private String[] type = {"On-Call", "QDR/APR"};
+    private String[] types = {"On-Call", "QDR/APR", "Contribution"};
+    String[] cats = {"Teamwork", "Innovation", "Resulst", "Assure", "Knowledge", "Guidance", "Professionalism",
+    "Holds", "Case Duration", "Logging", "Tools", "Appeasements", "Consultations", "Ownership", "Compliance"};
     private double success;
     private Boolean completed;
     private LocalDate date;
-    private String  due;
 
-    public Goal(String date, String type, String name, String due, String comments) throws IOException
+
+
+
+    //default constructor for QDR / APR GOal
+    public Goal(String name, String date, String type, String cat, String due, String goal, Boolean completed) throws IOException
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         setName(name);
         setDate(LocalDate.parse(date, mdy));
         setDue(due);
+        setGoal(goal);
         setType(type);
-        setComments(comments);
-
+        setCat(cat);
+        setCompleted(completed);
         DB.add(name, this);
     }
 
     public void print()
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        System.out.println("Date: " + getDate().format(mdy) + "\tGoal Comments: " + getComments());
+        String rowData = String.format(".\t%-11s%-16s%-13s%-10s%-90s%7s", getDate().format(mdy), getType(), getCat(), getDue(), getGoal(), getCompleted());
+        System.out.println(rowData);
     }
 
 
@@ -117,6 +128,40 @@ public class Goal implements Serializable
     {
         this.due = due;
     }
+
+
+    public String getType()
+    {
+        return type;
+    }
+
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+
+
+    public String getGoal()
+    {
+        return goal;
+    }
+
+    public void setGoal(String goal)
+    {
+        this.goal = goal;
+    }
+
+    public String getCat()
+    {
+        return cat;
+    }
+
+    public void setCat(String cat)
+    {
+        this.cat = cat;
+    }
+
+
 
 
 }

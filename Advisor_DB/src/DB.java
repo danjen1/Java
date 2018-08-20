@@ -111,7 +111,7 @@ public class DB implements Serializable
 
     }
 
-    public void rmv(String name, String date, String type)
+    public void rmv(String name, String date, String type) throws IOException
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         LocalDate input = LocalDate.parse(date, mdy);
@@ -129,11 +129,13 @@ public class DB implements Serializable
 
                                 System.out.println("Attendance Date Matched");
                                 item.getAttendance().remove(thing);
+                                writeObject();
                                 System.out.println("Attendance Event Dated: " + date + " Removed");
                                 break;
                             }
+                            System.out.println(date + ": Attendance Event Not Found");
+
                         }
-                        System.out.println(date + ": Attendance Event Not Found");
                         break;
                     case "Goal":
                         for (Goal thing : item.getGoal())
@@ -141,6 +143,7 @@ public class DB implements Serializable
                             if (thing.getDate().isEqual(input))
                             {
                                 item.getGoal().remove(thing);
+                                writeObject();
                                 System.out.println("Goal Dated: " + date + " Removed");
                                 break;
                             }
@@ -153,6 +156,7 @@ public class DB implements Serializable
                             if (thing.getDate().isEqual(input))
                             {
                                 item.getCoach().remove(thing);
+                                writeObject();
                                 System.out.println("Coaching Notes Dated: " + date + " Removed");
                                 break;
                             }
@@ -160,10 +164,12 @@ public class DB implements Serializable
                         System.out.println("Coaching Notes Not Found");
                         break;
                 }
-
+                break;
             }
+            System.out.println("Advisor Not Found");
+            break;
+
         }
-        System.out.println("Advisor Not Found");
 
     }
 
@@ -242,7 +248,7 @@ public class DB implements Serializable
 
     public static double[][]  printAttend(String adv)
     {
-        double[][] totals = new double[9][5];
+        double[][] totals = new double[15][5];
         for (Advisor item : advisor_DB)
         {
             if (item.getName().equals(adv))
@@ -263,7 +269,7 @@ public class DB implements Serializable
         {
             if (item.getName().equals(adv))
             {
-                item.printCoachingSumm();
+                item.printCoaching();
                 break;
 
             }
@@ -272,7 +278,15 @@ public class DB implements Serializable
 
     public static void printGoals(String adv)
     {
+        for (Advisor item : advisor_DB)
+        {
+            if (item.getName().equals(adv))
+            {
+                item.printGoals();
+                break;
 
+            }
+        }
     }
 
     public static void printMetrics(String adv)

@@ -14,7 +14,7 @@ public class Advisor implements Serializable
     private ArrayList<Attendance> attendance = new ArrayList<>();
     private ArrayList<Goal> goal = new ArrayList<>();
     private ArrayList<Coaching> coach = new ArrayList<>();
-    private String[] types = {"Full Day", "Partial Day", "KinCare", "HomeDT", "AppleDT", "iLOA", "LOA", "Vacation", "Total", "ROD"};
+    private String[] types = {"Full Day", "Partial Day","HomeDT", "AppleDT", "ROD", "Total", "KinCare", "Parental", "iLOA", "LOA", "SSD", "RSL", "Bereav", "JA", "Vacation"};
 
     private LocalDate today = LocalDate.now();
     private LocalDate thirty = today.minusDays(30);
@@ -22,7 +22,7 @@ public class Advisor implements Serializable
     private LocalDate ninety = today.minusDays(90);
     private LocalDate oneEighty = today.minusDays(180);
 
-    private String head = "***********************************************************************";
+    private String head = "****************************************************************************************************************************************************************************";
 
 
 
@@ -105,17 +105,18 @@ public class Advisor implements Serializable
 
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
 
-        double[][] totals = new double[9][5];
+        double[][] totals = new double[15][5];
         for (Attendance item : getAttendance())
         {
             double sum30 = 0, sum60 = 0, sum90 = 0, sum180 = 0, sumTotal = 0;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 15; i++)
             {
                 if (item.getType().equals(types[i]))
                 {
 
-                    if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today))
+                    if (item.getDate().isAfter(thirty) && item.getDate().isBefore(today.plusDays(1)))
                     {
+
                         sum30 += item.getHours();
                     }
                     if (item.getDate().isBefore(thirty) && item.getDate().isAfter(sixty))
@@ -138,7 +139,7 @@ public class Advisor implements Serializable
                     totals[i][4] += sumTotal;
                 }
             }
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 4; i++)
             {
                  sum30 += totals[i][0];
                  sum60 += totals[i][1];
@@ -146,11 +147,11 @@ public class Advisor implements Serializable
                  sum180 += totals[i][3];
                  sumTotal += totals[i][4];
             }
-            totals[8][0] = sum30;
-            totals[8][1] = sum60;
-            totals[8][2] = sum90;
-            totals[8][3] = sum180;
-            totals[8][4] = sumTotal;
+            totals[5][0] = sum30;
+            totals[5][1] = sum60;
+            totals[5][2] = sum90;
+            totals[5][3] = sum180;
+            totals[5][4] = sumTotal;
         }
 
         return totals;
@@ -164,22 +165,31 @@ public class Advisor implements Serializable
     public void printAttendTotals(double[][] totals)
     {
 
-        String headerT = String.format("%22s%9s%9s%9s%9s", "30 Days", "60 Days", "90 Days", "180 Days", "Annual");
+        String headerT = String.format("%-10s%9s%9s%9s%9s%12s","Days", "30", "60", "90", "180", "Annual");
 
         System.out.println("\nAttendance Totals: " + getName());
         System.out.println(head);
         System.out.println(headerT);
         System.out.println(head);
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 5; i++)
         {
             String dataRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[i], totals[i][0], totals[i][1], totals[i][2], totals[i][3], totals[i][4]);
             System.out.println(dataRow);
 
         }
-        System.out.println("***********************************************************************");
-        String totRow = String.format("%-14s%5.2f%9.2f%9.2f%9.2f%10.2f", types[8], totals[8][0], totals[8][1], totals[8][2], totals[8][3], totals[8][4]);
-        System.out.println(totRow);
+        System.out.println(head);
+        String totRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[5], totals[5][0], totals[5][1], totals[5][2], totals[5][3], totals[5][4]);
+        System.out.println(totRow + "\n");
+        System.out.println(head);
+        System.out.println(headerT);
+        System.out.println(head);
+        for (int i = 6; i < 15; i++)
+        {
+            String dataRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[i], totals[i][0], totals[i][1], totals[i][2], totals[i][3], totals[i][4]);
+            System.out.println(dataRow);
+        }
+        System.out.println();
 
     }
 
@@ -198,10 +208,10 @@ public class Advisor implements Serializable
     {
         int i = 1;
         System.out.println("\nAttendance Events: " + getName());
-        String headerT = String.format("%10s%12s%13s%13s", "Date", "Type", "Hours", "Comments");
-        System.out.println("***********************************************************************");
+        String headerT = String.format("%8s%12s%16s%10s", "Date", "Type", "Hours", "Comments");
+        System.out.println(head);
         System.out.println(headerT);
-        System.out.println("***********************************************************************");
+        System.out.println(head);
         for (Attendance item : getAttendance())
 
         {
@@ -212,20 +222,18 @@ public class Advisor implements Serializable
                 i++;
             }
         }
+        System.out.println();
     }
 
-    public void printCoaching ()
-    {
 
-    }
-    public void printCoachingSumm ()
+    public void printCoaching()
     {
         int i = 1;
         System.out.println("\nCoaching Comments: " + getName());
-        String headerT = String.format("%8s%11s%15s", "Date", "Type", "Comments");
-        System.out.println("***********************************************************************");
+        String headerT = String.format("%8s%12s%30s", "Date", "Type", "Comments");
+        System.out.println(head);
         System.out.println(headerT);
-        System.out.println("***********************************************************************");
+        System.out.println(head);
         for (Coaching item : getCoach())
 
         {
@@ -233,11 +241,25 @@ public class Advisor implements Serializable
             item.print();
             i++;
         }
+        System.out.println();
     }
 
     public void printGoals ()
     {
+        int i = 1;
+        System.out.println("\nGoals: " + getName());
+        String headerT = String.format("%8s%11s%20s%8s%24s%83s", "Date", "Type", "Category", "Due", "Goal/Contribution", "Complete");
+        System.out.println(head);
+        System.out.println(headerT);
+        System.out.println(head);
+        for (Goal item : getGoal())
 
+        {
+            System.out.print(i);
+            item.print();
+            i++;
+        }
+        System.out.println();
     }
     public void printGoalSumm ()
     {

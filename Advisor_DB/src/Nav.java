@@ -9,8 +9,8 @@ public class Nav
         DB DB = new DB();
         
         //DB.rmv("Daniel ", "8/15/18", "Attendance");
-        /*
-        new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", true, "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
+
+       /*new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", true, "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
         new Advisor("Madison Jenkins", "123455", "553432", "maddy@maddy.com", "Active", "8x5", "SMTWF 9:00am - 6:00pm",true, "801-360-5225", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
         new Attendance("Madison Jenkins", "8/16/18", "Full Day", 8, "Test Attendance 2");
         new Attendance("Madison Jenkins", "8/13/18", "Full Day", 8, "Test Attendance 2");
@@ -125,7 +125,25 @@ public class Nav
         new Attendance("Daniel Jenkins", "8/16/18", "Vacation", 8, "Test Attendance 2");
         new Attendance("Daniel Jenkins", "8/13/18", "Vacation", 8, "Test Attendance 2");
         new Attendance("Daniel Jenkins", "4/13/18", "Vacation", 8, "Test2");
-        */
+
+
+        new Goal("Daniel Jenkins", "8/20/18", "On-Call", "Yadda Yadda Yadda", "Assure", "FY18P4", true);
+        new Coaching("Daniel Jenkins", "8/20/18", "1x1", "Here are your 1x1 comments");
+
+        new Coaching("Daniel Jenkins", "8/15/18", "1x1","erea aerask;;;;;;;;;;djla;ldfjl;ajfdklas;fjdlsa;dfjla;dfjas;dfjlas;jfdls;ajfla;jfdl;sajfdl;jas;lfjdslkajsdl;fjas;dfj;aljsadlfs;afja;lsfjka;dsfjadls;a");
+
+        DB.printAttend("Daniel Jenkins");
+
+       // DB.printEvertything();
+
+
+      /*new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", true, "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
+        new Goal("Daniel Jenkins", "8/20/18", "QDR", "Innovation", "FY18P5", "Present in 3 team meetings", true);
+        new Coaching("Daniel Jenkins", "8/20/18", "Additional Development", "AD comms");
+        new Goal("Daniel Jenkins", "8/20/18", "Contribution", "Teamwork", "N/A", "Sent emails to the team about hydration", false);
+*/
+        //new Attendance("Daniel Jenkins", "8/20/18", "KinCare", 3.5, "Reviewed KinCare balances");
+        //new Attendance("Daniel Jenkins", "8/20/18", "ROD", 1, "Completed ROD recapped time away balances");
         DB.printAttend("Daniel Jenkins");
     }
 

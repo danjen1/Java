@@ -5,7 +5,13 @@ import java.time.format.DateTimeFormatter;
 
 public class Coaching implements Serializable
 {
-    private String name, type, comments;
+
+    private String name;
+    private String type;
+    private String comments;
+    private String qrtr;
+    private String due;
+    private String cat;
     private LocalDate date;
 
 
@@ -15,6 +21,8 @@ public class Coaching implements Serializable
         setName(name);
         setDate(LocalDate.parse(date, mdy));
         setType(type);
+        setQrtr(qrtr);
+        setDue(due);
         setComments(comments);
         DB.add(name, this);
     }
@@ -23,8 +31,7 @@ public class Coaching implements Serializable
     {
 
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        String rowData = String.format(".\t%-12s%-10s%-40s", getDate().format(mdy), getType(), getComments());
-
+        String rowData = String.format(".\t%-12s%-26s%-40s", getDate().format(mdy), getType(), getComments());
         System.out.println(rowData);
 
     }
@@ -73,5 +80,36 @@ public class Coaching implements Serializable
     {
         this.comments = comments;
     }
+
+    public String getQrtr()
+    {
+        return qrtr;
+    }
+
+    public void setQrtr(String qrtr)
+    {
+        this.qrtr = qrtr;
+    }
+
+    public String getDue()
+    {
+        return due;
+    }
+
+    public void setDue(String due)
+    {
+        this.due = due;
+    }
+
+    public String getCat()
+    {
+        return cat;
+    }
+
+    public void setCat(String cat)
+    {
+        this.cat = cat;
+    }
+
 
 }
