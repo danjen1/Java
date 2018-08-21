@@ -172,12 +172,14 @@ public class Advisor implements Serializable
         System.out.println(headerT);
         System.out.println(head);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             String dataRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[i], totals[i][0], totals[i][1], totals[i][2], totals[i][3], totals[i][4]);
             System.out.println(dataRow);
 
         }
+        String rodRow = String.format("%-16s%-9.0f%-9.0f%-9.0f%-10.0f%-9.0f", types[4], totals[4][0], totals[4][1], totals[4][2], totals[4][3], totals[4][4]);
+        System.out.println(rodRow);
         System.out.println(head);
         String totRow = String.format("%-15s%5.2f%9.2f%9.2f%9.2f%10.2f", types[5], totals[5][0], totals[5][1], totals[5][2], totals[5][3], totals[5][4]);
         System.out.println(totRow + "\n");
@@ -199,7 +201,7 @@ public class Advisor implements Serializable
         System.out.println("\n" + head);
         System.out.println("Advisor Information: " + getName());
         System.out.println(head);
-        System.out.println("EID: " + getEID() + "\nEmail: " + getEmail() + "\nPhone Number: " + getPhone() + "\nStatus: " + getStatus() +
+        System.out.println("EID: " + getEID() + "\nDSID: " + getDSID() + "\nEmail: " + getEmail() + "\nPhone Number: " + getPhone() + "\nStatus: " + getStatus()  +
                 "\nShift Type: " + getShift_type() + "\nShift: " + getShift() + "\nDiff: " + getDiff() + "\nTime Zone: " + getT_zone() +
                 "\nDOH: " + getDOH().format(mdy) + "\nbDay: " + getbDay() + "\nAddress: " + getAddress() + "\n");
     }
@@ -258,6 +260,7 @@ public class Advisor implements Serializable
             System.out.print(i);
             item.print();
             i++;
+            System.out.println();
         }
         System.out.println();
     }
@@ -265,8 +268,6 @@ public class Advisor implements Serializable
     {
 
     }
-
-
 
 
     /*

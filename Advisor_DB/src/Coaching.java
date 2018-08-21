@@ -36,8 +36,6 @@ public class Coaching implements Serializable
 
     }
 
-
-
     /*
     Getters and Setters
      */

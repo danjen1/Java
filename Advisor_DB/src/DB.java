@@ -3,9 +3,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class DB implements Serializable
 {
+    private Scanner in = new Scanner(System.in);
     private static ArrayList<Advisor> advisor_DB = new ArrayList<>();
     private String[] cat = {"Attendance", "Goal", "Coaching", "Metrics"};
     private LocalDate date;
@@ -133,9 +135,8 @@ public class DB implements Serializable
                                 System.out.println("Attendance Event Dated: " + date + " Removed");
                                 break;
                             }
-                            System.out.println(date + ": Attendance Event Not Found");
-
                         }
+                        System.out.println(date + ": Attendance Event Not Found");
                         break;
                     case "Goal":
                         for (Goal thing : item.getGoal())
@@ -172,6 +173,107 @@ public class DB implements Serializable
         }
 
     }
+
+    public void updateAdvInfo(String name) throws IOException
+    {
+        boolean flag = true;
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yyyy");
+
+        for (Advisor item : advisor_DB)
+        {
+            if (name.equals(item.getName()))
+            {
+                item.printAdvInfo(name);
+                do
+                {
+                    System.out.println("Type category name to update: ");
+                    String type = in.nextLine();
+                    switch (type)
+                    {
+                        case "Name":
+                            System.out.println("Enter Updated Name:");
+                            item.setName(in.nextLine());
+                            flag = false;
+                            break;
+                        case "EID":
+                            System.out.println("Enter Updated EID:");
+                            item.setEID(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Email":
+                            System.out.println("Enter Updated Email:");
+                            item.setEmail(in.nextLine());
+                            flag = false;
+                            break;
+                        case "DSID":
+                            System.out.println("Enter Updated DSID:");
+                            item.setDSID(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Status":
+                            System.out.println("Enter Updated Status:");
+                            item.setStatus(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Shift Type":
+                            System.out.println("Enter Updated Shift Type:");
+                            item.setShift_type(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Shift":
+                            System.out.println("Enter Updated Shift:");
+                            item.setShift(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Phone Number":
+                            System.out.println("Enter Updated Phone:");
+                            item.setPhone(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Time Zone":
+                            System.out.println("Enter Updated Time Zone:");
+                            item.setT_zone(in.nextLine());
+                            flag = false;
+                            break;
+                        case "bDay":
+                            System.out.println("Enter Updated B-Day:");
+                            item.setbDay(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Address":
+                            System.out.println("Enter Updated Address:");
+                            item.setAddress(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Diff":
+                            System.out.println("Enter Updated Differential Status: (y)/(n)");
+                            String str = in.nextLine();
+                            if (str.equals("y") || str.equals("yes") || str.equals("Yes") || str.equals("Y"))
+                            {
+                                item.setDiff(true);
+                            } else
+                            {
+                                item.setDiff(false);
+                            }
+                            flag = false;
+                            break;
+                        case "DOH":
+                            System.out.println("Enter Updated Date of Hire:");
+                            item.setDOH(LocalDate.parse(in.nextLine(), mdy));
+                            flag = false;
+                            break;
+                    }
+                } while (flag);
+                writeObject();
+                System.out.println("Update Successful");
+                break;
+            }
+            System.out.println("Advisor " + name + " Not Found");
+            break;
+        }
+    }
+
+
 
     /**********************************************************************
      *                     Database Load / Save                           *

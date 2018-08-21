@@ -40,8 +40,9 @@ public class Goal implements Serializable
     public void print()
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        String rowData = String.format(".\t%-11s%-16s%-13s%-10s%-90s%7s", getDate().format(mdy), getType(), getCat(), getDue(), getGoal(), getCompleted());
+        String rowData = String.format(".\t%-11s%-16s%-13s%-10s%%7s", getDate().format(mdy), getType(), getCat(), getDue(),  getCompleted());
         System.out.println(rowData);
+        System.out.println("Goal: " + getComments());
     }
 
 

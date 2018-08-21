@@ -1,5 +1,19 @@
 import java.io.IOException;
-
+/*
+TO DO:
+Create nav system starting with Advisor Roster of Active Employees, separated by Employees on leave.  Include
+most pertinent information on the roster, EID/ DSID/ Schedule, Status, Address etc.
+Leave section include Advisor Name, leave type, RTW Date, Medical Due Date, Comments
+TOtal number active / inactive Advisors and nav system
+1. Select Advisor to work with / Add / Delete
+2. Selected Advisor, Add, Delete, Update (Attend/Coaching/Leave/Goal)
+3. Print Coaching Summary in date range (default 180 days) How many 1x1s/Check-ins/etc Print Attendance events (default date range 180).
+4. Update print formatting for Goals/Coaching, include word wrap and ability to update progress header categories, the goal on a new line
+and updates dated on new lines below the goal with a space between Goals.
+5. Create update menus for Attendance, Coaching, Goals, Leaves tie into Nav system
+6. Implement Library to read in Numbers documents for historical coaching
+7. Create .jar file and production app. Compile classes and devise serialization methodology. Create version numbers.
+ */
 
 public class Nav
 {
@@ -8,6 +22,10 @@ public class Nav
 
         DB DB = new DB();
         
+
+
+
+
         //DB.rmv("Daniel ", "8/15/18", "Attendance");
 
        /*new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", true, "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
@@ -141,10 +159,17 @@ public class Nav
         new Goal("Daniel Jenkins", "8/20/18", "QDR", "Innovation", "FY18P5", "Present in 3 team meetings", true);
         new Coaching("Daniel Jenkins", "8/20/18", "Additional Development", "AD comms");
         new Goal("Daniel Jenkins", "8/20/18", "Contribution", "Teamwork", "N/A", "Sent emails to the team about hydration", false);
-*/
+
         //new Attendance("Daniel Jenkins", "8/20/18", "KinCare", 3.5, "Reviewed KinCare balances");
         //new Attendance("Daniel Jenkins", "8/20/18", "ROD", 1, "Completed ROD recapped time away balances");
-        DB.printAttend("Daniel Jenkins");
+        //DB.printAttend("Daniel Jenkins");
+        DB.printGoals("Daniel Jenkins");
+        DB.printCoaching("Daniel Jenkins");
+        DB.rmv("Daniel Jenkins", "8/20/18", "Attendance");
+*/
+        DB.printEvertything();
+        DB.updateAdvInfo("Daniel Jenkins");
+
     }
 
 }
