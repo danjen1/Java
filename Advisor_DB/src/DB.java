@@ -11,6 +11,7 @@ public class DB implements Serializable
     private static ArrayList<Advisor> advisor_DB = new ArrayList<>();
     private String[] cat = {"Attendance", "Goal", "Coaching", "Metrics"};
     private LocalDate date;
+    private String head = "****************************************************************************************************************************************************************************";
 
 
     public DB() throws IOException, ClassNotFoundException
@@ -262,6 +263,16 @@ public class DB implements Serializable
                             item.setDOH(LocalDate.parse(in.nextLine(), mdy));
                             flag = false;
                             break;
+                        case "RTW":
+                            System.out.println("Enter RTW Update:");
+                            item.setRTW(in.nextLine());
+                            flag = false;
+                            break;
+                        case "Med Due":
+                            System.out.println("Enter Medical Due Update:");
+                            item.setMedDue(in.nextLine());
+                            flag = false;
+                            break;
                     }
                 } while (flag);
                 writeObject();
@@ -310,6 +321,42 @@ public class DB implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
+    public void printMain()
+    {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
+        String headerT = String.format("%14s%20s%9s%14s%11s%10s%7s%16s%6s%6s%13s", "Advisor", "Status", "Phone", "DSID", "EID", "Type", "Shift", "Diff", "Zone", "DOH", "Address");
+        System.out.println(head);
+        System.out.println(headerT);
+        System.out.println(head);
+        int i = 1;
+        for (Advisor item : advisor_DB)
+        {
+
+            String rowData = String.format(". %-25s%-10s%-15s%-12s%-9s%-6s%-17s%-7s%-6s%-10s%-55s", item.getName(), item.getStatus(), item.getPhone(), item.getDSID(), item.getEID(), item.getShift_type(), item.getShift(), item.getDiff(),
+                    item.getT_zone(), item.getDOH().format(mdy), item.getAddress());
+            System.out.println(i + rowData);
+            i++;
+
+        }
+        System.out.println("\nInactive Employees");
+        System.out.println(head);
+        String headerS = String.format("%14s%20s%14s%11s%13s", "Advisor", "Status", "RTW Date", "Med Due", "Comments");
+        System.out.println(headerS);
+        System.out.println(head);
+
+        int j = 1;
+        for (Advisor item : advisor_DB)
+        {
+            String rowData = String.format(". %-25s%-12s%-12s%-12s%-50s", item.getName(), item.getStatus(), item.getRTW(), item.getMedDue(), item.getComments());
+            if (!item.getStatus().equals("Active"))
+            {
+                System.out.println(j + rowData);
+                j++;
+            }
+        }
+
+    }
+
     public static void printEvertything()
     {
         for (Advisor item : advisor_DB)
@@ -386,7 +433,6 @@ public class DB implements Serializable
             {
                 item.printGoals();
                 break;
-
             }
         }
     }

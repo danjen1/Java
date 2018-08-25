@@ -8,7 +8,20 @@ import java.util.Scanner;
 public class Advisor implements Serializable
 {
 
-    private String name, EID, email, DSID, status, shift_type, shift, phone, t_zone, bDay, address;
+    private String name;
+    private String EID;
+    private String email;
+    private String DSID;
+    private String status;
+    private String shift_type;
+    private String shift;
+    private String phone;
+    private String t_zone;
+    private String bDay;
+    private String address;
+    private String RTW;
+    private String medDue;
+    private String comments;
     private Boolean diff = false;
     private LocalDate DOH;
     private ArrayList<Attendance> attendance = new ArrayList<>();
@@ -161,7 +174,6 @@ public class Advisor implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
-
     public void printAttendTotals(double[][] totals)
     {
 
@@ -202,7 +214,7 @@ public class Advisor implements Serializable
         System.out.println("Advisor Information: " + getName());
         System.out.println(head);
         System.out.println("EID: " + getEID() + "\nDSID: " + getDSID() + "\nEmail: " + getEmail() + "\nPhone Number: " + getPhone() + "\nStatus: " + getStatus()  +
-                "\nShift Type: " + getShift_type() + "\nShift: " + getShift() + "\nDiff: " + getDiff() + "\nTime Zone: " + getT_zone() +
+                "\nRTW: " + getRTW() + "\nMedical Due: " + getMedDue() + "\nShift Type: " + getShift_type() + "\nShift: " + getShift() + "\nDiff: " + getDiff() + "\nTime Zone: " + getT_zone() +
                 "\nDOH: " + getDOH().format(mdy) + "\nbDay: " + getbDay() + "\nAddress: " + getAddress() + "\n");
     }
 
@@ -250,7 +262,7 @@ public class Advisor implements Serializable
     {
         int i = 1;
         System.out.println("\nGoals: " + getName());
-        String headerT = String.format("%8s%11s%20s%8s%24s%83s", "Date", "Type", "Category", "Due", "Goal/Contribution", "Complete");
+        String headerT = String.format("%8s%10s%14s%5s%11s%99s", "Date", "Type", "Category", "Due", "Goal", "Complete");
         System.out.println(head);
         System.out.println(headerT);
         System.out.println(head);
@@ -260,11 +272,16 @@ public class Advisor implements Serializable
             System.out.print(i);
             item.print();
             i++;
+            System.out.println("Updates:");
+            for (String thing : item.getUpdate())
+            {
+                System.out.println(thing);
+            }
             System.out.println();
         }
-        System.out.println();
+
     }
-    public void printGoalSumm ()
+    public void printCoachSumm()
     {
 
     }
@@ -430,6 +447,46 @@ public class Advisor implements Serializable
     public void setDiff(Boolean diff)
     {
         this.diff = diff;
+    }
+
+    public String getRTW()
+    {
+        if (RTW == null)
+        {
+            return "N/A";
+        }
+        return RTW;
+    }
+
+    public void setRTW(String RTW)
+    {
+
+        this.RTW = RTW;
+    }
+
+    public String getMedDue()
+    {
+        if (medDue == null)
+        {
+            return "N/A";
+        }
+        return medDue;
+    }
+
+    public void setMedDue(String medDue)
+    {
+
+        this.medDue = medDue;
+    }
+
+    public String getComments()
+    {
+        return comments;
+    }
+
+    public void setComments(String comments)
+    {
+        this.comments = comments;
     }
 
 

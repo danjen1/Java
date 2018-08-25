@@ -2,13 +2,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Goal implements Serializable
 {
     private String name;
     private String goal;
     private String comments;
-    private String update;
+    private ArrayList<String> update = new ArrayList<>();
     private String due;
     private String type;
     private String cat;
@@ -24,7 +25,7 @@ public class Goal implements Serializable
 
 
     //default constructor for QDR / APR GOal
-    public Goal(String name, String date, String type, String cat, String due, String goal, Boolean completed) throws IOException
+    public Goal(String name, String date, String type, String cat, String due, String goal, Boolean completed, String update) throws IOException
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         setName(name);
@@ -34,15 +35,15 @@ public class Goal implements Serializable
         setType(type);
         setCat(cat);
         setCompleted(completed);
+        setUpdate(update);
         DB.add(name, this);
     }
 
     public void print()
     {
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        String rowData = String.format(".\t%-11s%-16s%-13s%-10s%%7s", getDate().format(mdy), getType(), getCat(), getDue(),  getCompleted());
+        String rowData = String.format(". %-11s%-10s%-10s%-10s%-95s%-7s", getDate().format(mdy), getType(), getCat(), getDue(), getGoal(), getCompleted());
         System.out.println(rowData);
-        System.out.println("Goal: " + getComments());
     }
 
 
@@ -70,14 +71,15 @@ public class Goal implements Serializable
         this.comments = comments;
     }
 
-    public String getUpdate()
-    {
-        return update;
-    }
-
     public void setUpdate(String update)
     {
-        this.update = update;
+        int i = this.update.size();
+        this.update.add(i, update);
+    }
+
+    public ArrayList<String> getUpdate()
+    {
+        return update;
     }
 
     public int getRvwd()
@@ -144,6 +146,7 @@ public class Goal implements Serializable
 
     public String getGoal()
     {
+
         return goal;
     }
 
