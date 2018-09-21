@@ -18,6 +18,7 @@ public class DB implements Serializable
     //default contstructor
     {
         DB.readObject();
+        Nav.menuMaker("main");
 
     }
 
@@ -321,8 +322,9 @@ public class DB implements Serializable
     /***************************
      *     Print Methods       *
      ***************************/
-    public void printMain()
+    public static void printMain()
     {
+        String head = "****************************************************************************************************************************************************************************";
         DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
         String headerT = String.format("%14s%20s%9s%14s%11s%10s%7s%16s%6s%6s%13s", "Advisor", "Status", "Phone", "DSID", "EID", "Type", "Shift", "Diff", "Zone", "DOH", "Address");
         System.out.println(head);
