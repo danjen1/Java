@@ -28,11 +28,10 @@ abstract class Nav
     {
 
         DB DB = new DB();
-        /*new Advisor("Christopher Cottrell", "519509", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF",false, "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
-        new Advisor("Hakeem Anderson", "520814", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", true, "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
-        new Advisor("Blake Glasure", "519509", "973629301", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF", false, "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
-        new Advisor("Jasmine Mayham", "520139", "973630079", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", false, "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
-         */
+        new Advisor("Christopher Cottrell", "666666", "999999999", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF",false, "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
+        new Advisor("Hakeem Anderson", "666666", "999999999", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", true, "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
+        new Advisor("Blake Glasure", "666666", "999999999", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF", false, "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
+        new Advisor("Jasmine Mayham", "666666", "999999999", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", false, "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
         new Goal("Blake Glasure", "8/22/18", "On-Call", "Assure", "8/31/18", "Testing Goals", false, "Test Update");
 
         DB.printGoals("Blake Glasure");
