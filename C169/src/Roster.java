@@ -79,6 +79,8 @@ public class Roster
         print_average_grade("002");
         print_average_grade("003");
         print_invalid_emails();
+        remove("003");
+        printAll();
 
     }
 }
