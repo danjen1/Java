@@ -17,25 +17,25 @@ public class TwoButtons
     {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JButton labelButton = new JButton("Change Label");
-        labelButton.addActionListener(new LabelListener());
+        //JButton labelButton = new JButton("Change Label");
+        //labelButton.addActionListener(new LabelListener());
 
-        JButton colorButton = new JButton("Change Colors");
-        colorButton.addActionListener(new ColorListener());
+        JButton open = new JButton("Open");
+        open.addActionListener(new openListener());
+        JButton start = new JButton("New");
+        start.addActionListener(new startListener());
 
-        label = new JLabel("I'm a Label");
-        MyDrawPanel drawPanel = new MyDrawPanel();
 
-        frame.getContentPane().add(BorderLayout.SOUTH, colorButton);
-        frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
-        frame.getContentPane().add(BorderLayout.EAST, labelButton);
-        frame.getContentPane().add(BorderLayout.WEST, label);
 
-        frame.setSize(300, 300);
+        frame.getContentPane().add(BorderLayout.SOUTH, open);
+        frame.getContentPane().add(BorderLayout.SOUTH, start);
+
+
+        frame.setSize(200, 200);
         frame.setVisible(true);
     }
 
-    public class LabelListener implements ActionListener
+    public class openListener implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {
@@ -43,7 +43,7 @@ public class TwoButtons
         }
     }
 
-    public class ColorListener implements ActionListener
+    public class startListener implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {

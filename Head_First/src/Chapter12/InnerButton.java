@@ -7,6 +7,7 @@ public class InnerButton
 {
     JFrame frame;
     JButton b;
+    JButton c;
 
     public static void main(String[] args)
     {
@@ -20,6 +21,8 @@ public class InnerButton
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         b = new JButton("A");
         b.addActionListener(new BListener());
+        c = new JButton("B");
+        c.addActionListener(new BListener());
 
         frame.getContentPane().add(BorderLayout.SOUTH, b);
         frame.setSize(200, 100);

@@ -21,62 +21,23 @@ import java.util.regex.*;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-class Mad_Libs {
+class Mad_Libs
+{
     // Store value of a label like ((label:query))
-    private HashMap<String,String> labels;
+    private HashMap<String, String> labels;
     private Pattern splitterRegex;
-    private Scanner console;
     private String template; // the madlibs template string
 
-    public static void main(String[] args){
-
-        String fileName = null;
-        if( args.length > 0 ){
-            // User provided filename.
-            fileName = args[0];
-        }
-        Mad_Libs madLibs = new Mad_Libs(fileName);
-        JFrame frame = new JFrame();
-
-        madLibs.textOutput(madLibs.parse(),frame);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        System.exit(0);
-
-
-        //System.out.println(madLibs.parse());
-    }
-
-    // Constructor that passes null as the fileName, which makes the program
-    // prompt the user for a filename.
-    public Mad_Libs(){
-        this(null);
-    }
-    public Mad_Libs(String fileName)
+    public static void main(String[] args)
     {
-        this.console = new Scanner(System.in);
+       OpenPanel op = new OpenPanel();
 
-        if( fileName == null )
-        {
-            // Prompt the user for a filename.
-            fileName = JOptionPane.showInputDialog("What's the name of the Mad_Lib?");
-            // System.out.print("Please enter a filename: ");
-        }
+    }
 
-        // make sure file is readable
-        File file = new File(fileName);
-        if( ! file.canRead() ){
-            JOptionPane.showMessageDialog(null, "Can't read " + fileName + ".");
-            // Prompt the user for a filename.
-            fileName = JOptionPane.showInputDialog("Please enter a filename: ");
-            file = new File(fileName);
-            if( ! file.canRead() ){
-                // REALLY can't read file.
-                JOptionPane.showMessageDialog(null, "Can't read " + fileName + ": exiting");
-                System.exit(1);
-            }
-        }
+
+    public Mad_Libs(File file)
+    {
 
         try {
             this.template = readFileToString(file);
@@ -92,11 +53,11 @@ class Mad_Libs {
     }
 
     public void textOutput(String longMessage, Frame frame) {
-        JTextArea textArea = new JTextArea(40, 20);
+        JTextArea textArea = new JTextArea(20, 90);
         textArea.setText(longMessage);
         textArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        JOptionPane.showMessageDialog(frame, scrollPane);
+        //JScrollPane scrollPane = new JScrollPane(textArea);
+        JOptionPane.showMessageDialog(frame, textArea);
     }
 
     public String parse(){
@@ -139,4 +100,6 @@ class Mad_Libs {
         }
         return text;
     }
+
+
 }

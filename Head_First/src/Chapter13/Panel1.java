@@ -13,10 +13,13 @@ public class Panel1
 
     public void go()
     {
+
+        ImageIcon img = new ImageIcon("Chapter13/1200x630bb.png");
         JFrame frame = new JFrame();
+        frame.setIconImage(img.getImage());
         JPanel panel = new JPanel();
         panel.setBackground(Color.darkGray);
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
         JButton button = new JButton("Shock Me");
         JButton buttonTwo = new JButton("bliss");
@@ -26,9 +29,9 @@ public class Panel1
         panel.add(buttonThree);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.getContentPane().add(BorderLayout.EAST, panel);
+        frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.setVisible(true);
-        frame.setSize(250, 200);
+        frame.setSize(250, 250);
 
     }
 }
