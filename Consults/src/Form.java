@@ -233,7 +233,7 @@ public class Form extends javax.swing.JFrame {
             try
             {
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:/Users/dan/Library/Application Support/T2_Consult/database");
+                c = DriverManager.getConnection("jdbc:sqlite:/Users/dan/Projects/Java/Consults/src/database");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
 
