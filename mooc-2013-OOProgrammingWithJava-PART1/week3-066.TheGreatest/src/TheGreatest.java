@@ -2,9 +2,15 @@ import java.util.ArrayList;
 
 public class TheGreatest {
     public static int greatest(ArrayList<Integer> list) {
-        // write code here
-        return 0;
-    }
+        int temp = list.get(0);
+        for (int i : list){
+            
+            if (temp < i) {
+                temp = i;
+            }
+        }
+        return temp;
+}
 
     public static void main(String[] args) {
         ArrayList<Integer> lista = new ArrayList<Integer>();
