@@ -1,6 +1,8 @@
 import javax.swing.*;
+import javax.swing.text.DefaultEditorKit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.*;
 
 public class Form extends javax.swing.JFrame {
@@ -10,6 +12,7 @@ public class Form extends javax.swing.JFrame {
     }
 
     private void initComponents() {
+
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
@@ -78,7 +81,10 @@ public class Form extends javax.swing.JFrame {
 
         buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("No");
+
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+
 
 
         jLabel4.setText("Contact Email:");
@@ -205,7 +211,7 @@ public class Form extends javax.swing.JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(211, Short.MAX_VALUE))
+                                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName(" Case ");
@@ -225,41 +231,65 @@ public class Form extends javax.swing.JFrame {
             Boolean ycallBack = jRadioButton3.isSelected();
             Boolean ycontactEmail = jRadioButton6.isSelected();
             String comments = jTextArea1.getText();
-            System.out.println(yKbase);
-            System.out.println(ycallBack);
-            System.out.println(ycontactEmail);
 
-
-            try
+            if (caseID.isEmpty() || (kBase.isEmpty()))
             {
-                Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:/Users/dan/Projects/Java/Consults/src/database");
-                c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
+                if (JOptionPane.showConfirmDialog(
+                        new JFrame(),
+                        "Not all fields are complete. Are you sure you want to submit?",
+                        "Please confirm",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
+                {
+                    return;
+                }
 
-                PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, comments) VALUES(?, ?, ?, ?, ?, ?)");
-                prep.setString(1, caseID);
-                prep.setString(2, kBase);
-                prep.setBoolean(3, yKbase);
-                prep.setBoolean(4, ycallBack);
-                prep.setBoolean(5, ycontactEmail);
-                prep.setString(6, comments);
-
-                prep.executeUpdate();
-
-                prep.close();
-                c.commit();
-                c.close();
-            } catch (Exception e)
-            {
-                System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.exit(0);
             }
-            JOptionPane.showMessageDialog(null, "Record Submitted Successfully");
-            clear();
+                try
+                {
+                    Class.forName("org.sqlite.JDBC");
+                    String path = System.getProperty("user.home") + "/Library/Application " + "Support/"
+                            + "Consults";
+                    c = DriverManager.getConnection("jdbc:sqlite:" + path + "/database");
+                    c.setAutoCommit(false);
+                    String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +
+                            "(" +
+                            "    pKey INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                            "    date DATETIME DEFAULT current_date," +
+                            "    caseID VARCHAR(20)," +
+                            "    Kbase VARCHAR(10)," +
+                            "    correctKbase BOOLEAN," +
+                            "    callback BOOLEAN," +
+                            "    contactEmail BOOLEAN," +
+                            "    comments VARCHAR(500)" +
+                            ");" +
+                            "CREATE UNIQUE INDEX consult_pKey_uindex ON consult (pKey);";
 
-        }
-    }
+                    stmt = c.createStatement();
+                    stmt.execute(sqlCreate);
+
+                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, comments) VALUES(?, ?, ?, ?, ?, ?)");
+                    prep.setString(1, caseID);
+                    prep.setString(2, kBase);
+                    prep.setBoolean(3, yKbase);
+                    prep.setBoolean(4, ycallBack);
+                    prep.setBoolean(5, ycontactEmail);
+                    prep.setString(6, comments);
+
+                    prep.executeUpdate();
+
+                    prep.close();
+                    c.commit();
+                    c.close();
+                } catch (Exception e)
+                {
+                    System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                    System.exit(0);
+                }
+                JOptionPane.showMessageDialog(null, "Record Submitted Successfully");
+                clear();
+            }
+            }
+
 
 
     public class clearListener implements ActionListener
@@ -273,7 +303,6 @@ public class Form extends javax.swing.JFrame {
     {
         public void actionPerformed(ActionEvent a)
         {
-            System.out.println("Quit");
             if (JOptionPane.showConfirmDialog(
                     new JFrame(),
                     "Are you sure you want to quit?",
@@ -290,7 +319,9 @@ public class Form extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent a)
         {
 
-            System.exit(0);
+            JOptionPane.showMessageDialog(null, "Locate database file: ~/Library/Application Support/Consults/database \n" +
+                    "attach file to email and send to daniel_jenkins@apple.com");
+
         }
     }
     public void clear(){
@@ -327,6 +358,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+
     // End of variables declaration//GEN-END:variables
 
 }
