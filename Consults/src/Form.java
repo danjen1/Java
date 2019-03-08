@@ -393,7 +393,7 @@ public class Form extends javax.swing.JFrame {
             Desktop d = Desktop.getDesktop();
             try
             {
-                d.open(new File("/Users/dan/Library/Application Support/Consults/"));
+                d.open(new File(System.getProperty("user.home") + "/Library/Application Support/Consults/"));
             } catch (IOException e)
             {
                 e.printStackTrace();
