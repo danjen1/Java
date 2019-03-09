@@ -7,6 +7,7 @@ public class Work
 {
     public static void main(String args[])
     {
+
         String FileFolder = System.getenv("APPDATA") + "\\" + "Launcher";
         System.out.println("Searching for database file");
         String os = System.getProperty("os.name").toUpperCase();

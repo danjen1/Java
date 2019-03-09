@@ -275,6 +275,7 @@ public class Form extends javax.swing.JFrame {
             String comments = jTextArea1.getText();
             Boolean validConsult = jRadioButton7.isSelected();
             String invalidReason = jComboBox1.getSelectedItem().toString();
+            String uname = System.getProperty("user.name");
 
 
            if (caseID.isEmpty() || (kBase.isEmpty()))
@@ -293,35 +294,38 @@ public class Form extends javax.swing.JFrame {
                 {
                     Class.forName("org.sqlite.JDBC");
                     String path = System.getProperty("user.home") + "/Library/Application " + "Support/"
-                            + "Consults";
-                    c = DriverManager.getConnection("jdbc:sqlite:" + path + "/database");
+                            + "Consults/";
+                    c = DriverManager.getConnection("jdbc:sqlite:" + path + uname + "database");
                     c.setAutoCommit(false);
                     String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +
                             "(" +
-                            "    pKey INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                             "    date DATETIME DEFAULT current_date," +
                             "    caseID VARCHAR(20)," +
-                            "    Kbase VARCHAR(10)," +
+                            "    Kbase VARCHAR(50)," +
                             "    correctKbase BOOLEAN," +
                             "    callback BOOLEAN," +
                             "    contactEmail BOOLEAN," +
                             "    validConsult BOOLEAN," +
                             "    invalidReason VARCHAR(35)," +
+                            "    uname VARCHAR(20)," +
+                            "    time DATETIME DEFAULT current_time," +
                             "    comments VARCHAR(500)" +
                             ");" +
-                            "CREATE UNIQUE INDEX consult_pKey_uindex ON consult (pKey);";
+                            "CREATE UNIQUE INDEX consult_pKey_uindex ON consult (time);";
                     stmt = c.createStatement();
                     stmt.execute(sqlCreate);
 
-                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, comments, validConsult, invalidReason) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, validConsult, invalidReason, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     prep.setString(1, caseID);
                     prep.setString(2, kBase);
                     prep.setBoolean(3, yKbase);
                     prep.setBoolean(4, ycallBack);
                     prep.setBoolean(5, ycontactEmail);
-                    prep.setString(6, comments);
-                    prep.setBoolean(7, validConsult);
-                    prep.setString(8, invalidReason);
+                    prep.setBoolean(6, validConsult);
+                    prep.setString(7, invalidReason);
+                    prep.setString(8, uname);
+                    prep.setString(9, comments);
+
 
                     prep.executeUpdate();
 
