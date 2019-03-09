@@ -60,7 +60,7 @@ public class Form extends javax.swing.JFrame {
         jLabel2.setText("KBASE:");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Correct KBASE:");
+        jLabel7.setText("Relevant KBASE:");
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("No");
@@ -107,24 +107,12 @@ public class Form extends javax.swing.JFrame {
         jButton2.setText("Quit");
         jButton2.addActionListener(new quitListener());
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Valid Consult:");
 
-        buttonGroup4.add(jRadioButton7);
-        jRadioButton7.setText("Yes");
-        jRadioButton7.addActionListener(new validListenerY());
-
-
-        buttonGroup4.add(jRadioButton8);
-        jRadioButton8.setText("No");
-        jRadioButton8.addActionListener(new validListenerN());
-
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resource-Locating", "Resource-Confusion", "Gain Agreement", "T1 Driven", "Other" }));
-        jComboBox1.setVisible(false);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resource-Locating", "Resource-Confusion", "Gain Agreement", "Soft Skills", "Positioning", "Other" }));
+        jComboBox1.setVisible(true);
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Reason:");
-        jLabel8.setVisible(false);
+        jLabel8.setText("Consult Reason:");
+        jLabel8.setVisible(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,7 +262,7 @@ public class Form extends javax.swing.JFrame {
             Boolean ycontactEmail = jRadioButton6.isSelected();
             String comments = jTextArea1.getText();
             Boolean validConsult = jRadioButton7.isSelected();
-            String invalidReason = jComboBox1.getSelectedItem().toString();
+            String reason = jComboBox1.getSelectedItem().toString();
             String uname = System.getProperty("user.name");
 
 
@@ -306,7 +294,7 @@ public class Form extends javax.swing.JFrame {
                             "    callback BOOLEAN," +
                             "    contactEmail BOOLEAN," +
                             "    validConsult BOOLEAN," +
-                            "    invalidReason VARCHAR(35)," +
+                            "    reason VARCHAR(35)," +
                             "    uname VARCHAR(20)," +
                             "    time DATETIME DEFAULT current_time," +
                             "    comments VARCHAR(500)" +
@@ -315,14 +303,14 @@ public class Form extends javax.swing.JFrame {
                     stmt = c.createStatement();
                     stmt.execute(sqlCreate);
 
-                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, validConsult, invalidReason, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, validConsult, reason, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     prep.setString(1, caseID);
                     prep.setString(2, kBase);
                     prep.setBoolean(3, yKbase);
                     prep.setBoolean(4, ycallBack);
                     prep.setBoolean(5, ycontactEmail);
                     prep.setBoolean(6, validConsult);
-                    prep.setString(7, invalidReason);
+                    prep.setString(7, reason);
                     prep.setString(8, uname);
                     prep.setString(9, comments);
 
@@ -342,32 +330,6 @@ public class Form extends javax.swing.JFrame {
             }
             }
 
-
-
-
-    public class validListenerY implements ActionListener
-    {
-        public void actionPerformed(ActionEvent a)
-        {
-            if (jRadioButton7.isSelected())
-            {
-                jComboBox1.setVisible(false);
-                jLabel8.setVisible(false);
-            }
-        }
-    }
-
-    public class validListenerN implements ActionListener
-    {
-        public void actionPerformed(ActionEvent a)
-        {
-            if (jRadioButton8.isSelected())
-            {
-                jComboBox1.setVisible(true);
-                jLabel8.setVisible(true);
-            }
-        }
-    }
     public class clearListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
@@ -414,7 +376,7 @@ public class Form extends javax.swing.JFrame {
         buttonGroup2.clearSelection();
         buttonGroup3.clearSelection();
         buttonGroup4.clearSelection();
-        jComboBox1.setVisible(false);
+        jComboBox1.setVisible(true);
         jLabel8.setVisible(false);
         jTextArea1.setText(null);
         jTextField1.setText(null);
