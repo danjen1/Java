@@ -1,250 +1,240 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
-public class Form extends javax.swing.JFrame {
-
-    public Form() {
+public class Form extends javax.swing.JFrame
+{
+    public Form()
+    {
         initComponents();
     }
 
-    private void initComponents() {
+    private void initComponents()
+    {
 
-
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jButton7 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton6 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
+        rsrcButtonGroup = new javax.swing.ButtonGroup();
+        cbButtonGroup = new javax.swing.ButtonGroup();
+        emailButtonGroup = new javax.swing.ButtonGroup();
+        consultPanel = new javax.swing.JPanel();
+        caseIDLabel = new javax.swing.JLabel();
+        caseTextField = new javax.swing.JTextField();
+        rsrcLabel = new javax.swing.JLabel();
+        rsrcTextField = new javax.swing.JTextField();
+        reasonLabel = new javax.swing.JLabel();
+        reasonCombo = new javax.swing.JComboBox();
+        relevantLabel = new javax.swing.JLabel();
+        rsrcYes = new javax.swing.JRadioButton();
+        rsrcNo = new javax.swing.JRadioButton();
+        cbLabel = new javax.swing.JLabel();
+        cbYes = new javax.swing.JRadioButton();
+        cbNo = new javax.swing.JRadioButton();
+        emailLabel = new javax.swing.JLabel();
+        emailYes = new javax.swing.JRadioButton();
+        emailNo = new javax.swing.JRadioButton();
+        commScrollPane = new javax.swing.JScrollPane();
+        commTextArea = new javax.swing.JTextArea();
+        commentsLabel = new javax.swing.JLabel();
+        quitButton = new javax.swing.JButton();
+        submitButton = new javax.swing.JButton();
+        emailButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("T2 Consult Form");
+        setTitle("T2 Consult Pilot");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(" Consult Info "));
+        consultPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Consult Info"));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Case ID:");
+        caseIDLabel.setText("Case ID:");
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("KBASE:");
+        rsrcLabel.setText("Resource Used:");
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Relevant KBASE:");
+        reasonLabel.setText("Consult Reason:");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("No");
-        jRadioButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        relevantLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        relevantLabel.setText("Relevant Resource ?:");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Yes");
-        jRadioButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        rsrcButtonGroup.add(rsrcYes);
+        rsrcYes.setText("Yes");
+        rsrcYes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        rsrcYes.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jButton7.setText("Clear");
-        jButton7.addActionListener(new clearListener());
+        rsrcButtonGroup.add(rsrcNo);
+        rsrcNo.setText("No");
+        rsrcNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        rsrcNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jTextArea1.setColumns(30);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        cbLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        cbLabel.setText("Callback # ?:");
 
-        jButton6.setText("Submit");
-        jButton6.addActionListener(new submitListener());
+        cbButtonGroup.add(cbYes);
+        cbYes.setText("Yes");
+        cbYes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        cbYes.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Callback #:");
+        cbButtonGroup.add(cbNo);
+        cbNo.setText("No");
+        cbNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        cbNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setText("Yes");
+        emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        emailLabel.setText("Contact Email ?:");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("No");
+        emailButtonGroup.add(emailYes);
+        emailYes.setText("Yes");
+        emailYes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        emailYes.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Contact Email:");
-        buttonGroup3.add(jRadioButton5);
-        jRadioButton5.setText("No");
-        buttonGroup3.add(jRadioButton6);
-        jRadioButton6.setText("Yes");
+        emailButtonGroup.add(emailNo);
+        emailNo.setText("No");
+        emailNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        emailNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Comments:");
+        commTextArea.setColumns(20);
+        commTextArea.setRows(5);
+        commScrollPane.setViewportView(commTextArea);
 
-        jButton1.setText("Email");
-        jButton1.addActionListener(new emailListener());
+        commentsLabel.setText("Comments:");
 
-        jButton2.setText("Quit");
-        jButton2.addActionListener(new quitListener());
+        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"", "Resource-Locating", "Resource-Understanding", "Gain Agreement", "Soft Skills", "Positioning", "Other"}));
 
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resource-Locating", "Resource-Confusion", "Gain Agreement", "Soft Skills", "Positioning", "Other" }));
-        jComboBox1.setVisible(true);
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Consult Reason:");
-        jLabel8.setVisible(true);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(341, 341, 341)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton7))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addGap(0, 7, 7)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 6, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addGap(6, 6, 6)))
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout consultPanelLayout = new javax.swing.GroupLayout(consultPanel);
+        consultPanel.setLayout(consultPanelLayout);
+        consultPanelLayout.setHorizontalGroup(
+                consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                .addContainerGap(7, Short.MAX_VALUE)
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(relevantLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cbLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                                .addComponent(emailYes)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jRadioButton4))
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(emailNo))
+                                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                                .addComponent(rsrcYes)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(6, 6, 6)
-                                                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(rsrcNo))
+                                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                                .addComponent(cbYes)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addComponent(jLabel5)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(cbNo))))
+                                        .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(consultPanelLayout.createSequentialGroup()
+                                                        .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addComponent(reasonLabel)
+                                                                .addComponent(rsrcLabel))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(rsrcTextField)
+                                                                .addComponent(reasonCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, consultPanelLayout.createSequentialGroup()
+                                                        .addComponent(caseIDLabel)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(caseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                .addGap(26, 26, 26)
+                                                .addComponent(commentsLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(commScrollPane)))
+                                .addContainerGap(8, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        consultPanelLayout.setVerticalGroup(
+                consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(caseIDLabel)
+                                        .addComponent(caseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jRadioButton2)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(rsrcLabel)
+                                        .addComponent(rsrcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jRadioButton3)
-                                        .addComponent(jRadioButton4))
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(reasonLabel)
+                                        .addComponent(reasonCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(relevantLabel)
+                                        .addComponent(rsrcYes)
+                                        .addComponent(rsrcNo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jRadioButton6)
-                                        .addComponent(jRadioButton5))
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cbLabel)
+                                        .addComponent(cbYes)
+                                        .addComponent(cbNo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jRadioButton7)
-                                        .addComponent(jRadioButton8)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(2, 2, 2)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton6)
-                                        .addComponent(jButton7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton1)
-                                        .addComponent(jButton2))
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(emailLabel)
+                                        .addComponent(emailNo)
+                                        .addComponent(emailYes))
+                                .addGap(18, 18, 18)
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(commentsLabel)
+                                        .addComponent(commScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())
         );
+
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new clearListener());
+
+        submitButton.setText("Submit");
+        submitButton.addActionListener(new submitListener());
+
+        emailButton.setText("Email");
+        emailButton.addActionListener(new emailListener());
+
+        quitButton.setText("Quit");
+        quitButton.addActionListener(new quitListener());
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(submitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                        .addComponent(emailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                        .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(16, 16, 16))
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(consultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(10, Short.MAX_VALUE))
+                                .addComponent(consultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(submitButton)
+                                        .addComponent(clearButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(emailButton)
+                                        .addComponent(quitButton))
+                                .addGap(10, 10, 10))
         );
-
-        jPanel1.getAccessibleContext().setAccessibleName(" Case ");
 
         pack();
     }
@@ -255,18 +245,17 @@ public class Form extends javax.swing.JFrame {
         {
             Connection c;
             Statement stmt;
-            String caseID = jTextField1.getText();
-            String kBase = jTextField2.getText();
-            Boolean yKbase = jRadioButton1.isSelected();
-            Boolean ycallBack = jRadioButton3.isSelected();
-            Boolean ycontactEmail = jRadioButton6.isSelected();
-            String comments = jTextArea1.getText();
-            Boolean validConsult = jRadioButton7.isSelected();
-            String reason = jComboBox1.getSelectedItem().toString();
+            String caseID = caseTextField.getText();
+            String rsrc = rsrcTextField.getText();
+            Boolean callBack = cbYes.isSelected();
+            Boolean relevant = rsrcYes.isSelected();
+            Boolean email = emailYes.isSelected();
+            String comments = commTextArea.getText();
+            String reason = reasonCombo.getSelectedItem().toString();
             String uname = System.getProperty("user.name");
 
 
-           if (caseID.isEmpty() || (kBase.isEmpty()))
+            if (caseID.isEmpty() || (rsrc.isEmpty()))
             {
                 if (JOptionPane.showConfirmDialog(
                         new JFrame(),
@@ -278,57 +267,55 @@ public class Form extends javax.swing.JFrame {
                 }
 
             }
-                try
-                {
-                    Class.forName("org.sqlite.JDBC");
-                    String path = System.getProperty("user.home") + "/Library/Application " + "Support/"
-                            + "Consults/";
-                    c = DriverManager.getConnection("jdbc:sqlite:" + path + uname + "database");
-                    c.setAutoCommit(false);
-                    String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +
-                            "(" +
-                            "    date DATETIME DEFAULT current_date," +
-                            "    caseID VARCHAR(20)," +
-                            "    Kbase VARCHAR(50)," +
-                            "    correctKbase BOOLEAN," +
-                            "    callback BOOLEAN," +
-                            "    contactEmail BOOLEAN," +
-                            "    validConsult BOOLEAN," +
-                            "    reason VARCHAR(35)," +
-                            "    uname VARCHAR(20)," +
-                            "    time DATETIME DEFAULT current_time," +
-                            "    comments VARCHAR(500)" +
-                            ");" +
-                            "CREATE UNIQUE INDEX consult_pKey_uindex ON consult (time);";
-                    stmt = c.createStatement();
-                    stmt.execute(sqlCreate);
+            try
+            {
+                Class.forName("org.sqlite.JDBC");
+                String path = System.getProperty("user.home") + "/Library/Application " + "Support/"
+                        + "Consults/";
+                c = DriverManager.getConnection("jdbc:sqlite:" + path + uname + "database");
+                c.setAutoCommit(false);
+                String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +
+                        "(" +
+                        "    date DATETIME DEFAULT current_date," +
+                        "    caseID VARCHAR(20)," +
+                        "    rsrc VARCHAR(100)," +
+                        "    reason VARCHAR(75)," +
+                        "    relevant BOOLEAN," +
+                        "    callBack BOOLEAN," +
+                        "    email BOOLEAN," +
+                        "    uname VARCHAR(20)," +
+                        "    time DATETIME DEFAULT current_time," +
+                        "    comments VARCHAR(500)" +
+                        ");" +
+                        "CREATE UNIQUE INDEX consult_pKey_uindex ON consult (time);";
+                stmt = c.createStatement();
+                stmt.execute(sqlCreate);
 
-                    PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, Kbase, correctKbase, callback, contactEmail, validConsult, reason, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    prep.setString(1, caseID);
-                    prep.setString(2, kBase);
-                    prep.setBoolean(3, yKbase);
-                    prep.setBoolean(4, ycallBack);
-                    prep.setBoolean(5, ycontactEmail);
-                    prep.setBoolean(6, validConsult);
-                    prep.setString(7, reason);
-                    prep.setString(8, uname);
-                    prep.setString(9, comments);
+                PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, rsrc, reason, relevant, relevant, email, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                prep.setString(1, caseID);
+                prep.setString(2, rsrc);
+                prep.setString(3, reason);
+                prep.setBoolean(4, relevant);
+                prep.setBoolean(5, callBack);
+                prep.setBoolean(6, email);
+                prep.setString(7, uname);
+                prep.setString(8, comments);
 
 
-                    prep.executeUpdate();
+                prep.executeUpdate();
 
-                    prep.close();
-                    c.commit();
-                    c.close();
-                } catch (Exception e)
-                {
-                    System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                    System.exit(0);
-                }
-                JOptionPane.showMessageDialog(null, "Record Submitted Successfully");
-                clear();
+                prep.close();
+                c.commit();
+                c.close();
+            } catch (Exception e)
+            {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                System.exit(0);
             }
-            }
+            JOptionPane.showMessageDialog(null, "Record Submitted Successfully");
+            clear();
+        }
+    }
 
     public class clearListener implements ActionListener
     {
@@ -337,6 +324,7 @@ public class Form extends javax.swing.JFrame {
             clear();
         }
     }
+
     public class quitListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
@@ -352,6 +340,7 @@ public class Form extends javax.swing.JFrame {
             }
         }
     }
+
     public class emailListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
@@ -371,53 +360,43 @@ public class Form extends javax.swing.JFrame {
     }
 
 
+
     public void clear(){
-        buttonGroup1.clearSelection();
-        buttonGroup2.clearSelection();
-        buttonGroup3.clearSelection();
-        buttonGroup4.clearSelection();
-        jComboBox1.setVisible(true);
-        jLabel8.setVisible(false);
-        jTextArea1.setText(null);
-        jTextField1.setText(null);
-        jTextField2.setText(null);
+        rsrcButtonGroup.clearSelection();
+        cbButtonGroup.clearSelection();
+        emailButtonGroup.clearSelection();
+        commTextArea.setText(null);
+        caseTextField.setText(null);
+        rsrcTextField.setText(null);
+        reasonCombo.setSelectedIndex(0);
 
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
 
-    // End of variables declaration//GEN-END:variables
-
+    private javax.swing.ButtonGroup rsrcButtonGroup;
+    private javax.swing.ButtonGroup cbButtonGroup;
+    private javax.swing.ButtonGroup emailButtonGroup;
+    private javax.swing.JButton emailButton;
+    private javax.swing.JButton quitButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JButton submitButton;
+    private javax.swing.JComboBox reasonCombo;
+    private javax.swing.JLabel caseIDLabel;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel commentsLabel;
+    private javax.swing.JLabel rsrcLabel;
+    private javax.swing.JLabel reasonLabel;
+    private javax.swing.JLabel relevantLabel;
+    private javax.swing.JLabel cbLabel;
+    private javax.swing.JPanel consultPanel;
+    private javax.swing.JRadioButton rsrcYes;
+    private javax.swing.JRadioButton rsrcNo;
+    private javax.swing.JRadioButton cbYes;
+    private javax.swing.JRadioButton cbNo;
+    private javax.swing.JRadioButton emailYes;
+    private javax.swing.JRadioButton emailNo;
+    private javax.swing.JScrollPane commScrollPane;
+    private javax.swing.JTextArea commTextArea;
+    private javax.swing.JTextField caseTextField;
+    private javax.swing.JTextField rsrcTextField;
 }
-
-
