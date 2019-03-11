@@ -5,46 +5,46 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-public class Form extends javax.swing.JFrame
+class Form extends javax.swing.JFrame
 {
     public Form()
     {
         initComponents();
     }
 
+    //Build GUI & Event Listeners
     private void initComponents()
     {
 
         rsrcButtonGroup = new javax.swing.ButtonGroup();
         cbButtonGroup = new javax.swing.ButtonGroup();
         emailButtonGroup = new javax.swing.ButtonGroup();
-        consultPanel = new javax.swing.JPanel();
-        caseIDLabel = new javax.swing.JLabel();
+        JPanel consultPanel = new JPanel();
+        JLabel caseIDLabel = new JLabel();
         caseTextField = new javax.swing.JTextField();
-        rsrcLabel = new javax.swing.JLabel();
+        JLabel rsrcLabel = new JLabel();
         rsrcTextField = new javax.swing.JTextField();
-        reasonLabel = new javax.swing.JLabel();
+        JLabel reasonLabel = new JLabel();
         reasonCombo = new javax.swing.JComboBox();
-        relevantLabel = new javax.swing.JLabel();
+        JLabel relevantLabel = new JLabel();
         rsrcYes = new javax.swing.JRadioButton();
-        rsrcNo = new javax.swing.JRadioButton();
-        cbLabel = new javax.swing.JLabel();
+        JRadioButton rsrcNo = new JRadioButton();
+        JLabel cbLabel = new JLabel();
         cbYes = new javax.swing.JRadioButton();
-        cbNo = new javax.swing.JRadioButton();
-        emailLabel = new javax.swing.JLabel();
+        JRadioButton cbNo = new JRadioButton();
+        JLabel emailLabel = new JLabel();
         emailYes = new javax.swing.JRadioButton();
-        emailNo = new javax.swing.JRadioButton();
-        commScrollPane = new javax.swing.JScrollPane();
+        JRadioButton emailNo = new JRadioButton();
+        JScrollPane commScrollPane = new JScrollPane();
         commTextArea = new javax.swing.JTextArea();
-        commentsLabel = new javax.swing.JLabel();
-        quitButton = new javax.swing.JButton();
-        submitButton = new javax.swing.JButton();
-        emailButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
+        JLabel commentsLabel = new JLabel();
+        JButton quitButton = new JButton();
+        JButton submitButton = new JButton();
+        JButton emailButton = new JButton();
+        JButton clearButton = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("T2 Consult Pilot");
@@ -102,7 +102,7 @@ public class Form extends javax.swing.JFrame
 
         commentsLabel.setText("Comments:");
 
-        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"","Mandatory / Procedural", "Resource - Locating", "Resource - Understanding", "Gain Agreement", "Soft Skills", "Positioning", "Other"}));
+        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"","Mandatory / Procedural","Unable to Gain Agreement", "Advisor Comfort Level", "Resource - Locating", "Resource - Understanding",  "Other"}));
 
 
         javax.swing.GroupLayout consultPanelLayout = new javax.swing.GroupLayout(consultPanel);
@@ -239,21 +239,21 @@ public class Form extends javax.swing.JFrame
         pack();
     }
 
-    public class submitListener implements ActionListener
+    class submitListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
         {
             Connection c;
+            sqlLiteConnect sql = new sqlLiteConnect();
             Statement stmt;
             String caseID = caseTextField.getText();
             String rsrc = rsrcTextField.getText();
-            Boolean callBack = cbYes.isSelected();
-            Boolean relevant = rsrcYes.isSelected();
-            Boolean email = emailYes.isSelected();
+            boolean callBack = cbYes.isSelected();
+            boolean relevant = rsrcYes.isSelected();
+            boolean email = emailYes.isSelected();
             String comments = commTextArea.getText();
             String reason = reasonCombo.getSelectedItem().toString();
             String uname = System.getProperty("user.name");
-
 
             if (caseID.isEmpty() || (rsrc.isEmpty()))
             {
@@ -265,14 +265,11 @@ public class Form extends javax.swing.JFrame
                 {
                     return;
                 }
-
             }
             try
             {
-                Class.forName("org.sqlite.JDBC");
-                String path = System.getProperty("user.home") + "/Library/Application " + "Support/"
-                        + "Consults/";
-                c = DriverManager.getConnection("jdbc:sqlite:" + path + uname + "database");
+                c = sql.getConnection(System.getProperty("user.home") + "/Library/Application Support/"
+                        + "Consults/" + uname + "_database");
                 c.setAutoCommit(false);
                 String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +
                         "(" +
@@ -291,7 +288,8 @@ public class Form extends javax.swing.JFrame
                 stmt = c.createStatement();
                 stmt.execute(sqlCreate);
 
-                PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, rsrc, reason, relevant, relevant, email, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, rsrc, reason, relevant, callBack   , " +
+                        "email, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
                 prep.setString(1, caseID);
                 prep.setString(2, rsrc);
                 prep.setString(3, reason);
@@ -301,10 +299,9 @@ public class Form extends javax.swing.JFrame
                 prep.setString(7, uname);
                 prep.setString(8, comments);
 
-
                 prep.executeUpdate();
-
                 prep.close();
+
                 c.commit();
                 c.close();
             } catch (Exception e)
@@ -317,7 +314,7 @@ public class Form extends javax.swing.JFrame
         }
     }
 
-    public class clearListener implements ActionListener
+    class clearListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
         {
@@ -325,7 +322,7 @@ public class Form extends javax.swing.JFrame
         }
     }
 
-    public class quitListener implements ActionListener
+    class quitListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
         {
@@ -341,7 +338,7 @@ public class Form extends javax.swing.JFrame
         }
     }
 
-    public class emailListener implements ActionListener
+    class emailListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
         {
@@ -354,14 +351,12 @@ public class Form extends javax.swing.JFrame
                 e.printStackTrace();
             }
 
-            JOptionPane.showMessageDialog(null, "Share database file with Mail from the Finder window that just opened.\n" +
+            JOptionPane.showMessageDialog(null, "Share ~/Library/Application Support/Consults/Username_database\nfile with Mail from the Finder window that just opened.\n" +
                     "Email to: daniel_jenkins@apple.com");
         }
     }
 
-
-
-    public void clear(){
+    private void clear(){
         rsrcButtonGroup.clearSelection();
         cbButtonGroup.clearSelection();
         emailButtonGroup.clearSelection();
@@ -369,33 +364,15 @@ public class Form extends javax.swing.JFrame
         caseTextField.setText(null);
         rsrcTextField.setText(null);
         reasonCombo.setSelectedIndex(0);
-
     }
-
 
     private javax.swing.ButtonGroup rsrcButtonGroup;
     private javax.swing.ButtonGroup cbButtonGroup;
     private javax.swing.ButtonGroup emailButtonGroup;
-    private javax.swing.JButton emailButton;
-    private javax.swing.JButton quitButton;
-    private javax.swing.JButton clearButton;
-    private javax.swing.JButton submitButton;
     private javax.swing.JComboBox reasonCombo;
-    private javax.swing.JLabel caseIDLabel;
-    private javax.swing.JLabel emailLabel;
-    private javax.swing.JLabel commentsLabel;
-    private javax.swing.JLabel rsrcLabel;
-    private javax.swing.JLabel reasonLabel;
-    private javax.swing.JLabel relevantLabel;
-    private javax.swing.JLabel cbLabel;
-    private javax.swing.JPanel consultPanel;
     private javax.swing.JRadioButton rsrcYes;
-    private javax.swing.JRadioButton rsrcNo;
     private javax.swing.JRadioButton cbYes;
-    private javax.swing.JRadioButton cbNo;
     private javax.swing.JRadioButton emailYes;
-    private javax.swing.JRadioButton emailNo;
-    private javax.swing.JScrollPane commScrollPane;
     private javax.swing.JTextArea commTextArea;
     private javax.swing.JTextField caseTextField;
     private javax.swing.JTextField rsrcTextField;

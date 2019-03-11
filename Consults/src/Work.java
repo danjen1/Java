@@ -3,7 +3,7 @@ import javax.swing.text.DefaultEditorKit;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
-public class Work
+class Work
 {
     public static void main(String args[])
     {
@@ -35,7 +35,7 @@ public class Work
             System.out.println("Found folder");
         }
 
-        if (directory.exists() == false) {
+        if (!directory.exists()) {
             directory.mkdir();
             System.out.println("Could not find database folder so created it");
         }
@@ -61,10 +61,6 @@ public class Work
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.META_DOWN_MASK), DefaultEditorKit.copyAction);
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, KeyEvent.META_DOWN_MASK), DefaultEditorKit.pasteAction);
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_X, KeyEvent.META_DOWN_MASK), DefaultEditorKit.cutAction);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Form().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Form().setVisible(true));
     }
 }
