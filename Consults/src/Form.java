@@ -102,7 +102,7 @@ public class Form extends javax.swing.JFrame
 
         commentsLabel.setText("Comments:");
 
-        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"", "Resource-Locating", "Resource-Understanding", "Gain Agreement", "Soft Skills", "Positioning", "Other"}));
+        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"","Mandatory / Procedural", "Resource - Locating", "Resource - Understanding", "Gain Agreement", "Soft Skills", "Positioning", "Other"}));
 
 
         javax.swing.GroupLayout consultPanelLayout = new javax.swing.GroupLayout(consultPanel);
@@ -312,7 +312,7 @@ public class Form extends javax.swing.JFrame
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 System.exit(0);
             }
-            JOptionPane.showMessageDialog(null, "Record Submitted Successfully");
+            JOptionPane.showMessageDialog(null, "Success!");
             clear();
         }
     }
@@ -354,7 +354,7 @@ public class Form extends javax.swing.JFrame
                 e.printStackTrace();
             }
 
-            JOptionPane.showMessageDialog(null, "Share 'database' with Mail from the Finder window that just opened.\n" +
+            JOptionPane.showMessageDialog(null, "Share database file with Mail from the Finder window that just opened.\n" +
                     "Email to: daniel_jenkins@apple.com");
         }
     }
