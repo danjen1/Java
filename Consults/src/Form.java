@@ -22,6 +22,7 @@ class Form extends javax.swing.JFrame
         rsrcButtonGroup = new javax.swing.ButtonGroup();
         cbButtonGroup = new javax.swing.ButtonGroup();
         emailButtonGroup = new javax.swing.ButtonGroup();
+        contactNameButtonGroup = new javax.swing.ButtonGroup();
         JPanel consultPanel = new JPanel();
         JLabel caseIDLabel = new JLabel();
         caseTextField = new javax.swing.JTextField();
@@ -39,6 +40,10 @@ class Form extends javax.swing.JFrame
         emailYes = new javax.swing.JRadioButton();
         JRadioButton emailNo = new JRadioButton();
         JScrollPane commScrollPane = new JScrollPane();
+        rsrcButtonGroup = new javax.swing.ButtonGroup();
+        JLabel contactNameLabel = new JLabel();
+        JRadioButton contactNameYes = new JRadioButton();
+        JRadioButton contactNameNo = new JRadioButton();
         commTextArea = new javax.swing.JTextArea();
         JLabel commentsLabel = new JLabel();
         JButton quitButton = new JButton();
@@ -101,8 +106,20 @@ class Form extends javax.swing.JFrame
         commScrollPane.setViewportView(commTextArea);
 
         commentsLabel.setText("Comments:");
+        contactNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        contactNameLabel.setText("Case Contact Name ?:");
 
-        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"","Mandatory / Procedural","Unable to Gain Agreement", "Advisor Comfort Level", "Resource - Locating", "Resource - Understanding",  "Other"}));
+        contactNameButtonGroup.add(contactNameYes);
+        contactNameYes.setText("Yes");
+        contactNameYes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        contactNameYes.setMargin(new java.awt.Insets(0, 0, 0, 0));
+
+        contactNameButtonGroup.add(contactNameNo);
+        contactNameNo.setText("No");
+        contactNameNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        contactNameNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
+
+        reasonCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"", "Mandatory / Procedural", "Unable to Gain Agreement", "Advisor Comfort Level", "Resource - Locating", "Resource - Understanding", "Other"}));
 
 
         javax.swing.GroupLayout consultPanelLayout = new javax.swing.GroupLayout(consultPanel);
@@ -116,7 +133,8 @@ class Form extends javax.swing.JFrame
                                                 .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(relevantLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(cbLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(contactNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(consultPanelLayout.createSequentialGroup()
@@ -130,7 +148,11 @@ class Form extends javax.swing.JFrame
                                                         .addGroup(consultPanelLayout.createSequentialGroup()
                                                                 .addComponent(cbYes)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cbNo))))
+                                                                .addComponent(cbNo))
+                                                        .addGroup(consultPanelLayout.createSequentialGroup()
+                                                                .addComponent(contactNameYes)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(contactNameNo))))
                                         .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(consultPanelLayout.createSequentialGroup()
                                                         .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -181,6 +203,11 @@ class Form extends javax.swing.JFrame
                                         .addComponent(emailLabel)
                                         .addComponent(emailNo)
                                         .addComponent(emailYes))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(contactNameLabel)
+                                        .addComponent(contactNameYes)
+                                        .addComponent(contactNameNo))
                                 .addGap(18, 18, 18)
                                 .addGroup(consultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(commentsLabel)
@@ -251,6 +278,7 @@ class Form extends javax.swing.JFrame
             boolean callBack = cbYes.isSelected();
             boolean relevant = rsrcYes.isSelected();
             boolean email = emailYes.isSelected();
+            boolean contactName = emailYes.isSelected();
             String comments = commTextArea.getText();
             String reason = reasonCombo.getSelectedItem().toString();
             String uname = System.getProperty("user.name");
@@ -280,6 +308,7 @@ class Form extends javax.swing.JFrame
                         "    relevant BOOLEAN," +
                         "    callBack BOOLEAN," +
                         "    email BOOLEAN," +
+                        "    contactName BOOLEAN," +
                         "    uname VARCHAR(20)," +
                         "    time DATETIME DEFAULT current_time," +
                         "    comments VARCHAR(500)" +
@@ -289,15 +318,16 @@ class Form extends javax.swing.JFrame
                 stmt.execute(sqlCreate);
 
                 PreparedStatement prep = c.prepareStatement("INSERT INTO consult(caseID, rsrc, reason, relevant, callBack   , " +
-                        "email, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                        "email, contactName, uname, comments) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 prep.setString(1, caseID);
                 prep.setString(2, rsrc);
                 prep.setString(3, reason);
                 prep.setBoolean(4, relevant);
                 prep.setBoolean(5, callBack);
                 prep.setBoolean(6, email);
-                prep.setString(7, uname);
-                prep.setString(8, comments);
+                prep.setBoolean(7, contactName);
+                prep.setString(8, uname);
+                prep.setString(9, comments);
 
                 prep.executeUpdate();
                 prep.close();
@@ -360,6 +390,7 @@ class Form extends javax.swing.JFrame
         rsrcButtonGroup.clearSelection();
         cbButtonGroup.clearSelection();
         emailButtonGroup.clearSelection();
+        contactNameButtonGroup.clearSelection();
         commTextArea.setText(null);
         caseTextField.setText(null);
         rsrcTextField.setText(null);
@@ -369,6 +400,7 @@ class Form extends javax.swing.JFrame
     private javax.swing.ButtonGroup rsrcButtonGroup;
     private javax.swing.ButtonGroup cbButtonGroup;
     private javax.swing.ButtonGroup emailButtonGroup;
+    private javax.swing.ButtonGroup contactNameButtonGroup;
     private javax.swing.JComboBox reasonCombo;
     private javax.swing.JRadioButton rsrcYes;
     private javax.swing.JRadioButton cbYes;
