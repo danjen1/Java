@@ -3,7 +3,7 @@ import javax.swing.text.DefaultEditorKit;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
-public class Work
+class Work
 {
     public static void main(String args[])
     {
@@ -35,7 +35,7 @@ public class Work
             System.out.println("Found folder");
         }
 
-        if (directory.exists() == false) {
+        if (!directory.exists()) {
             directory.mkdir();
             System.out.println("Could not find database folder so created it");
         }
@@ -43,28 +43,19 @@ public class Work
        try {
 
             javax.swing.UIManager.LookAndFeelInfo[] installedLookAndFeels=javax.swing.UIManager.getInstalledLookAndFeels();
-            for (int idx=0; idx<installedLookAndFeels.length; idx++)
-                if ("GTK+".equals(installedLookAndFeels[idx].getName())) {
-                    javax.swing.UIManager.setLookAndFeel(installedLookAndFeels[idx].getClassName());
-                    break;
-                }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+           for (UIManager.LookAndFeelInfo installedLookAndFeel : installedLookAndFeels)
+               if ("GTK+".equals(installedLookAndFeel.getName()))
+               {
+                   UIManager.setLookAndFeel(installedLookAndFeel.getClassName());
+                   break;
+               }
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         InputMap im = (InputMap) UIManager.get("TextField.focusInputMap");
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.META_DOWN_MASK), DefaultEditorKit.copyAction);
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, KeyEvent.META_DOWN_MASK), DefaultEditorKit.pasteAction);
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_X, KeyEvent.META_DOWN_MASK), DefaultEditorKit.cutAction);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Form().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Form().setVisible(true));
     }
 }
