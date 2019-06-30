@@ -1,0 +1,1365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://week1-000.Sandbox/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-000.Sandbox/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-000.Sandbox/lib/junit-4.11.jar" />
+    <libelement value="file://week1-000.Sandbox/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-001.Name/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-001.Name/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-001.Name/lib/junit-4.11.jar" />
+    <libelement value="file://week1-001.Name/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-002.HelloWorld/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-002.HelloWorld/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-002.HelloWorld/lib/junit-4.11.jar" />
+    <libelement value="file://week1-002.HelloWorld/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-003.Spruce/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-003.Spruce/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-003.Spruce/lib/junit-4.11.jar" />
+    <libelement value="file://week1-003.Spruce/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/cglib-nodep-2.2.2.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/easymock-3.2.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/javassist-3.18.2-GA.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/junit-4.11.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/objenesis-2.1.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/powermock-easymock-1.5.5-full.jar" />
+    <libelement value="file://week1-004.ChangingVariables/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-005.SecondsOfTheYear/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-005.SecondsOfTheYear/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-005.SecondsOfTheYear/lib/junit-4.11.jar" />
+    <libelement value="file://week1-005.SecondsOfTheYear/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-006.Addition/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-006.Addition/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-006.Addition/lib/junit-4.11.jar" />
+    <libelement value="file://week1-006.Addition/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-007.Multiplication/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-007.Multiplication/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-007.Multiplication/lib/junit-4.11.jar" />
+    <libelement value="file://week1-007.Multiplication/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-008.Adder/dist/008.Adder.jar" />
+    <libelement value="file://week1-008.Adder/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-008.Adder/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-008.Adder/lib/junit-4.11.jar" />
+    <libelement value="file://week1-008.Adder/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-009.Divider/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-009.Divider/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-009.Divider/lib/junit-4.11.jar" />
+    <libelement value="file://week1-009.Divider/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-010.CircleCircumference/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-010.CircleCircumference/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-010.CircleCircumference/lib/junit-4.11.jar" />
+    <libelement value="file://week1-010.CircleCircumference/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-011.BiggerNumber/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-011.BiggerNumber/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-011.BiggerNumber/lib/junit-4.11.jar" />
+    <libelement value="file://week1-011.BiggerNumber/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-012.SumOfTheAges/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-012.SumOfTheAges/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-012.SumOfTheAges/lib/junit-4.11.jar" />
+    <libelement value="file://week1-012.SumOfTheAges/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/cglib-nodep-2.2.2.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/easymock-3.2.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/javassist-3.18.2-GA.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/junit-4.11.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/nhllib.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/objenesis-2.1.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/powermock-easymock-1.5.5-full.jar" />
+    <libelement value="file://week1-013.NhlStatisticsPart1/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-014.PositiveValue/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-014.PositiveValue/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-014.PositiveValue/lib/junit-4.11.jar" />
+    <libelement value="file://week1-014.PositiveValue/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-015.AgeOfMajority/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-015.AgeOfMajority/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-015.AgeOfMajority/lib/junit-4.11.jar" />
+    <libelement value="file://week1-015.AgeOfMajority/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-016.EvenOrOdd/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-016.EvenOrOdd/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-016.EvenOrOdd/lib/junit-4.11.jar" />
+    <libelement value="file://week1-016.EvenOrOdd/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-017.GreaterNumber/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-017.GreaterNumber/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-017.GreaterNumber/lib/junit-4.11.jar" />
+    <libelement value="file://week1-017.GreaterNumber/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/cglib-nodep-2.2.2.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/easymock-3.2.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/javassist-3.18.2-GA.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/junit-4.11.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/objenesis-2.1.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/powermock-easymock-1.5.5-full.jar" />
+    <libelement value="file://week1-018.GradesAndPoints/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-019.AgeCheck/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-019.AgeCheck/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-019.AgeCheck/lib/junit-4.11.jar" />
+    <libelement value="file://week1-019.AgeCheck/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-020.Usernames/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-020.Usernames/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-020.Usernames/lib/junit-4.11.jar" />
+    <libelement value="file://week1-020.Usernames/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-021.LeapYear/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-021.LeapYear/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-021.LeapYear/lib/junit-4.11.jar" />
+    <libelement value="file://week1-021.LeapYear/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-022.Password/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-022.Password/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-022.Password/lib/junit-4.11.jar" />
+    <libelement value="file://week1-022.Password/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/cglib-nodep-2.2.2.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/easymock-3.2.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/javassist-3.18.2-GA.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/jcommon-1.0.17.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/jfreechart-1.0.14.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/junit-4.11.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/objenesis-2.1.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/powermock-easymock-1.5.5-full.jar" />
+    <libelement value="file://week1-023.Temperatures/lib/testrunner/tmc-junit-runner.jar" />
+    <libelement value="file://week1-024.NhlStatisticsPart2/lib/edu-test-utils-0.4.2.jar" />
+    <libelement value="file://week1-024.NhlStatisticsPart2/lib/hamcrest-core-1.3.jar" />
+    <libelement value="file://week1-024.NhlStatisticsPart2/lib/junit-4.11.jar" />
+    <libelement value="file://week1-024.NhlStatisticsPart2/lib/nhllib.jar" />
+    <libelement value="file://week1-024.NhlStatisticsPart2/lib/testrunner/tmc-junit-runner.jar" />
+    <src_description expected_position="1">
+      <src_folder value="file://$MODULE_DIR$/week1-000.Sandbox/src" expected_position="1" />
+      <src_folder value="file://$MODULE_DIR$/week1-000.Sandbox/test" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/week1-001.Name/src" expected_position="3" />
+      <src_folder value="file://$MODULE_DIR$/week1-001.Name/test" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/week1-002.HelloWorld/src" expected_position="5" />
+      <src_folder value="file://$MODULE_DIR$/week1-002.HelloWorld/test" expected_position="6" />
+      <src_folder value="file://$MODULE_DIR$/week1-003.Spruce/src" expected_position="7" />
+      <src_folder value="file://$MODULE_DIR$/week1-003.Spruce/test" expected_position="8" />
+      <src_folder value="file://$MODULE_DIR$/week1-004.ChangingVariables/src" expected_position="9" />
+      <src_folder value="file://$MODULE_DIR$/week1-004.ChangingVariables/test" expected_position="10" />
+      <src_folder value="file://$MODULE_DIR$/week1-005.SecondsOfTheYear/src" expected_position="11" />
+      <src_folder value="file://$MODULE_DIR$/week1-005.SecondsOfTheYear/test" expected_position="12" />
+      <src_folder value="file://$MODULE_DIR$/week1-006.Addition/src" expected_position="13" />
+      <src_folder value="file://$MODULE_DIR$/week1-006.Addition/test" expected_position="14" />
+      <src_folder value="file://$MODULE_DIR$/week1-007.Multiplication/src" expected_position="15" />
+      <src_folder value="file://$MODULE_DIR$/week1-007.Multiplication/test" expected_position="16" />
+      <src_folder value="file://$MODULE_DIR$/week1-008.Adder/src" expected_position="17" />
+      <src_folder value="file://$MODULE_DIR$/week1-008.Adder/test" expected_position="18" />
+      <src_folder value="file://$MODULE_DIR$/week1-009.Divider/src" expected_position="19" />
+      <src_folder value="file://$MODULE_DIR$/week1-009.Divider/test" expected_position="20" />
+      <src_folder value="file://$MODULE_DIR$/week1-010.CircleCircumference/src" expected_position="21" />
+      <src_folder value="file://$MODULE_DIR$/week1-010.CircleCircumference/test" expected_position="22" />
+      <src_folder value="file://$MODULE_DIR$/week1-011.BiggerNumber/src" expected_position="23" />
+      <src_folder value="file://$MODULE_DIR$/week1-011.BiggerNumber/test" expected_position="24" />
+      <src_folder value="file://$MODULE_DIR$/week1-012.SumOfTheAges/src" expected_position="25" />
+      <src_folder value="file://$MODULE_DIR$/week1-012.SumOfTheAges/test" expected_position="26" />
+      <src_folder value="file://$MODULE_DIR$/week1-013.NhlStatisticsPart1/src" expected_position="27" />
+      <src_folder value="file://$MODULE_DIR$/week1-013.NhlStatisticsPart1/test" expected_position="28" />
+      <src_folder value="file://$MODULE_DIR$/week1-014.PositiveValue/src" expected_position="29" />
+      <src_folder value="file://$MODULE_DIR$/week1-014.PositiveValue/test" expected_position="30" />
+      <src_folder value="file://$MODULE_DIR$/week1-015.AgeOfMajority/src" expected_position="31" />
+      <src_folder value="file://$MODULE_DIR$/week1-015.AgeOfMajority/test" expected_position="32" />
+      <src_folder value="file://$MODULE_DIR$/week1-016.EvenOrOdd/src" expected_position="33" />
+      <src_folder value="file://$MODULE_DIR$/week1-016.EvenOrOdd/test" expected_position="34" />
+      <src_folder value="file://$MODULE_DIR$/week1-017.GreaterNumber/src" expected_position="35" />
+      <src_folder value="file://$MODULE_DIR$/week1-017.GreaterNumber/test" expected_position="36" />
+      <src_folder value="file://$MODULE_DIR$/week1-018.GradesAndPoints/src" expected_position="37" />
+      <src_folder value="file://$MODULE_DIR$/week1-018.GradesAndPoints/test" expected_position="38" />
+      <src_folder value="file://$MODULE_DIR$/week1-019.AgeCheck/src" expected_position="39" />
+      <src_folder value="file://$MODULE_DIR$/week1-019.AgeCheck/test" expected_position="40" />
+      <src_folder value="file://$MODULE_DIR$/week1-020.Usernames/src" expected_position="41" />
+      <src_folder value="file://$MODULE_DIR$/week1-020.Usernames/test" expected_position="42" />
+      <src_folder value="file://$MODULE_DIR$/week1-021.LeapYear/src" expected_position="43" />
+      <src_folder value="file://$MODULE_DIR$/week1-021.LeapYear/test" expected_position="44" />
+      <src_folder value="file://$MODULE_DIR$/week1-022.Password/src" expected_position="45" />
+      <src_folder value="file://$MODULE_DIR$/week1-022.Password/test" expected_position="46" />
+      <src_folder value="file://$MODULE_DIR$/week1-023.Temperatures/src" expected_position="47" />
+      <src_folder value="file://$MODULE_DIR$/week1-023.Temperatures/test" expected_position="48" />
+      <src_folder value="file://$MODULE_DIR$/week1-024.NhlStatisticsPart2/src" expected_position="49" />
+      <src_folder value="file://$MODULE_DIR$/week1-024.NhlStatisticsPart2/test" expected_position="50" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/week1-001.Name/build/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/week1-000.Sandbox/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-000.Sandbox/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-001.Name/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-001.Name/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-002.HelloWorld/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-002.HelloWorld/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-003.Spruce/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-003.Spruce/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-004.ChangingVariables/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-004.ChangingVariables/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-005.SecondsOfTheYear/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-005.SecondsOfTheYear/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-006.Addition/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-006.Addition/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-007.Multiplication/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-007.Multiplication/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-008.Adder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-008.Adder/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-009.Divider/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-009.Divider/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-010.CircleCircumference/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-010.CircleCircumference/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-011.BiggerNumber/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-011.BiggerNumber/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-012.SumOfTheAges/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-012.SumOfTheAges/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-013.NhlStatisticsPart1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-013.NhlStatisticsPart1/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-014.PositiveValue/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-014.PositiveValue/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-015.AgeOfMajority/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-015.AgeOfMajority/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-016.EvenOrOdd/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-016.EvenOrOdd/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-017.GreaterNumber/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-017.GreaterNumber/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-018.GradesAndPoints/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-018.GradesAndPoints/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-019.AgeCheck/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-019.AgeCheck/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-020.Usernames/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-020.Usernames/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-021.LeapYear/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-021.LeapYear/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-022.Password/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-022.Password/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-023.Temperatures/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-023.Temperatures/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-024.NhlStatisticsPart2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week1-024.NhlStatisticsPart2/test" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-000.Sandbox/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-000.Sandbox/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-000.Sandbox/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-000.Sandbox/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-001.Name/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-001.Name/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-001.Name/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-001.Name/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-001.Name/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-001.Name/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-001.Name/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-001.Name/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-002.HelloWorld/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-002.HelloWorld/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-002.HelloWorld/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-002.HelloWorld/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-002.HelloWorld/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-002.HelloWorld/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-002.HelloWorld/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-002.HelloWorld/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-003.Spruce/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-003.Spruce/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-003.Spruce/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-003.Spruce/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-003.Spruce/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-003.Spruce/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-003.Spruce/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-003.Spruce/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cglib-nodep-2.2.2.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/cglib-nodep-2.2.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="easymock-3.2.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/easymock-3.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-004.ChangingVariables/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-004.ChangingVariables/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javassist-3.18.2-GA.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/javassist-3.18.2-GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-004.ChangingVariables/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="objenesis-2.1.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/objenesis-2.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="powermock-easymock-1.5.5-full.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/powermock-easymock-1.5.5-full.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-004.ChangingVariables/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-004.ChangingVariables/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-005.SecondsOfTheYear/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-005.SecondsOfTheYear/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-005.SecondsOfTheYear/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-005.SecondsOfTheYear/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-005.SecondsOfTheYear/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-005.SecondsOfTheYear/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-005.SecondsOfTheYear/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-005.SecondsOfTheYear/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-006.Addition/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-006.Addition/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-006.Addition/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-006.Addition/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-006.Addition/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-006.Addition/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-006.Addition/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-006.Addition/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-007.Multiplication/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-007.Multiplication/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-007.Multiplication/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-007.Multiplication/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-007.Multiplication/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-007.Multiplication/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-007.Multiplication/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-007.Multiplication/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="008.Adder.jar">
+        <CLASSES>
+          <root url="file://week1-008.Adder/dist/008.Adder.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-008.Adder/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-008.Adder/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-008.Adder/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-008.Adder/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-008.Adder/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-008.Adder/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-008.Adder/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-008.Adder/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-009.Divider/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-009.Divider/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-009.Divider/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-009.Divider/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-009.Divider/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-009.Divider/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-009.Divider/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-009.Divider/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-010.CircleCircumference/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-010.CircleCircumference/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-010.CircleCircumference/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-010.CircleCircumference/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-010.CircleCircumference/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-010.CircleCircumference/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-010.CircleCircumference/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-010.CircleCircumference/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-011.BiggerNumber/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-011.BiggerNumber/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-011.BiggerNumber/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-011.BiggerNumber/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-011.BiggerNumber/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-011.BiggerNumber/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-011.BiggerNumber/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-011.BiggerNumber/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-012.SumOfTheAges/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-012.SumOfTheAges/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-012.SumOfTheAges/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-012.SumOfTheAges/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-012.SumOfTheAges/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-012.SumOfTheAges/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-012.SumOfTheAges/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-012.SumOfTheAges/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/cglib-nodep-2.2.2.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/cglib-nodep-2.2.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/easymock-3.2.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/easymock-3.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/javassist-3.18.2-GA.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/javassist-3.18.2-GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="nhllib.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/nhllib.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/objenesis-2.1.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/objenesis-2.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/powermock-easymock-1.5.5-full.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/powermock-easymock-1.5.5-full.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-013.NhlStatisticsPart1/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-013.NhlStatisticsPart1/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-014.PositiveValue/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-014.PositiveValue/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-014.PositiveValue/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-014.PositiveValue/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-014.PositiveValue/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-014.PositiveValue/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-014.PositiveValue/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-014.PositiveValue/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-015.AgeOfMajority/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-015.AgeOfMajority/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-015.AgeOfMajority/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-015.AgeOfMajority/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-015.AgeOfMajority/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-015.AgeOfMajority/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-015.AgeOfMajority/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-015.AgeOfMajority/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-016.EvenOrOdd/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-016.EvenOrOdd/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-016.EvenOrOdd/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-016.EvenOrOdd/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-016.EvenOrOdd/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-016.EvenOrOdd/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-016.EvenOrOdd/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-016.EvenOrOdd/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-017.GreaterNumber/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-017.GreaterNumber/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-017.GreaterNumber/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-017.GreaterNumber/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-017.GreaterNumber/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-017.GreaterNumber/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-017.GreaterNumber/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-017.GreaterNumber/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/cglib-nodep-2.2.2.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/cglib-nodep-2.2.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/easymock-3.2.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/easymock-3.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/javassist-3.18.2-GA.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/javassist-3.18.2-GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/objenesis-2.1.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/objenesis-2.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/powermock-easymock-1.5.5-full.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/powermock-easymock-1.5.5-full.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-018.GradesAndPoints/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-018.GradesAndPoints/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-019.AgeCheck/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-019.AgeCheck/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-019.AgeCheck/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-019.AgeCheck/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-019.AgeCheck/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-019.AgeCheck/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-019.AgeCheck/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-019.AgeCheck/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-020.Usernames/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-020.Usernames/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-020.Usernames/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-020.Usernames/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-020.Usernames/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-020.Usernames/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-020.Usernames/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-020.Usernames/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-021.LeapYear/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-021.LeapYear/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-021.LeapYear/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-021.LeapYear/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-021.LeapYear/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-021.LeapYear/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-021.LeapYear/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-021.LeapYear/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-022.Password/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-022.Password/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-022.Password/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-022.Password/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-022.Password/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-022.Password/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-022.Password/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-022.Password/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/cglib-nodep-2.2.2.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/cglib-nodep-2.2.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/easymock-3.2.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/easymock-3.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/javassist-3.18.2-GA.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/javassist-3.18.2-GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jcommon-1.0.17.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/jcommon-1.0.17.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jfreechart-1.0.14.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/jfreechart-1.0.14.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/objenesis-2.1.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/objenesis-2.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/powermock-easymock-1.5.5-full.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/powermock-easymock-1.5.5-full.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-023.Temperatures/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-023.Temperatures/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-024.NhlStatisticsPart2/lib/edu-test-utils-0.4.2.jar">
+        <CLASSES>
+          <root url="file://week1-024.NhlStatisticsPart2/lib/edu-test-utils-0.4.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-024.NhlStatisticsPart2/lib/hamcrest-core-1.3.jar">
+        <CLASSES>
+          <root url="file://week1-024.NhlStatisticsPart2/lib/hamcrest-core-1.3.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-024.NhlStatisticsPart2/lib/junit-4.11.jar">
+        <CLASSES>
+          <root url="file://week1-024.NhlStatisticsPart2/lib/junit-4.11.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-024.NhlStatisticsPart2/lib/nhllib.jar">
+        <CLASSES>
+          <root url="file://week1-024.NhlStatisticsPart2/lib/nhllib.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="week1-024.NhlStatisticsPart2/lib/testrunner/tmc-junit-runner.jar">
+        <CLASSES>
+          <root url="file://week1-024.NhlStatisticsPart2/lib/testrunner/tmc-junit-runner.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
