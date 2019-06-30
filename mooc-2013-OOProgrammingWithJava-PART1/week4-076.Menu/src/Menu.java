@@ -10,21 +10,4 @@ public class Menu {
     }
 
     // add the methods here
-    public void addMeal(String meal){
-        if (!meals.contains(meal)){
-               meals.add(meal);
-    }
-    
-
-    }
-    
-    public void printMeals(){
-        for (String item : meals){
-            System.out.println(item);
-        }
-    }
-    public void clearMenu(){
-        meals.clear();
-    }
-    
 }
