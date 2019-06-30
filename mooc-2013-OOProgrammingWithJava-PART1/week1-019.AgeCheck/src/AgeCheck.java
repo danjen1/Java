@@ -1,8 +1,7 @@
-
 import java.util.Scanner;
-
+ 
 public class AgeCheck {
-
+ 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         int age = Integer.parseInt(reader.nextLine());
@@ -12,6 +11,6 @@ public class AgeCheck {
         else{
             System.out.println("Impossible!");
         }
-
+ 
     }
 }

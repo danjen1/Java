@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author daniel
- */
 public class BoundedCounter {
     private int value = 0;
     private int upperLimit;
-
+ 
     public BoundedCounter(int upperLimit) {
         this.upperLimit = upperLimit;
        
     }
-
+ 
     public void next() {
         if (value < upperLimit){
             value += 1;
@@ -24,7 +14,7 @@ public class BoundedCounter {
             value = 0;
         }
     }
-
+ 
     public String toString() {
          String st;
         
@@ -45,6 +35,5 @@ public class BoundedCounter {
            this.value = value;
        } 
     }
-
+ 
 }
-    

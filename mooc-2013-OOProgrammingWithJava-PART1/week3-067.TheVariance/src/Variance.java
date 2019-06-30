@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+ 
 public class Variance {
     // Copy here sum from exercise 63 
     public static int sum(ArrayList<Integer> list) {
@@ -16,11 +16,11 @@ public class Variance {
        
         return sum / list.size();
     }
-
+ 
     public static double variance(ArrayList<Integer> list) {
         double variance = 0;
         double average = average(list);
-
+ 
         for (int num : list) {
             variance += Math.pow(num - average, 2);
         }
@@ -39,5 +39,5 @@ public class Variance {
         
         System.out.println("The variance is: " + variance(list));
     }
-
+ 
 }

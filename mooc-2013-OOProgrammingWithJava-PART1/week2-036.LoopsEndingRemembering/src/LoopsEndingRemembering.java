@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+ 
 public class LoopsEndingRemembering {
     public static void main(String[] args) {
         // program in this project exercises 36.1-36.5
@@ -34,6 +34,6 @@ public class LoopsEndingRemembering {
         System.out.println("Average: " + (float)sum / count);
         System.out.println("Even numbers: " + even);
         System.out.println("Odd numbers: " + odd);
-
+ 
     }
 }

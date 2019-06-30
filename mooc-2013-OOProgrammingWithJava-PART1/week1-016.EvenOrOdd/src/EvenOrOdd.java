@@ -1,8 +1,7 @@
-
 import java.util.Scanner;
-
+ 
 public class EvenOrOdd {
-
+ 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Type a number:");
@@ -11,8 +10,8 @@ public class EvenOrOdd {
             System.out.println("Number is even");
         else {
             System.out.println("Number is odd");
-        } 
+        }
         
-
+ 
     }
 }

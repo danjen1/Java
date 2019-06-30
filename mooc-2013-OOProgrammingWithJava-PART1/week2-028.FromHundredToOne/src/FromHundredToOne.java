@@ -1,6 +1,5 @@
-
 public class FromHundredToOne {
-
+ 
     public static void main(String[] args) {
         int test = 100;
         while (test > 0){
@@ -9,3 +8,4 @@ public class FromHundredToOne {
         }
     }
 }
+ 

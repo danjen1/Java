@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+ 
 public class TheGreatest {
     public static int greatest(ArrayList<Integer> list) {
         int temp = list.get(0);
@@ -11,7 +11,7 @@ public class TheGreatest {
         }
         return temp;
 }
-
+ 
     public static void main(String[] args) {
         ArrayList<Integer> lista = new ArrayList<Integer>();
         lista.add(3);
@@ -22,3 +22,4 @@ public class TheGreatest {
         System.out.println("The greatest number is: " + greatest(lista));
     }
 }
+ 

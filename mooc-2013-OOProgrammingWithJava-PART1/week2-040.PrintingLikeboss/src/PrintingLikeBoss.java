@@ -1,4 +1,3 @@
-
 public class PrintingLikeBoss {
     // copy or rewrite the method of Assignment 39.1 here
     public static void printStars(int amount) {
@@ -14,7 +13,7 @@ public class PrintingLikeBoss {
         System.out.println();
         
     }
-
+ 
     public static void printWhitespaces(int amount) {
         // 40.1
         int i = 0;
@@ -23,7 +22,7 @@ public class PrintingLikeBoss {
             i++;
         }
     }
-
+ 
     public static void printTriangle(int size) {
         // 40.2
         int i = 1;
@@ -34,7 +33,7 @@ public class PrintingLikeBoss {
         }
         
     }
-
+ 
     public static void xmasTree(int height) {
         // 40.3
         int i = 1;
@@ -53,7 +52,7 @@ public class PrintingLikeBoss {
         }
         
     }
-
+ 
     public static void main(String[] args) {
         // Tests do not use main, yo can write code here freely!
         

@@ -1,8 +1,8 @@
-
+ 
 import java.util.Scanner;
-
+ 
 public class WordInsideWord {
-
+ 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         System.out.println("First Word: ");
@@ -13,7 +13,7 @@ public class WordInsideWord {
             System.out.println("The word " + "'" + b + "'" + " is not found in the word " + "'" + a + "'");
         } else {
             System.out.println("The word " + "'" + b + "'" + " is found in the word " + "'" + a + "'");
-
+ 
         }
        
             

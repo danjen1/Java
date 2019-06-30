@@ -1,14 +1,14 @@
 public class Variables {
-
+ 
     public static void main(String[] args) {
         // CHANGE THESE:
-
+ 
         int chickenCount = 9000;
         double baconWeight = 0.1;
         String tractor = "Zetor";
-
+ 
         // DO NOT TOUCH THE BELOW:
-
+ 
         System.out.println("Chickens:");
         System.out.println(chickenCount);
         System.out.println("Bacon (kg):");
@@ -21,5 +21,5 @@ public class Variables {
         System.out.println(baconWeight);
         System.out.println(tractor);
     }
-
+ 
 }

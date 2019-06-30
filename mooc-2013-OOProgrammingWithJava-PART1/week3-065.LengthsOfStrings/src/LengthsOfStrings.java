@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+ 
 public class LengthsOfStrings {
     public static ArrayList<Integer> lengths(ArrayList<String> list) {
         ArrayList<Integer> lengthList = new ArrayList<Integer>();
@@ -9,7 +9,7 @@ public class LengthsOfStrings {
         
         return lengthList;
     }
-
+ 
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<String>();
         list.add("Ciao");
@@ -21,3 +21,4 @@ public class LengthsOfStrings {
         System.out.println("The lengths of the Strings: " + lengths);
     }
 }
+ 

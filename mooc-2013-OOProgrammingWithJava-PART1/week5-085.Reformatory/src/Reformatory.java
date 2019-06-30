@@ -14,5 +14,5 @@ public class Reformatory {
     public int totalWeightsMeasured(){
         return count;
     }
-
+ 
 }

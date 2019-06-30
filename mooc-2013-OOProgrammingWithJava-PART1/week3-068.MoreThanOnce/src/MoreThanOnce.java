@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+ 
 public class MoreThanOnce {
-
+ 
     public static boolean moreThanOnce(ArrayList<Integer> list, int searched) {
         int count = 0;
         for (int i : list){
@@ -15,7 +15,7 @@ public class MoreThanOnce {
         }
         return false;
     }
-
+ 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<Integer>();
@@ -33,3 +33,4 @@ public class MoreThanOnce {
         }
     }
 }
+ 
