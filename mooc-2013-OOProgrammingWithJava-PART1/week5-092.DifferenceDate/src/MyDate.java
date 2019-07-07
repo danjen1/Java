@@ -29,5 +29,36 @@ public class MyDate {
 
         return false;
     }
-
+    
+  public int differenceInYears(MyDate compared) {
+        if (this.earlier(compared)) {
+            return differenceWhenThisEarlier(compared);
+        }
+        
+        int minusOneYear = 0;
+        if (this.month < compared.month) {
+            minusOneYear = 1; 
+        } else if (this.month == compared.month && this.day < compared.day) {
+            minusOneYear = 1; 
+        }
+ 
+        return this.year - compared.year - minusOneYear;
+    }
+ 
+    private int differenceWhenThisEarlier(MyDate compared) {
+        int minusOneYear = 0;
+ 
+        if (compared.month < this.month) {
+            minusOneYear = 1;
+        } else if (compared.month == this.month && compared.day < this.day) {
+            minusOneYear = 1;
+        }
+ 
+        return compared.year - this.year - minusOneYear;
+    }    
+   
 }
+
+
+
+

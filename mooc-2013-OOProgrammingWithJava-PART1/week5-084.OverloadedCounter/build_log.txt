@@ -42,9 +42,9 @@
 init:
 
 -deps-jar-init:
+   [delete] Deleting: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/built-jar.properties
 
 deps-jar:
-    [mkdir] Created dir: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build
 
 -warn-already-built-jar:
 [propertyfile] Updating property file: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/built-jar.properties
@@ -56,7 +56,6 @@ deps-jar:
 -verify-automatic-build:
 
 -pre-pre-compile:
-    [mkdir] Created dir: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/classes
 
 -pre-compile:
 
@@ -65,41 +64,22 @@ deps-jar:
 -compile-depend:
 
 -do-compile:
-    [mkdir] Created dir: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/empty
-    [mkdir] Created dir: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/generated-sources/ap-source-output
-    [javac] Compiling 2 source files to /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/classes
-    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
-    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
-    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
-    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
-    [javac] 4 warnings
-     [copy] Copying 1 file to /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/classes
 
 -post-compile:
 
 compile:
 
 -pre-pre-compile-test:
-    [mkdir] Created dir: /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/test/classes
 
 -pre-compile-test:
 
 -compile-test-depend:
 
 -do-compile-test:
-    [javac] Compiling 4 source files to /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/test/classes
-    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
-    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
-    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
-    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
-    [javac] Note: Some input files use unchecked or unsafe operations.
-    [javac] Note: Recompile with -Xlint:unchecked for details.
-    [javac] 4 warnings
-     [copy] Copying 1 file to /home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week5-084.OverloadedCounter/build/test/classes
 
 -post-compile-test:
 
 compile-test:
 
 BUILD SUCCESSFUL
-Total time: 1 second
+Total time: 0 seconds
