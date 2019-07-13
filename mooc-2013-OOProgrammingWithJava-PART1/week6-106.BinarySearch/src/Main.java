@@ -6,18 +6,22 @@ public class Main {
 
     public static void main(String[] args) {
         // Test your program here
-        int[] taulukko = {-3, 2, 3, 4, 7, 8, 12};
-        Scanner lukija = new Scanner(System.in);
+        int[] table = {-3, 2, 3, 4, 7, 8, 12};
+        Scanner reader = new Scanner(System.in);
 
-        System.out.print("Numbers in the array " + Arrays.toString(taulukko));
+        System.out.print("Numbers in the array " + Arrays.toString(table));
         System.out.println();
 
         System.out.print("Enter searched number: ");
-        String etsittavaLuku = lukija.nextLine();
+        String searched = reader.nextLine();
         System.out.println();
 
-        boolean tulos = BinarySearch.search(taulukko, Integer.parseInt(etsittavaLuku));
-
-        // Print here the result
+        boolean result = BinarySearch.search(table, Integer.parseInt(searched));
+        if (result){
+            System.out.println("Value " + searched + " is in the array");
+        }else{
+            System.out.println("Value " + searched + " is not in the array");
+        }
+        
     }
 }
