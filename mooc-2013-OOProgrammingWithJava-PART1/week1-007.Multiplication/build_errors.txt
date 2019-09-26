@@ -1,0 +1,6 @@
+
+BUILD FAILED
+/home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week1-007.Multiplication/nbproject/build-impl.xml:603: The following error occurred while executing this line:
+/home/daniel/Projects/Java/mooc-2013-OOProgrammingWithJava-PART1/week1-007.Multiplication/nbproject/build-impl.xml:245: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
