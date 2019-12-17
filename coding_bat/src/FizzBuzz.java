@@ -191,7 +191,7 @@ public class FizzBuzz
 
     public String theEnd(String str, boolean front)
     {
-        int e = front == false ? 1 : 0;
+        int e = !front ? 1 : 0;
         if (e == 1)
         {
             return str.substring(str.length() - 1);

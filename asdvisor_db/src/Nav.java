@@ -110,7 +110,8 @@ abstract class Nav
         //new Goal("Blake Glasure", "8/22/18", "On-Call", "Assure", "8/31/18", "Testing Goals", false, "Test Update");
 
         //DB.printGoals("Blake Glasure");
-        //DB.printMain();
+        DB.printMain();
+        DB.printEvertything();
         //DB.updateAdvInfo("Christopher Cottrell");
     }
 }
