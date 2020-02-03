@@ -17,7 +17,7 @@ public class sql {
             // connect way #1
             String url1 = "jdbc:mysql://localhost/DB_Test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC" ;
             String user = "root" ;
-            String password = "gMake201%" ;
+            String password = "Ghi456jkl!" ;
 
 
             conn1 = DriverManager.getConnection(url1, user, password);

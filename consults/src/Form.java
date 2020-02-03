@@ -296,7 +296,7 @@ class Form extends javax.swing.JFrame
             }
             try
             {
-                c = sql.getConnection(System.getProperty("user.home") + "/Library/Application Support/"
+                c = sql.getConnection(System.getProperty("user.home") + "/Projects/java/consults/"
                         + "Consults/" + uname + "_database");
                 c.setAutoCommit(false);
                 String sqlCreate = "CREATE TABLE IF NOT EXISTS consult" +

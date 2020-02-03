@@ -10,7 +10,7 @@ class AddToMaster
     private void dbLoop()
     {
         Connection c;
-        File dir = new File("/Users/danieljenkins/Desktop/Consults/Advisor_DBs");
+        File dir = new File("/home/daniel/Documents/Consults/Advisor_DBs");
         //File dir = new File("/Users/dan/Projects/Adisor_DBs");
         File[] directoryListing = dir.listFiles();
         for (File child : directoryListing)
@@ -25,11 +25,11 @@ class AddToMaster
                     c = DriverManager.getConnection("jdbc:sqlite:" + child);
                     c.setAutoCommit(false);
 
-                    PreparedStatement pre = c.prepareStatement("ATTACH DATABASE '/Users/danieljenkins/Desktop/Consults/Master_DB' AS Master");
+                    PreparedStatement pre = c.prepareStatement("ATTACH DATABASE '/home/daniel/Documents/Consults/Master_DB' AS Master");
                     //PreparedStatement pre = c.prepareStatement("ATTACH DATABASE '/Users/dan/Projects/Master_DB' AS Master");
                     pre.executeUpdate();
 
-                    PreparedStatement prep = c.prepareStatement("INSERT INTO Master.consult (date, caseID, rsrc, reason, relevant, callBack, email, uname, time, comments)" +
+                    PreparedStatement prep = c.prepareStatement("INSERT INTO Master.consult (date, caseID, rsrc, reason, relevant, callBack, email, uname, contactName, time, comments)" +
                             "SELECT * FROM main.consult");
                     prep.executeUpdate();
 

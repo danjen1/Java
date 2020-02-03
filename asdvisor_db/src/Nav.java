@@ -100,7 +100,7 @@ abstract class Nav
     public static void main(String[] args) throws IOException, ClassNotFoundException
     {
 
-        DB DB = new DB();
+       /* DB DB = new DB();
 
        new Advisor("Christopher Cottrell", "519509", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF",false, "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
         new Advisor("Hakeem Anderson", "520814", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", true, "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
@@ -109,7 +109,8 @@ abstract class Nav
     
         //new Goal("Blake Glasure", "8/22/18", "On-Call", "Assure", "8/31/18", "Testing Goals", false, "Test Update");
 
-        //DB.printGoals("Blake Glasure");
+        //DB.printGoals("Blake Glasure");*/
+       DB.readObject();
         DB.printMain();
         DB.printEvertything();
         //DB.updateAdvInfo("Christopher Cottrell");

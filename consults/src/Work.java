@@ -15,12 +15,12 @@ class Work
         if (os.contains("WIN")) {
             FileFolder = System.getenv("APPDATA") + "\\" + "Launcher";
             System.out.println("Found windows");
-        }
+        }*/
                 if (os.contains("NUX")) {
-            FileFolder = System.getProperty("user.dir") + ".Launcher";
+            FileFolder = System.getProperty("user.dir");
             System.out.println("Found linux");
         }
-        */
+
         if (os.contains("MAC")) {
             FileFolder = System.getProperty("user.home") + "/Library/Application " + "Support/"
                     + "Consults";
