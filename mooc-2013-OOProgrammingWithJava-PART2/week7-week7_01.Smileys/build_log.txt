@@ -113,28 +113,7 @@ deps-jar:
 -compile-depend:
 
 -do-compile:
-
--post-compile:
-
-compile:
-
--pre-pre-compile-test:
-
--pre-compile-test:
-
--init-test-javac-module-properties-with-module:
-
--init-test-module-properties-without-module:
-
--init-test-module-properties:
-
--compile-test-depend:
-
--do-compile-test:
-
--post-compile-test:
-
-compile-test:
-
-BUILD SUCCESSFUL
-Total time: 4 seconds
+    [javac] Compiling 1 source file to /home/daniel/Projects/java/mooc-2013-OOProgrammingWithJava-PART2/week7-week7_01.Smileys/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] error: Source option 6 is no longer supported. Use 7 or later.
+    [javac] error: Target option 6 is no longer supported. Use 7 or later.
