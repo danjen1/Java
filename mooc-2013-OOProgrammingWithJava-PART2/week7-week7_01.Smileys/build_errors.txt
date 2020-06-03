@@ -1,6 +1,0 @@
-
-BUILD FAILED
-/home/daniel/Projects/java/mooc-2013-OOProgrammingWithJava-PART2/week7-week7_01.Smileys/nbproject/build-impl.xml:1108: The following error occurred while executing this line:
-/home/daniel/Projects/java/mooc-2013-OOProgrammingWithJava-PART2/week7-week7_01.Smileys/nbproject/build-impl.xml:409: Compile failed; see the compiler error output for details.
-
-Total time: 1 second
