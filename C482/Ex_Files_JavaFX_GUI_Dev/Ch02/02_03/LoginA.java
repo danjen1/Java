@@ -21,11 +21,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Peggy Fisher
- */
-public class Login extends Application {
+
+public class LoginA extends Application {
     
     @Override
     public void start(Stage primaryStage) {
@@ -69,7 +66,7 @@ public class Login extends Application {
             
         });
         scene.getStylesheets().
-                add(Login.class.getResource("Login.css").toExternalForm());
+                add(login.LoginA.class.getResource("Login.css").toExternalForm());
         primaryStage.setTitle("JavaFX Login Form");
         primaryStage.setScene(scene);
         primaryStage.show();

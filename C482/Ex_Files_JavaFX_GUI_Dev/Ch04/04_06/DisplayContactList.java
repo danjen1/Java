@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package displaycontactlist;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -44,7 +43,7 @@ public class DisplayContactList extends Application {
         Scene scene = new Scene(root, 450, 450);
         
         ObservableList<Contact> contactList = FXCollections.observableArrayList(
-                new Contact("Peggy", "Fisher", "717-555-1212"), 
+                new Contact("Peggy", "Fisher", "717-555-1212"),
                 new Contact("Jim", "Freed", "441-456-1345"), 
                 new Contact("Pat", "Keegan", "717-363-1432"), 
                 new Contact("Jane", "Slattery", "441-478-4488"), 

@@ -30,7 +30,7 @@ public class AddImage extends Application {
         title.setFont(Font.font("Verdana", FontWeight.BOLD, 24));
         title.setFill(Color.FIREBRICK);
         
-        Image caPic = new Image("addimage/Desert-to-sea logo.gif");
+        Image caPic = new Image("Desert-to-sea logo.gif");
         ImageView ivPic = new ImageView(caPic);
 
         pane.setTop(title);

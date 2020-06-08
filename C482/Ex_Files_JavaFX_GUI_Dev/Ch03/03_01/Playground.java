@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package playground;
 
 
 import javafx.application.Application;
@@ -29,7 +28,11 @@ public class Playground extends Application {
         Line seesaw = new Line(60,340,340,140);
         seesaw.setStroke(Color.BLACK);
         seesaw.setStrokeWidth(15);
-        
+
+        Line sunray1 = new Line (-10, 50,50, 150);
+        sunray1.setStroke(Color.YELLOW);
+        sunray1.setStrokeWidth(15);
+
         Circle cir = new Circle(70,280,40);
         cir.setStroke(Color.RED);
         cir.setStrokeWidth(5);
@@ -49,7 +52,7 @@ public class Playground extends Application {
         Line right = new Line(200, 240, 240, 340);
         right.setStrokeWidth(5);
         
-        root.getChildren().addAll(seesaw,cir,rec,left,right,sun);
+        root.getChildren().addAll(seesaw,cir,rec,left,right,sun, sunray1);
         
         Scene scene = new Scene(root, 400, 400, Color.SKYBLUE);
         

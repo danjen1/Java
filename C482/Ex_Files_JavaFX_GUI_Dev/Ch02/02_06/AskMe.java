@@ -14,7 +14,8 @@ import javafx.stage.Stage;
  *
  * @author Peggy Fisher
  */
-public class AskMe extends Application {
+public class
+AskMe extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {

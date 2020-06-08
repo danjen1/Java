@@ -24,13 +24,13 @@ public class AddTextWithStyle extends Application {
        
         BorderPane pane = new BorderPane();
         
-        Scene scene = new Scene(pane, 400, 450);
+        Scene scene = new Scene(pane, 100, 150);
         pane.setTop(addHBox("Top"));
         pane.setLeft(addVBox("Left"));
         pane.setRight(addVBox("Right"));
         pane.setBottom(addHBox("Bottom"));
         
-        scene.getStylesheets().add("addtextwithstyle/textStyles.css");
+        scene.getStylesheets().add("textStyles.css");
         
         primaryStage.setTitle("Adding Text!");
         primaryStage.setScene(scene);

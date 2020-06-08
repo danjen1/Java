@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -26,6 +27,7 @@ public class FXMLDocumentController implements Initializable {
     private Label label1;
     
     @FXML
+
     private void handleButtonAction(ActionEvent event) {
         Random rand = new Random();
         int answer = rand.nextInt(5);
