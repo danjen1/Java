@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stylesheets;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -50,7 +49,7 @@ public class StyleSheets extends Application {
         
         Scene scene = new Scene(root, 300, 250);
         
-        scene.getStylesheets().add("stylesheets/styles.css");
+        scene.getStylesheets().add("styles.css");
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);

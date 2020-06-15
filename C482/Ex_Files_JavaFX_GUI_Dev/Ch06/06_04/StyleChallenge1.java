@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stylechallenge;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -23,7 +22,7 @@ import javafx.stage.Stage;
  *
  * @author Peggy Fisher
  */
-public class StyleChallenge extends Application {
+public class StyleChallenge1 extends Application {
     
     @Override
     public void start(Stage primaryStage) {

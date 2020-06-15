@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stylechallenge;
 
 import javafx.application.Application;
 import static javafx.application.Application.STYLESHEET_CASPIAN;
@@ -38,7 +37,7 @@ public class StyleChallenge extends Application {
         
         
         Scene scene = new Scene(pane, 700, 700);
-        scene.getStylesheets().add("stylechallenge/challenge.css");
+        scene.getStylesheets().add("challenge.css");
         primaryStage.setTitle("Style Challenge");
         primaryStage.setScene(scene);
         primaryStage.show();

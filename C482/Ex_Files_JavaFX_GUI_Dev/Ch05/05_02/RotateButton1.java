@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rotatebutton;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -21,7 +20,7 @@ import javafx.stage.Stage;
  *
  * @author Peggy Fisher
  */
-public class RotateButton extends Application {
+public class RotateButton1 extends Application {
     double angle=0.0;
     @Override
     public void start(Stage primaryStage) {

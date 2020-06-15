@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stylerules;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -58,7 +57,7 @@ public class StyleRules extends Application {
         
         Scene scene = new Scene(pane, 400,400);
         
-        scene.getStylesheets().add("stylerules/styles.css");
+        scene.getStylesheets().add("styles.css");
         
         primaryStage.setTitle("Style Rules");
         primaryStage.setScene(scene);
