@@ -1,4 +1,4 @@
-package TimeCard_Converter;
+package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("TimeCard Helper");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
