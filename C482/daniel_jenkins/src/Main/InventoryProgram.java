@@ -1,7 +1,6 @@
 package Main;
 
 import Model.*;
-import com.sun.javafx.fxml.builder.JavaFXSceneBuilder;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

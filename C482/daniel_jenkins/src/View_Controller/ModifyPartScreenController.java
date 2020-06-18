@@ -50,6 +50,7 @@ public class ModifyPartScreenController implements Initializable
 
     public void sendPart(Part part)
     {
+
         modifyPartIDTextField.setText(String.valueOf(part.getId()));
         modifyPartNameTextField.setText(part.getName());
         modifyPartInvTextField.setText(String.valueOf(part.getStock()));
