@@ -22,8 +22,6 @@ public class Main extends Application {
         root.getStylesheets().add("CSS/OverviewMenu.css");
         primaryStage.setScene(new Scene(root, 1280, 680));
         primaryStage.show();
-
-
     }
 
 
@@ -47,10 +45,10 @@ public class Main extends Application {
 
         new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
         new Advisor("Madison Jenkins", "123455", "553432", "maddy@maddy.com", "Active", "8x5", "SMTWF 9:00am - 6:00pm", "801-360-5225", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
-        new Attendance("Madison Jenkins", "5/16/20", "Approved", 8, "Test Model.Attendance 2", false);
-        new Attendance("Madison Jenkins", "4/16/20", "VTO", 8, "Test Model.Attendance 2", true);
-        new Attendance("Madison Jenkins", "4/16/20", "Apple Down Time", 8, "Test Model.Attendance 2",true);
-        new Attendance("Madison Jenkins", "4/13/20", "Early or Late Out", 8, "Test Model.Attendance 2",true);
+        new Attendance("Madison Jenkins", "2018-04-20", "Approved", 8, "Test Model.Attendance 2", false);
+        new Attendance("Madison Jenkins", "2018-04-20", "VTO", 8, "Test Model.Attendance 2", true);
+        new Attendance("Madison Jenkins", "2018-04-20", "Apple Down Time", 8, "Test Model.Attendance 2",true);
+        /*new Attendance("Madison Jenkins", "4/13/20", "Early or Late Out", 8, "Test Model.Attendance 2",true);
         new Attendance("Madison Jenkins", "4/16/20", "Personal", 8, "Test Model.Attendance 2",true);
         new Attendance("Madison Jenkins", "6/13/20", "Home DownTime", 8, "Test Model.Attendance 2",true);
         new Attendance("Madison Jenkins", "8/16/18",  "Inclement Weather", 8, "Test Model.Attendance 2",true);
@@ -145,8 +143,19 @@ public class Main extends Application {
         new Attendance("Daniel Jenkins", "6/13/18", "Full Day Sick", 8, "Test Model.Attendance 2",true);
         new Attendance("Daniel Jenkins", "8/16/18", "Full Day Sick", 8, "Test Model.Attendance 2",true);
         new Attendance("Daniel Jenkins", "8/13/18", "Full Day Sick", 8, "Test Model.Attendance 2",true);
-        new Attendance("Daniel Jenkins", "5/10/20", "Full Day Sick", 8, "Test2",true);
-
+        */
+        new Coaching( "Daniel Jenkins", "2020-05-10", "1x1", "Great job 1");
+        new Coaching( "Daniel Jenkins","2020-05-10", "Check-in", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-05-10", "AUX", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-05-10", "Follow Up", "Great job 1");
+        new Coaching("Madison Jenkins", "2020-05-10", "1x1", "Great job 1");
+        new Coaching("Madison Jenkins", "2020-05-10", "Check-in", "Great job 1");
+        new Coaching("Madison Jenkins", "2020-05-10", "AUX", "Great job 1");
+        new Coaching("Madison Jenkins", "2020-05-10", "Follow Up", "Great job 1");
+        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
 
         launch(args);
     }

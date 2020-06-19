@@ -6,7 +6,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -51,7 +50,7 @@
             <Insets left="20.0" right="10.0" />
          </GridPane.margin>
       </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="187.0" text="Type" GridPane.rowIndex="2">
+      <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="187.0" text="Type" GridPane.rowIndex="3">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -82,12 +81,12 @@
       </Line>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
-            <Button fx:id="addCoachingSaveBtn" mnemonicParsing="false" onAction="#onActionAddCoachingSave" prefWidth="90.0" text="Save">
+            <Button fx:id="modifyCoachingSaveBtn" mnemonicParsing="false" onAction="#onActionModifyCoachingSave" prefWidth="90.0" text="Save">
                <HBox.margin>
                   <Insets left="25.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="addCoachingCancelBtn" mnemonicParsing="false" onAction="#onActionAddCoachingCancel" prefWidth="90.0" text="Cancel">
+            <Button fx:id="modifyCoachingCancelBtn" mnemonicParsing="false" onAction="#onActionModifyCoachingCancel" prefWidth="90.0" text="Cancel">
                <HBox.margin>
                   <Insets top="15.0" />
                </HBox.margin>
@@ -97,21 +96,33 @@
             <Insets right="15.0" />
          </GridPane.margin>
       </HBox>
-      <TextField fx:id="advisorIDTextField" visible="false" />
-      <DatePicker fx:id="addCoachingDatePicker" prefHeight="27.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <DatePicker fx:id="modifyCoachingDatePicker" prefHeight="27.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
       </DatePicker>
-      <ComboBox fx:id="addCoachingTypeComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <ComboBox fx:id="modifyCoachingTypeComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
       </ComboBox>
-      <TextArea fx:id="addCoachingCommentsTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <TextArea fx:id="modifyCoachingCommentsTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets left="15.0" right="15.0" />
          </GridPane.margin>
       </TextArea>
+      <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="187.0" text="Name" GridPane.rowIndex="2">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="modifyCoachingNameComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
+      </ComboBox>
    </children>
 </GridPane>

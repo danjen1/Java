@@ -15,9 +15,11 @@ public class Advisor implements Serializable {
     private String DOH, name, EID, email, DSID, status, shift_type, shift, phone, t_zone, BDay, address, RTW, medDue, comments, contactType;
 
     private int ID;
-
+    private  int attendID;
+    private  int coachID;
 
     private ObservableList<Coaching> coach = FXCollections.observableArrayList();
+    private ObservableList<Attendance> attendance = FXCollections.observableArrayList();
 
     private String[] types = {"Approved", "VTO", "Apple DownTime", "Home DownTime", "Inclement Weather", "Full Day Sick", "Mid Day Sick",
             "Early or Late Out", "Personal", "No Call No Show", "Pending Protected Time", "Tardy or Left Early", "Late From Lunch",
@@ -130,7 +132,6 @@ public class Advisor implements Serializable {
 
         return totals;
     }
-    private ObservableList<Attendance> attendance = FXCollections.observableArrayList();
 
     public String getName() {
         return name;
@@ -148,6 +149,30 @@ public class Advisor implements Serializable {
         new IdGenerator(this);
         return this.ID = IdGenerator.getAdvisorID();
     }
+
+
+    public int getAttendID() {
+        return attendID;
+    }
+
+    public void setAttendID() {
+        attendID++;
+        System.out.println("SetAttend ID Ran : " + attendID);
+
+    }
+
+    public int getCoachID() {
+        return coachID;
+    }
+
+    public void setCoachID () {
+        coachID++;
+        System.out.println("SetCoach ID Ran : " + coachID);
+    }
+
+
+
+
 
     public String getEID() {
         return EID;

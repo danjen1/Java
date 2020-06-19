@@ -1,5 +1,6 @@
 package Model;
 
+import Other.IdGenerator;
 import Storage.Records;
 
 import java.io.IOException;
@@ -11,19 +12,30 @@ public class Coaching implements Serializable {
 
     private String name, type, comments;
     private LocalDate date;
-    private double hours;
-    private boolean completed;
+    private  int ID;
 
 
-    public Coaching(String name, String date, String type, String comments, boolean completed, double hours) throws IOException {
-        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("M/dd/yy");
-        setName(name);
+    public Coaching(int ID, String Name, String date, String type, String comments) throws IOException {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        setName(Name);
         setDate(LocalDate.parse(date, mdy));
         setType(type);
         setComments(comments);
-        setCompleted(completed);
-        setHours(hours);
+        setName(Name);
+        Records.updateCoaching(ID, this);
+    }
+
+    public Coaching(String name, String date, String type, String comments) throws IOException {
+        DateTimeFormatter mdy = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        setName(name);
+        setDate(LocalDate.parse(date, mdy));
+        setType(type);
+        setName(name);
+        setComments(comments);
         Records.addCoaching(name, this);
+        System.out.println(ID);
+
+
     }
 
     public String getName() {
@@ -50,14 +62,6 @@ public class Coaching implements Serializable {
         this.comments = comments;
     }
 
-    public boolean getCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
     public LocalDate getDate() {
         return date;
     }
@@ -66,12 +70,12 @@ public class Coaching implements Serializable {
         this.date = date;
     }
 
-    public double getHours() {
-        return hours;
+    public int getID() {
+        return ID;
     }
 
-    public void setHours(double hours) {
-        this.hours = hours;
+    public void setID(int i) {
+        this.ID = i;
     }
 
 }

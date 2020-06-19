@@ -57,13 +57,28 @@ public class Records {
         System.out.println("Advisor Added" + " " + adv.getID());
 
     }
+    public static void updateCoaching(int ID, Coaching coach) throws IOException {
+
+        Records.getCoaching(coach.getName()).set(ID - 1, coach);
+        System.out.println("Advisor Added" + " " + coach.getID());
+
+    }
+
+    public static void updateAttend(int ID, Attendance attend) throws IOException {
+
+        Records.getAttendance(attend.getName()).set(ID - 1, attend);
+        System.out.println("Advisor Added" + " " + attend.getID());
+
+    }
 
 
-    public static void addAttendance(String name, Attendance attend) throws IOException {
+    public static void addAttend(String name, Attendance attend) throws IOException {
         String msg = "Your Model.Attendance Event was added successfully";
         for (Advisor item : advisorDB) {
             if (item.getName().equals(name)) {
                 System.out.println(name + " found.  Adding Model.Attendance Event ");
+                item.setAttendID();
+                attend.setID(item.getAttendID());
                 item.getAttendance().add(attend);
                 item.getAttendance().sort(Comparator.comparing(Attendance::getDate).reversed());
                 //  writeObject();
@@ -73,12 +88,15 @@ public class Records {
         }
     }
 
-
     public static void addCoaching(String name, Coaching coach) throws IOException {
         String msg = "Your Model.Coaching Notes were added successfully";
         for (Advisor item : advisorDB) {
             if (item.getName().equals(name)) {
                 System.out.println(name + " found.  Adding Model.Coaching Notes ");
+                item.setCoachID();
+                coach.setID(item.getCoachID());
+
+                System.out.println("printing AddCoaching ID" + item.getCoachID());
                 item.getCoach().add(coach);
                 item.getCoach().sort(Comparator.comparing(Coaching::getDate).reversed());
                 // writeObject();
@@ -101,7 +119,7 @@ public class Records {
     public static ObservableList<Attendance> getAttendance(String name) throws IOException {
         for (Advisor item : advisorDB) {
             if (item.getName().equals(name)) {
-                System.out.println(name + " found.  Adding Model.Coaching Notes ");
+                System.out.println(name + " found.  Adding Attendance Info ");
                 return item.getAttendance();
             }
         }
@@ -109,22 +127,7 @@ public class Records {
     }
 
 
-    public static void rmvAdvisor(String name) throws IOException {
-        for (Advisor item : Records.getAdvisorDB()) {
-            if (item.getName().equals(name)) {
-                advisorDB.remove(item);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText("Success");
-                alert.setContentText("Advisor Removed Successfully");                //writeObject();
-                break;
-            }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Success");
-            alert.setContentText("Advisor Not Found");
-        }
-    }
+
 
 
     public void rmvCoaching(String name, String date, String type) throws IOException {

@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="517.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.AddAttendanceMenu">
+<GridPane prefHeight="515.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.ModifyAttendance">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="222.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="342.0" />
@@ -68,12 +68,12 @@
             <Insets right="15.0" top="70.0" />
          </GridPane.margin>
       </Line>
-      <Label fx:id="addAdvisorComboBox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="362.0" text="Add Attendance" GridPane.columnSpan="2">
+      <Label fx:id="addAdvisorComboBox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="354.0" text="Modify Attendance" GridPane.columnSpan="2">
          <font>
             <Font name="SF Hello Semibold Italic" size="36.0" />
          </font>
          <GridPane.margin>
-            <Insets right="15.0" />
+            <Insets />
          </GridPane.margin>
       </Label>
       <Line endX="240.0" startX="-100.0" stroke="GREY" strokeWidth="2.0" GridPane.rowIndex="6">
@@ -81,44 +81,44 @@
             <Insets bottom="55.0" right="15.0" />
          </GridPane.margin>
       </Line>
-      <DatePicker fx:id="addAttendanceDatePicker" prefHeight="27.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <DatePicker fx:id="modifyAttendanceDatePicker" prefHeight="27.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="15.0" right="25.0" />
          </GridPane.margin>
       </DatePicker>
-      <ComboBox fx:id="addAttendanceNameComboBox" prefHeight="27.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <ComboBox fx:id="modifyAttendanceNameComboBox" prefHeight="27.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="15.0" right="25.0" />
          </GridPane.margin>
       </ComboBox>
-      <ComboBox fx:id="addAttendanceTypeComboBox" prefHeight="27.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <ComboBox fx:id="modifyAttendanceTypeComboBox" prefHeight="27.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="15.0" right="25.0" />
          </GridPane.margin>
       </ComboBox>
-      <CheckBox fx:id="addAttendanceCompletedCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <CheckBox fx:id="modifyAttendanceCompletedCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
       </CheckBox>
-      <TextField fx:id="addAttendanceHoursTextField" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <TextField fx:id="modifyAttendanceHoursTextField" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="115.0" right="25.0" />
          </GridPane.margin>
       </TextField>
-      <TextArea fx:id="addAttendanceCommentsTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <TextArea fx:id="modifyAttendanceCommentsTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets left="15.0" right="25.0" />
          </GridPane.margin>
       </TextArea>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
-            <Button fx:id="addAttendanceSaveBtn" mnemonicParsing="false" onAction="#onActionAddAttendanceSave" prefWidth="90.0" text="Save">
+            <Button fx:id="modifyAttendanceSaveBtn" mnemonicParsing="false" onAction="#onActionModifyAttendanceSave" prefWidth="90.0" text="Save">
                <HBox.margin>
                   <Insets left="25.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="addAttendanceCancelBtn" mnemonicParsing="false" onAction="#onActionAddAttendanceCancel" prefWidth="90.0" text="Cancel">
+            <Button fx:id="modifyAttendanceCancelBtn" mnemonicParsing="false" onAction="#onActionModifyAttendanceCancel" prefWidth="90.0" text="Cancel">
                <HBox.margin>
                   <Insets top="15.0" />
                </HBox.margin>

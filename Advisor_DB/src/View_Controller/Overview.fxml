@@ -88,15 +88,16 @@
                            </GridPane.margin>
                         </HBox>
                         <HBox prefHeight="0.0" prefWidth="1286.0" GridPane.columnSpan="3" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="15.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <GridPane.margin>
-                              <Insets bottom="25.0" right="45.0" />
+                              <Insets bottom="25.0" right="35.0" />
                            </GridPane.margin>
                            <children>
                               <Line endX="-158.9129638671875" endY="-56.971588134765625" rotate="45.0" startX="-100.0" style="-fx-stroke: grey;" />
                               <Button fx:id="overviewAddNewBtn" mnemonicParsing="false" onAction="#onActionOverviewAddNew" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Add New" />
                               <Button fx:id="overviewModifyBtn" mnemonicParsing="false" onAction="#onActionOverviewModify" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Modify" />
                               <Button fx:id="overviewDetailsBtn" mnemonicParsing="false" onAction="#onActionOverviewDetails" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Details" />
+                              <Button fx:id="overviewDetailsBtn1" mnemonicParsing="false" onAction="#onActionOverviewDelete" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Delete" />
                               <Line endX="-158.9129638671875" endY="-56.971588134765625" rotate="45.0" startX="-100.0" style="-fx-stroke: grey;" />
                               <Button fx:id="overviewExitBtn" mnemonicParsing="false" onAction="#onActionOverviewExit" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Exit" />
                            </children>
