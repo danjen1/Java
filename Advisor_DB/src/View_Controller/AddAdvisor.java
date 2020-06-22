@@ -33,7 +33,7 @@ public class AddAdvisor implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        advisorModifyStatusComboBox.getItems().addAll("Active", "LOA", "Rotation", "Term");
+        advisorModifyStatusComboBox.getItems().addAll("Active", "LOA", "Rotation");
         advisorAddTimeZoneComboBox.getItems().addAll("EST", "CST", "MST", "PST");
         advisorAddShiftTypeComboBox.getItems().addAll("Day 5x8", "5x8", "Day 4x10", "Swing 5x8", "Swing 4x10",
                 "Grave 5x8", "Grave 4x10", "Split");

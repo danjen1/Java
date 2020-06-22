@@ -144,6 +144,7 @@ public class Main extends Application {
         new Attendance("Daniel Jenkins", "8/16/18", "Full Day Sick", 8, "Test Model.Attendance 2",true);
         new Attendance("Daniel Jenkins", "8/13/18", "Full Day Sick", 8, "Test Model.Attendance 2",true);
         */
+       // new Coaching( "Daniel Jenkins", "2020-06-10", "1x1", "Great job 1");
         new Coaching( "Daniel Jenkins", "2020-05-10", "1x1", "Great job 1");
         new Coaching( "Daniel Jenkins","2020-05-10", "Check-in", "Great job 1");
         new Coaching("Daniel Jenkins", "2020-05-10", "AUX", "Great job 1");
@@ -153,9 +154,34 @@ public class Main extends Application {
         new Coaching("Madison Jenkins", "2020-05-10", "AUX", "Great job 1");
         new Coaching("Madison Jenkins", "2020-05-10", "Follow Up", "Great job 1");
         new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
-        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
-        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
-        new Attendance("Daniel Jenkins", "2020-05-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-04-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-03-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-02-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-01-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-12-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-11-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-10-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-09-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-08-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-07-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-06-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-05-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-04-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-03-10", "Full Day Sick", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-02-10", "Full Day Sick", 8, "Test2",true);
+        new Coaching( "Daniel Jenkins", "2020-04-10", "1x1", "Great job 1");
+        new Coaching( "Daniel Jenkins","2020-03-10", "Check-in", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-02-10", "AUX", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-01-10", "Follow Up", "Great job 1");
+        new Coaching( "Daniel Jenkins", "2019-12-10", "1x1", "Great job 1");
+        new Coaching( "Daniel Jenkins","2019-11-10", "Check-in", "Great job 1");
+        new Coaching("Daniel Jenkins", "2019-10-10", "AUX", "Great job 1");
+        new Coaching("Daniel Jenkins", "2019-09-10", "Follow Up", "Great job 1");
+        new Coaching( "Daniel Jenkins", "2019-08-10", "1x1", "Great job 1");
+        new Coaching( "Daniel Jenkins","2019-07-10", "Check-in", "Great job 1");
+        new Coaching("Daniel Jenkins", "2019-06-10", "AUX", "Great job 1");
+        new Coaching("Daniel Jenkins", "2019-05-10", "Follow Up", "Great job 1");
+        new Coaching("Daniel Jenkins", "2016-05-10", "Follow Up", "Great job 1");
 
         launch(args);
     }

@@ -55,7 +55,7 @@ public class ModifyAttendance implements Initializable {
         modifyAttendanceNameComboBox.setValue(attend.getName());
         modifyAttendanceHoursTextField.setText(String.valueOf(attend.getHours()));
         if(attend.getCompleted().equals("Complete")){
-            modifyAttendanceCompletedCheckBox.isSelected();
+            modifyAttendanceCompletedCheckBox.setSelected(true);
         }
     }
 

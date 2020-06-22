@@ -4,7 +4,6 @@ import Model.Advisor;
 import Model.Coaching;
 import Other.TableUtils;
 import Storage.Records;
-import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,7 +51,14 @@ public class ModifyCoachingMenu implements Initializable {
         System.out.println(this.name);
         if (!(this.name.equals(tempName))){
             temp = new Coaching(tempName, date, type, comments);
-            Records.getCoaching(name).remove(ID -1);
+            Records.getCoaching(name).remove(ID);
+            if(!(Records.getCoaching(name).isEmpty())){
+                for (Coaching co : Records.getCoaching(this.name))
+                {
+                    co.setID(co.getID());
+                }
+            }
+
         } else {
             temp = new Coaching(ID, name, date, type, comments);
         }
@@ -90,6 +96,8 @@ public class ModifyCoachingMenu implements Initializable {
         }
 
         modifyCoachingTypeComboBox.getItems().addAll("1x1", "NorthStar", "Check-in", "AUX", "Behavioral", "KPIs", "FollowUp");
+
     }
+
     }
 

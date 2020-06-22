@@ -24,9 +24,10 @@
       <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="67.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="81.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="81.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="149.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
@@ -63,9 +64,9 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <Line endX="240.0" startX="-100.0" stroke="GREY" strokeWidth="2.0">
+      <Line endX="240.0" startX="544.5858154296875" startY="1.5497207641601562E-6" stroke="GREY" strokeWidth="2.0">
          <GridPane.margin>
-            <Insets right="15.0" top="70.0" />
+            <Insets left="15.0" right="15.0" top="70.0" />
          </GridPane.margin>
       </Line>
       <Label fx:id="addAdvisorComboBox" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="362.0" text="Add Attendance" GridPane.columnSpan="2">
@@ -76,9 +77,9 @@
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Line endX="240.0" startX="-100.0" stroke="GREY" strokeWidth="2.0" GridPane.rowIndex="6">
+      <Line endX="290.0" startX="-20.0" stroke="GREY" strokeWidth="2.0" GridPane.rowIndex="7">
          <GridPane.margin>
-            <Insets bottom="55.0" right="15.0" />
+            <Insets bottom="55.0" left="15.0" right="15.0" />
          </GridPane.margin>
       </Line>
       <DatePicker fx:id="addAttendanceDatePicker" prefHeight="27.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -106,12 +107,12 @@
             <Insets left="115.0" right="25.0" />
          </GridPane.margin>
       </TextField>
-      <TextArea fx:id="addAttendanceCommentsTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <TextArea fx:id="addAttendanceCommentsTextArea" prefHeight="115.0" prefWidth="265.0" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets left="15.0" right="25.0" />
+            <Insets left="25.0" right="25.0" />
          </GridPane.margin>
       </TextArea>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
             <Button fx:id="addAttendanceSaveBtn" mnemonicParsing="false" onAction="#onActionAddAttendanceSave" prefWidth="90.0" text="Save">
                <HBox.margin>

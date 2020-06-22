@@ -4,122 +4,132 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1280.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.OverviewMenuController">
+<AnchorPane minHeight="-Infinity" minWidth="1526.0" prefHeight="701.0" prefWidth="1526.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.OverviewMenuController">
    <children>
-      <TabPane fx:id="overviewTabPane" layoutX="-8.0" layoutY="1.0" prefHeight="678.0" prefWidth="1287.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-            <Tab fx:id="overviewMenu" text="Overview">
-               <content>
-                  <GridPane prefHeight="516.0" prefWidth="1205.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="680.4888916015625" minWidth="10.0" prefWidth="170.79959106445312" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="680.4888916015625" minWidth="10.0" prefWidth="545.2004089355469" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="563.1612548828125" minWidth="10.0" prefWidth="563.1612548828125" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="107.87836074829102" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="201.11162185668945" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="377.5011520385742" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="360.5357666015625" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="337.25787353515625" minHeight="10.0" prefHeight="231.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="225.82369995117188" minHeight="10.0" prefHeight="146.23828125" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="115.76171875" minHeight="10.0" prefHeight="115.76171875" vgrow="SOMETIMES" />
-                     </rowConstraints>
+      <Pane prefHeight="701.0" prefWidth="1526.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane prefHeight="696.0" prefWidth="1533.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="680.4888916015625" minWidth="10.0" prefWidth="170.79959106445312" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="680.4888916015625" minWidth="10.0" prefWidth="545.2004089355469" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="563.1612548828125" minWidth="10.0" prefWidth="563.1612548828125" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="107.87836074829102" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="107.87836074829102" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="377.5011520385742" minHeight="9.0" prefHeight="9.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="360.5357666015625" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="337.25787353515625" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="225.82369995117188" minHeight="10.0" prefHeight="146.23828125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="115.76171875" minHeight="10.0" prefHeight="115.76171875" vgrow="SOMETIMES" />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Region disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="620.0" prefWidth="1502.0" style="-fx-border-color: grey; -fx-border-radius: 7; -fx-border-width: 3;" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="7">
+                     <GridPane.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="30.0" />
+                     </GridPane.margin>
+                  </Region>
+                  <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="519.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets right="45.0" top="25.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <ComboBox fx:id="overviewStatusComboBox" onAction="#onActionOverviewStatus" prefHeight="28.0" prefWidth="154.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="130.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <TableView fx:id="overviewAdvisorTableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#overViewMenuDoubleClick" prefHeight="447.0" prefWidth="1457.0" styleClass="centerTableColumns" GridPane.columnSpan="3" GridPane.rowIndex="4" GridPane.rowSpan="2">
+                     <columns>
+                        <TableColumn fx:id="overviewNameCol" maxWidth="137.0" prefWidth="137.0" sortType="DESCENDING" text="Name" />
+                        <TableColumn fx:id="overviewStatusCol" maxWidth="65.0" prefWidth="65.0" text="Status" />
+                        <TableColumn fx:id="overviewDSIDCol" maxWidth="100.0" prefWidth="99.0" text="DSID" />
+                        <TableColumn fx:id="overviewEIDCol" maxWidth="65.0" prefWidth="54.0" text="EID" />
+                        <TableColumn fx:id="overviewTimeZoneCol" maxWidth="120.0" prefWidth="66.462890625" text="Time Zone" />
+                        <TableColumn fx:id="overviewShiftTypeCol" maxWidth="222.73345947265625" prefWidth="69.6365966796875" text="Shift Type" />
+                        <TableColumn fx:id="overviewShiftCol" maxWidth="209.46014404296875" prefWidth="133.0" text="Shift" />
+                        <TableColumn fx:id="overviewMobileCol" maxWidth="175.77178955078125" prefWidth="119.0" text="Mobile" />
+                        <TableColumn fx:id="overviewEmailCol" maxWidth="200.1126708984375" prefWidth="160.0" text="Email" />
+                        <TableColumn fx:id="overviewHireDateCol" maxWidth="157.21881103515625" prefWidth="100.469482421875" resizable="false" text="Hire Date" />
+                        <TableColumn fx:id="overviewBDayCol" maxWidth="158.392333984375" prefWidth="48.469482421875" text="BDay" />
+                        <TableColumn fx:id="overviewAddressCol" maxWidth="400.0" prefWidth="400.0" text="Address" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets left="45.0" right="35.0" />
+                     </GridPane.margin>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets bottom="25.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets bottom="25.0" right="35.0" />
+                     </GridPane.margin>
                      <children>
-                        <Region disable="true" prefHeight="530.0" prefWidth="1030.0" style="-fx-border-color: grey; -fx-border-radius: 7; -fx-border-width: 3;" GridPane.columnSpan="3" GridPane.rowSpan="7">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="55.0" />
-                           </GridPane.margin>
-                        </Region>
-                        <HBox alignment="TOP_RIGHT" prefHeight="49.0" prefWidth="325.0" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Overview">
-                                 <font>
-                                    <Font name="SF Hello Semibold Italic" size="36.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="25.0" top="5.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                           <GridPane.margin>
-                              <Insets right="45.0" />
-                           </GridPane.margin>
-                        </HBox>
-                        <ComboBox fx:id="overviewStatusComboBox" onAction="#onActionOverviewStatus" prefHeight="27.0" prefWidth="177.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="345.0" />
-                           </GridPane.margin></ComboBox>
-                        <TableView fx:id="overviewAdvisorTableView" editable="true" prefHeight="200.0" prefWidth="200.0" styleClass="centerTableColumns" GridPane.columnSpan="3" GridPane.rowIndex="4" GridPane.rowSpan="2">
-                           <columns>
-                              <TableColumn fx:id="overviewNameCol" maxWidth="137.0" prefWidth="137.0" sortType="DESCENDING" text="Name" />
-                              <TableColumn fx:id="overviewStatusCol" maxWidth="65.0" prefWidth="65.0" text="Status" />
-                              <TableColumn fx:id="overviewDSIDCol" maxWidth="100.0" prefWidth="99.0" text="DSID" />
-                              <TableColumn fx:id="overviewEIDCol" maxWidth="65.0" prefWidth="54.0" text="EID" />
-                              <TableColumn fx:id="overviewTimeZoneCol" maxWidth="120.0" prefWidth="66.462890625" text="Time Zone" />
-                              <TableColumn fx:id="overviewShiftTypeCol" maxWidth="222.73345947265625" prefWidth="69.6365966796875" text="Shift Type" />
-                              <TableColumn fx:id="overviewShiftCol" maxWidth="209.46014404296875" prefWidth="133.0" text="Shift" />
-                              <TableColumn fx:id="overviewMobileCol" maxWidth="175.77178955078125" prefWidth="119.0" text="Mobile" />
-                              <TableColumn fx:id="overviewEmailCol" maxWidth="200.1126708984375" prefWidth="160.0" text="Email" />
-                              <TableColumn fx:id="overviewHireDateCol" maxWidth="157.21881103515625" prefWidth="100.469482421875" resizable="false" text="Hire Date" />
-                              <TableColumn fx:id="overviewBDayCol" maxWidth="158.392333984375" prefWidth="48.469482421875" text="BDay" />
-                              <TableColumn fx:id="overviewAddressCol" maxWidth="317.0" prefWidth="317.0" text="Address" />
-                           </columns>
-                           <GridPane.margin>
-                              <Insets left="45.0" right="35.0" />
-                           </GridPane.margin>
-                        </TableView>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" />
-                           </GridPane.margin>
-                        </HBox>
-                        <HBox prefHeight="0.0" prefWidth="1286.0" GridPane.columnSpan="3" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1247.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets bottom="25.0" right="35.0" />
-                           </GridPane.margin>
-                           <children>
-                              <Line endX="-158.9129638671875" endY="-56.971588134765625" rotate="45.0" startX="-100.0" style="-fx-stroke: grey;" />
-                              <Button fx:id="overviewAddNewBtn" mnemonicParsing="false" onAction="#onActionOverviewAddNew" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Add New" />
-                              <Button fx:id="overviewModifyBtn" mnemonicParsing="false" onAction="#onActionOverviewModify" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Modify" />
-                              <Button fx:id="overviewDetailsBtn" mnemonicParsing="false" onAction="#onActionOverviewDetails" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Details" />
-                              <Button fx:id="overviewDetailsBtn1" mnemonicParsing="false" onAction="#onActionOverviewDelete" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Delete" />
-                              <Line endX="-158.9129638671875" endY="-56.971588134765625" rotate="45.0" startX="-100.0" style="-fx-stroke: grey;" />
-                              <Button fx:id="overviewExitBtn" mnemonicParsing="false" onAction="#onActionOverviewExit" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Exit" />
-                           </children>
-                        </HBox>
-                        <Label alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="339.0" text="Status" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="SF Hello Semibold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" prefHeight="135.0" prefWidth="281.0" text="Team Roster" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="SF Hello Semibold Italic" size="24.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="55.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
+                        <Button fx:id="overviewAddNewBtn" mnemonicParsing="false" onAction="#onActionOverviewAddNew" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Add New" />
+                        <Button fx:id="overviewModifyBtn" mnemonicParsing="false" onAction="#onActionOverviewModify" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Modify" />
+                        <Button fx:id="overviewDetailsBtn1" mnemonicParsing="false" onAction="#onActionOverviewDelete" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Delete" />
+                        <Line endX="-158.9129638671875" endY="-56.971588134765625" rotate="45.0" startX="-100.0" style="-fx-stroke: grey;" />
+                        <Button fx:id="overviewExitBtn" mnemonicParsing="false" onAction="#onActionOverviewExit" prefHeight="33.0" prefWidth="101.0" style="-fx-border-color: grey; -fx-border-radius: 3; -fx-border-width: 3;" text="Exit">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
                      </children>
-                  </GridPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+                  </HBox>
+                  <Label alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="118.0" text="Status" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="SF Hello Semibold Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <MenuBar prefHeight="29.0" prefWidth="142.0">
+                    <menus>
+                      <Menu fx:id="overviewFileMenu" mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu fx:id="overviewEditMenu" mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu fx:id="overviewHelpMenu" mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                     <GridPane.margin>
+                        <Insets right="120.0" />
+                     </GridPane.margin>
+      
+                  </MenuBar>
+                  <Label alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="540.0" text="Team View" GridPane.columnIndex="2" GridPane.rowSpan="2">
+                     <font>
+                        <Font name="SF Hello Semibold Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children></Pane>
    </children>
 </AnchorPane>

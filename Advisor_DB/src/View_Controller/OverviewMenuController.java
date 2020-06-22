@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,8 +28,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class OverviewMenuController implements Initializable {
-
-    boolean details;
     @FXML
     public TableView<Advisor> overviewAdvisorTableView;
     @FXML
@@ -53,8 +53,6 @@ public class OverviewMenuController implements Initializable {
     @FXML
     public ComboBox<String> overviewStatusComboBox;
     @FXML
-    public Tab overviewMenu;
-    @FXML
     public TableColumn<Advisor, String> overviewTimeZoneCol;
     @FXML
     public TableColumn<Advisor, String> overviewShiftTypeCol;
@@ -63,10 +61,7 @@ public class OverviewMenuController implements Initializable {
     Parent scene;
 
     public void initialize(URL location, ResourceBundle resources) {
-        
-
         overviewAdvisorTableView.setItems(Records.getAdvisorDB());
-
         overviewStatusComboBox.getItems().addAll("All", "Active", "LOA", "Rotation", "Term");
 
         overviewNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -91,7 +86,6 @@ public class OverviewMenuController implements Initializable {
         overviewAdvisorTableView.requestFocus();
         overviewAdvisorTableView.getSelectionModel().select(0);
         overviewAdvisorTableView.scrollTo(0);
-
     }
 
     public void onActionOverviewStatus(ActionEvent actionEvent) {
@@ -121,34 +115,14 @@ public class OverviewMenuController implements Initializable {
         }
     }
 
-
-
-    public void onActionOverviewDetails(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Details.fxml"));
-        loader.load();
-
-        DetailsMenuController detailsMenuController =  loader.getController();
-        detailsMenuController.sendAdvisor(overviewAdvisorTableView.getSelectionModel().getSelectedItem());
-
-        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setTitle("Advisor Details Menu");
-
-        Parent scene = loader.getRoot();
-        stage.setScene(new Scene(scene));
-        stage.show();
-
-    }
-
     public void onActionOverviewAddNew(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("AddAdvisor.fxml"));
-        stage.setTitle("Add Advisoor Menu");
+        stage.setTitle("Add Advisor Menu");
 
         stage.setScene(new Scene(scene));
         stage.show();
     }
-
 
     public void onActionOverviewModify(ActionEvent actionEvent) throws IOException {
         {
@@ -169,8 +143,14 @@ public class OverviewMenuController implements Initializable {
     }
 
     public void onActionOverviewExit(ActionEvent actionEvent) throws IOException {
-
-
+        {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to Exit?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK)
+            {
+                System.exit(0);
+            }
+        }
     }
 
     public void onActionOverviewDelete(ActionEvent actionEvent) throws IOException {
@@ -184,5 +164,29 @@ public class OverviewMenuController implements Initializable {
         }
     }
 
-}
+    @FXML
+    private void overViewMenuDoubleClick(MouseEvent mouseEvent) throws IOException
+    {
+                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+                    if(mouseEvent.getClickCount() == 2){
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Details.fxml"));
+                        loader.load();
+
+                        DetailsMenuController detailsMenuController =  loader.getController();
+                        detailsMenuController.  sendAdvisor(overviewAdvisorTableView.getSelectionModel().getSelectedItem());
+
+                        stage = (Stage) ((TableView) mouseEvent.getSource()).getScene().getWindow();
+                        stage.setTitle("Advisor Details Menu");
+
+                        Parent scene = loader.getRoot();
+                        stage.setScene(new Scene(scene));
+                        stage.show();
+                    }
+                }
+            }
+        }
+
+
+
 

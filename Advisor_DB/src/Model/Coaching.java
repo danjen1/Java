@@ -1,6 +1,5 @@
 package Model;
 
-import Other.IdGenerator;
 import Storage.Records;
 
 import java.io.IOException;
@@ -22,7 +21,11 @@ public class Coaching implements Serializable {
         setType(type);
         setComments(comments);
         setName(Name);
+        this.ID = ID;
+        System.out.println("Update Coaching Method ID: " + ID);
         Records.updateCoaching(ID, this);
+        System.out.println("Update Coaching Method Ran ID: " + ID);
+
     }
 
     public Coaching(String name, String date, String type, String comments) throws IOException {
@@ -32,6 +35,7 @@ public class Coaching implements Serializable {
         setType(type);
         setName(name);
         setComments(comments);
+        setID();
         Records.addCoaching(name, this);
         System.out.println(ID);
 
@@ -74,8 +78,14 @@ public class Coaching implements Serializable {
         return ID;
     }
 
-    public void setID(int i) {
-        this.ID = i;
+    public void setID() throws IOException
+    {
+         ID = Records.getCoaching(this.getName()).size();
+    }
+
+    public void setID(int ID) throws IOException
+    {
+        ID = Records.getCoaching(this.getName()).size();
     }
 
 }

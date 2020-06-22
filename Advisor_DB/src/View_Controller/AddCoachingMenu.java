@@ -77,15 +77,12 @@ public class AddCoachingMenu implements Initializable {
             String name = advisor.getName();
             addCoachingNameComboBox.getItems().add(name);
         }
-
         addCoachingTypeComboBox.getItems().addAll("1x1", "NorthStar", "Check-in", "AUX", "Behavioral", "KPIs", "FollowUp");
         addCoachingDatePicker.setValue(LocalDate.now());
     }
 
-    public void sendCoaching(String name) {
-        this.name = name;
-        System.out.println(name);
-        addCoachingNameComboBox.setValue(name);
+    public void sendCoaching(String advisor) {
+        addCoachingNameComboBox.setValue(advisor);
     }
 
 

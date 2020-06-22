@@ -59,8 +59,13 @@ public class Records {
     }
     public static void updateCoaching(int ID, Coaching coach) throws IOException {
 
-        Records.getCoaching(coach.getName()).set(ID - 1, coach);
-        System.out.println("Advisor Added" + " " + coach.getID());
+        Records.getCoaching(coach.getName()).set(ID, coach);
+        System.out.println("Coaching Added" + " " + ID);
+        for (Coaching co : Records.getCoaching(coach.getName()))
+        {
+            co.setID(co.getID());
+            System.out.println("ID: " + co.getID() + "Name: " + co.getName() + "Type: " + co.getType() + "Comments: " + co.getComments());
+        }
 
     }
 
@@ -68,7 +73,9 @@ public class Records {
 
         Records.getAttendance(attend.getName()).set(ID - 1, attend);
         System.out.println("Advisor Added" + " " + attend.getID());
-
+        for (Attendance at : Records.getAttendance(attend.getName())){
+            System.out.println("ID: " + at.getID() + "Name: " + at.getName() + "Type: " + at.getType() + "Comments: " + at.getComments());
+        }
     }
 
 
@@ -93,8 +100,7 @@ public class Records {
         for (Advisor item : advisorDB) {
             if (item.getName().equals(name)) {
                 System.out.println(name + " found.  Adding Model.Coaching Notes ");
-                item.setCoachID();
-                coach.setID(item.getCoachID());
+
 
                 System.out.println("printing AddCoaching ID" + item.getCoachID());
                 item.getCoach().add(coach);

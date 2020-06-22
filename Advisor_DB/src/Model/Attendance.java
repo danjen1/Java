@@ -1,8 +1,6 @@
 package Model;
 
-import Other.IdGenerator;
 import Storage.Records;
-import apple.laf.JRSUIConstants;
 
 import java.io.IOException;
 import java.io.Serializable;
