@@ -70,7 +70,6 @@ public class ModifyAdvisorMenuController implements Initializable {
         advisorModifyStatusComboBox.getSelectionModel().select(advisor.getStatus());
         advisorModifyTimeZoneComboBox.getSelectionModel().select(advisor.getT_zone());
         advisorModifyShiftTypeComboBox.getSelectionModel().select(advisor.getShift_type());
-        int ID = advisor.getID();
     }
 
     @Override

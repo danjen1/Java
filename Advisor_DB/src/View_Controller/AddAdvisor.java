@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddAdvisor implements Initializable {
-    public TextField advisorAddAddressTextField;
+    private TextField advisorAddAddressTextField;
     public TextField advisorAddBdayTextField;
     public TextField advisorAddHireDateTextField;
     public TextField advisorAddEmailTextField;

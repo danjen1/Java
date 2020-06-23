@@ -2,8 +2,6 @@ package View_Controller;
 
 import Model.Advisor;
 import Model.Attendance;
-import Model.Coaching;
-import Other.TableUtils;
 import Storage.Records;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -67,12 +64,11 @@ public class ModifyAttendance implements Initializable {
         double hours = Double.parseDouble(modifyAttendanceHoursTextField.getText());
         boolean isComplete = modifyAttendanceCompletedCheckBox.isSelected();
         System.out.println("On Action Modify "  + ID);
-
         Attendance temp;
-       if (!(this.name.equals(tempName))){
+        if (!(this.name.equals(tempName))){
             temp = new Attendance(tempName, date, type, hours, comments, isComplete);
             Records.getAttendance(name).remove(ID -1);
-       } else {
+        } else {
             temp = new Attendance(ID, name, date, type, hours, comments, isComplete);
         }
 
@@ -89,15 +85,11 @@ public class ModifyAttendance implements Initializable {
         Parent scene = loader.getRoot();
         stage.setScene(new Scene(scene));
         stage.show();
-
+        System.out.println("Attendance Save Modify");
     }
 
     public void onActionModifyAttendanceCancel(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("Details.fxml"));
-        stage.setTitle("Advisor Details Menu");
-
-        stage.setScene(new Scene(scene));
-        stage.show();
+        String tempName = modifyAttendanceNameComboBox.getSelectionModel().getSelectedItem();
+        new CancelButton(actionEvent, tempName);
     }
 }

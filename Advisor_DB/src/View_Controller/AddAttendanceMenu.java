@@ -2,7 +2,6 @@ package View_Controller;
 
 import Model.Advisor;
 import Model.Attendance;
-import Model.Coaching;
 import Storage.Records;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +37,7 @@ public class AddAttendanceMenu implements Initializable {
             String name = advisor.getName();
             addAttendanceNameComboBox.getItems().add(name);
         }
-        addAttendanceTypeComboBox.getItems().addAll("Approved", "VTO", "Apple DownTime", "Home DownTime", "Inclement Weather", "Full Day Sick", "Mid Day Sick",
+        addAttendanceTypeComboBox.getItems().addAll("ROD", "NTF", "Approved", "VTO", "Apple DownTime", "Home DownTime", "Inclement Weather", "Full Day Sick", "Mid Day Sick",
                 "Early or Late Out", "Personal", "No Call No Show", "Pending Protected Time", "Tardy or Left Early", "Late From Lunch",
                 "KinCare", "Regional Sick", "Bereavement", "Parental Time", "Jury Duty", "LOA", "iLOA", "Job Accommodation");
         addAttendanceDatePicker.setValue(LocalDate.now());
@@ -77,10 +76,12 @@ public class AddAttendanceMenu implements Initializable {
 
     public void sendAttendance(String name) {
         this.name = name;
-        System.out.println(name);
         addAttendanceNameComboBox.setValue(name);
     }
 
-    public void onActionAddAttendanceCancel(ActionEvent actionEvent) {
+    public void onActionAddAttendanceCancel(ActionEvent actionEvent) throws IOException
+    {
+        String tempName = addAttendanceNameComboBox.getSelectionModel().getSelectedItem();
+        new CancelButton(actionEvent, tempName);
     }
 }

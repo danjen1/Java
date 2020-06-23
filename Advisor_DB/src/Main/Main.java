@@ -18,9 +18,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/View_Controller/Overview.fxml"));
-        primaryStage.setTitle("Overview Menu");
+        primaryStage.setTitle("Team Info");
         root.getStylesheets().add("CSS/OverviewMenu.css");
-        primaryStage.setScene(new Scene(root, 1280, 680));
+        primaryStage.setScene(new Scene(root, 1540, 740));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
@@ -182,6 +183,78 @@ public class Main extends Application {
         new Coaching("Daniel Jenkins", "2019-06-10", "AUX", "Great job 1");
         new Coaching("Daniel Jenkins", "2019-05-10", "Follow Up", "Great job 1");
         new Coaching("Daniel Jenkins", "2016-05-10", "Follow Up", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-06-15", "1x1", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-06-15", "Check-in", "Great job 1");
+        new Coaching("Daniel Jenkins", "2020-06-15", "NorthStar", "Great job 1");
+        new Attendance("Daniel Jenkins", "2020-06-15", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-04-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-03-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-02-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-01-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-12-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-11-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-10-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-09-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-08-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-07-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-06-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-05-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-04-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-03-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-02-10", "ROD", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-06-15", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-04-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-03-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-02-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-01-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-12-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-11-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-10-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-09-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-08-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-07-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-06-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-05-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-04-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-03-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-02-10", "NTF", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-06-15", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-04-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-03-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-02-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-01-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-12-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-11-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-10-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-09-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-08-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-07-10", "Home DownTime", 8, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-06-10", "Home DownTime", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-05-10", "Home DownTime", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-04-10", "Home DownTime", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-03-10", "Home DownTime", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-02-10", "Home DownTime", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-06-15", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-05-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-04-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-03-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-02-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2020-01-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-12-10", "KinCare", 4.25, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-11-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-10-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-09-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-08-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-07-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-06-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-05-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-04-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-03-10", "KinCare", 5.26, "Test2",true);
+        new Attendance("Daniel Jenkins", "2019-02-10", "KinCare", 5.26, "Test2",true);
+
 
         launch(args);
     }

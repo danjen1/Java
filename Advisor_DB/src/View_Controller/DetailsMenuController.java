@@ -50,14 +50,22 @@ public class DetailsMenuController implements Initializable
     public Label advisorDetails1x1Label;
     public Label advisorDetailsCheckinLabel;
     public Label advisorDetailsNorthStarLabel;
-    public Label advisorDetailsAdvisorLabel;
     public ComboBox<String> advisorDetailsAdvisorComboBox;
     public ComboBox<String> advisorDetailsCoachingAttendComboBox;
     public ComboBox<String> advisorDetailsCoachingPeriodComboBox;
 
+    int oneOnOne = 0, checkIn = 0, northStars, ROD = 0, NTF = 0;
+    double unplanned = 0, downTime = 0, KinCare = 0;
+
+    LocalDate today = LocalDate.now().plusDays(1);
+    LocalDate thirty = today.minusDays(30);
+    LocalDate sixty = today.minusDays(60);
+    LocalDate ninety = today.minusDays(90);
+    LocalDate oneEighty = today.minusDays(180);
+    LocalDate year = today.minusDays(365);
+
     Stage stage;
     Parent scene;
-    String name = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -69,34 +77,46 @@ public class DetailsMenuController implements Initializable
         }
         advisorDetailsCoachingAttendComboBox.getItems().addAll("All", "30 Days", "60 Days", "90 Days", "180 Days", "12 Month");
         advisorDetailsCoachingPeriodComboBox.getItems().addAll("All", "30 Days", "60 Days", "90 Days", "180 Days", "12 Month");
+        advisorDetailsCoachingAttendComboBox.getSelectionModel().select("90 Days");
+        advisorDetailsCoachingPeriodComboBox.getSelectionModel().select("30 Days");
+
+        System.out.println("Initialize ran");
     }
 
-    public void sendAdvisor(Advisor advisor) throws IOException
+
+    public void sendAdvisor(Advisor advisor, ObservableList<Coaching> coach, ObservableList<Attendance> attend) throws IOException
     {
         advisorDetailsAdvisorComboBox.getSelectionModel().select(advisor.getName());
         fillTables();
 
+        coachLabelDefault(coach);
+        attendLabelDefault(attend);
         advisorDetailsAdvisorComboBox.setValue(advisor.getName());
+
     }
 
     public void sendCoaching(Coaching coach) throws IOException
     {
         advisorDetailsAdvisorComboBox.getSelectionModel().select(coach.getName());
         fillTables();
-
         detailsAdvisorCoachingTableView.requestFocus();
         detailsAdvisorCoachingTableView.getSelectionModel().select(0);
         detailsAdvisorCoachingTableView.scrollTo(0);
+
+        coachingTotals();
+        attendTotals();
     }
 
     public void sendAttendance(Attendance attend) throws IOException
     {
         advisorDetailsAdvisorComboBox.getSelectionModel().select(attend.getName());
         fillTables();
-
         detailsAdvisorAttendanceTableView.requestFocus();
         detailsAdvisorAttendanceTableView.getSelectionModel().select(0);
         detailsAdvisorAttendanceTableView.scrollTo(0);
+
+        coachingTotals();
+        attendTotals();
     }
 
     public void fillTables() throws IOException
@@ -122,29 +142,30 @@ public class DetailsMenuController implements Initializable
         detailsAdvisorAttendanceTableView.getSelectionModel().setCellSelectionEnabled(true);
 
         TableUtils.installCopyPasteHandler(detailsAdvisorAttendanceTableView);
+        coachingTotals();
+        attendTotals();
 
     }
 
     public void onActionAdvisorDetailsAdvisorName(ActionEvent actionEvent) throws IOException
     {
         fillTables();
+        coachingTotals();
+        attendTotals();
+
     }
 
     public void onActionAdvisorDetailsCoachingStatus(ActionEvent actionEvent) throws IOException
     {
+        coachingTotals();
+    }
+
+    public void coachingTotals() throws IOException
+    {
         ObservableList<Coaching> searched = FXCollections.observableArrayList();
         String sort = advisorDetailsCoachingPeriodComboBox.getSelectionModel().getSelectedItem();
-        LocalDate today = LocalDate.now();
-        LocalDate thirty = today.minusDays(30);
-        LocalDate sixty = today.minusDays(60);
-        LocalDate ninety = today.minusDays(90);
-        LocalDate oneEighty = today.minusDays(180);
-        LocalDate year = today.minusDays(365);
-        double sum30 = 0;
-        double sum60 = 0;
-        double sum90 = 0;
-        double sum180 = 0;
-        double sumTotal = 0;
+        clearCoachLabel();
+        System.out.println(northStars + " " + oneOnOne + " " +  checkIn);
         for (Coaching coach : (Records.getCoaching(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem())))
         {
             switch (sort)
@@ -152,87 +173,205 @@ public class DetailsMenuController implements Initializable
                 case "30 Days" :
                     System.out.println("30 Days");
                     if (coach.getDate().isBefore(today) && coach.getDate().isAfter(thirty))
+                    {
                         searched.add(coach);
-                        System.out.println("Searched array size " + searched.size());
-                        detailsAdvisorCoachingTableView.setItems(searched);
-                        break;
+                        coachTypeTotals(coach);
+                    }
+                    detailsAdvisorCoachingTableView.setItems(searched);
+                    break;
                 case "60 Days" :
                     if (coach.getDate().isBefore(today) && coach.getDate().isAfter(sixty))
+                    {
                         searched.add(coach);
-                        detailsAdvisorCoachingTableView.setItems(searched);
+                        coachTypeTotals(coach);
+                    }
+                    detailsAdvisorCoachingTableView.setItems(searched);
                     break;
                 case "180 Days" :
                     if (coach.getDate().isBefore(today) && coach.getDate().isAfter(oneEighty))
+                    {
                         searched.add(coach);
-                        detailsAdvisorCoachingTableView.setItems(searched);
+                        coachTypeTotals(coach);
+                    }
+                    detailsAdvisorCoachingTableView.setItems(searched);
                     break;
                 case "90 Days" :
                     if (coach.getDate().isBefore(today) && coach.getDate().isAfter(ninety))
+                    {
                         searched.add(coach);
-                        detailsAdvisorCoachingTableView.setItems(searched);
-
+                        coachTypeTotals(coach);
+                    }
+                    detailsAdvisorCoachingTableView.setItems(searched);
                     break;
                 case "12 Month" :
                     if (coach.getDate().isBefore(today) && coach.getDate().isAfter(year))
+                    {
                         searched.add(coach);
-                        detailsAdvisorCoachingTableView.setItems(searched);
+                        coachTypeTotals(coach);
+                    }
+                    detailsAdvisorCoachingTableView.setItems(searched);
                     break;
-               default  :
+                default  :
+                    coachTypeTotals(coach);
                     detailsAdvisorCoachingTableView.setItems(Records.getCoaching(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem()));
                     break;
             }
         }
+        String test = advisorDetailsCoachingPeriodComboBox.getSelectionModel().getSelectedItem();
+        System.out.println(test);
+        if(searched.size() == 0 && (!(test.equals("All"))))
+        {
+            clearAttendLabel();
+        }
     }
 
-     public void onActionAdvisorDetailsAttendStatus(ActionEvent actionEvent) throws IOException
-     {
-      ObservableList<Attendance> searched = FXCollections.observableArrayList();
-      String sort = advisorDetailsCoachingAttendComboBox.getSelectionModel().getSelectedItem();
-      LocalDate today = LocalDate.now();
-      LocalDate thirty = today.minusDays(30);
-      LocalDate sixty = today.minusDays(60);
-      LocalDate ninety = today.minusDays(90);
-      LocalDate oneEighty = today.minusDays(180);
-      LocalDate year = today.minusDays(365);
+    public void coachTypeTotals(Coaching coach){
+        if(coach.getType().equals("1x1")){
+            oneOnOne++;
+            System.out.println("One On One : " + oneOnOne);
+        } else if (coach.getType().equals("Check-in")){
+            checkIn++;
+            System.out.println("Check-n " + checkIn);
+        }else if (coach.getType().equals("NorthStar")){
+            northStars++;
+            System.out.println("NothStars " + northStars);
+        }
+        advisorDetails1x1Label.setText(String.valueOf(oneOnOne));
+        advisorDetailsCheckinLabel.setText(String.valueOf(checkIn));
+        advisorDetailsNorthStarLabel.setText(String.valueOf(northStars));
+    }
 
-      for (Attendance attend : (Records.getAttendance(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem())))
-      {
-          switch (sort)
-          {
-              case "30 Days" :
-                  System.out.println("30 Days");
-                  if (attend.getDate().isBefore(today) && attend.getDate().isAfter(thirty))
-                      searched.add(attend);
-                  System.out.println("Searched array size " + searched.size());
-                  detailsAdvisorAttendanceTableView.setItems(searched);
-                  break;
-              case "60 Days" :
-                  if (attend.getDate().isBefore(today) && attend.getDate().isAfter(sixty))
-                      searched.add(attend);
-                  detailsAdvisorAttendanceTableView.setItems(searched);
-                  break;
-              case "180 Days" :
-                  if (attend.getDate().isBefore(today) && attend.getDate().isAfter(oneEighty))
-                      searched.add(attend);
-                  detailsAdvisorAttendanceTableView.setItems(searched);
-                  break;
-              case "90 Days" :
-                  if (attend.getDate().isBefore(today) && attend.getDate().isAfter(ninety))
-                      searched.add(attend);
-                  detailsAdvisorAttendanceTableView.setItems(searched);
+    public void coachLabelDefault(ObservableList<Coaching> coach) throws IOException
+    {
+        for (Coaching item : coach)
+        {
+            if (item.getDate().isBefore(today) && item.getDate().isAfter(thirty))
+            {
+                coachTypeTotals(item);
+            }
+        }
+    }
+    public void clearCoachLabel(){
+        oneOnOne = 0;
+        checkIn = 0;
+        northStars = 0;
+        advisorDetails1x1Label.setText(String.valueOf(oneOnOne));
+        advisorDetailsCheckinLabel.setText(String.valueOf(checkIn));
+        advisorDetailsNorthStarLabel.setText(String.valueOf(northStars));
+    }
 
-                  break;
-              case "12 Month" :
-                  if (attend.getDate().isBefore(today) && attend.getDate().isAfter(year))
-                      searched.add(attend);
-                  detailsAdvisorAttendanceTableView.setItems(searched);
-                  break;
-              default  :
-                  detailsAdvisorAttendanceTableView.setItems(Records.getAttendance(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem()));
-                  break;
-          }
-      }
-  }
+    public void onActionAdvisorDetailsAttendStatus(ActionEvent actionEvent) throws IOException
+    {
+        attendTotals();
+    }
+    public void attendTotals() throws IOException
+    {
+        ObservableList<Attendance> searched = FXCollections.observableArrayList();
+        String sort = advisorDetailsCoachingAttendComboBox.getSelectionModel().getSelectedItem();
+        clearAttendLabel();
+        System.out.println("clear attendance labels ran " + unplanned);
+        for (Attendance attend : (Records.getAttendance(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem())))
+        {
+            switch (sort)
+            {
+                case "30 Days" :
+                    if (attend.getDate().isBefore(today) && attend.getDate().isAfter(thirty))
+                    {
+                        searched.add(attend);
+                        attendTypeTotals(attend);
+                    }
+                    detailsAdvisorAttendanceTableView.setItems(searched);
+                    break;
+                case "60 Days" :
+                    if (attend.getDate().isBefore(today) && attend.getDate().isAfter(sixty))
+                    {
+                        searched.add(attend);
+                        attendTypeTotals(attend);
+                    }
+                    detailsAdvisorAttendanceTableView.setItems(searched);
+                    break;
+                case "180 Days" :
+                    if (attend.getDate().isBefore(today) && attend.getDate().isAfter(oneEighty))
+                    {
+                        searched.add(attend);
+                        attendTypeTotals(attend);
+                    }
+                    detailsAdvisorAttendanceTableView.setItems(searched);
+                    break;
+                case "90 Days" :
+                    if (attend.getDate().isBefore(today) && attend.getDate().isAfter(ninety))
+                    {
+                        searched.add(attend);
+                        attendTypeTotals(attend);
+                    }
+                    detailsAdvisorAttendanceTableView.setItems(searched);
+                    break;
+                case "12 Month" :
+                    if (attend.getDate().isBefore(today) && attend.getDate().isAfter(year))
+                    {
+                        searched.add(attend);
+                        attendTypeTotals(attend);
+                    }
+                    detailsAdvisorAttendanceTableView.setItems(searched);
+                    break;
+                default  :
+                    attendTypeTotals(attend);
+                    detailsAdvisorAttendanceTableView.setItems(Records.getAttendance(advisorDetailsAdvisorComboBox.getSelectionModel().getSelectedItem()));
+                    break;
+            }
+        }
+        String test = advisorDetailsCoachingAttendComboBox.getSelectionModel().getSelectedItem();
+        System.out.println(test);
+        if(searched.size() == 0 && (!(test.equals("All"))))
+        {
+            clearAttendLabel();
+        }
+    }
+
+
+    public void attendTypeTotals(Attendance attend){
+        if(attend.getType().equals("ROD")){
+            ROD++;
+        } else if (attend.getType().equals("NTF")){
+            NTF++;
+        }else if (attend.getUnplanned()){
+            unplanned+= attend.getHours();
+            System.out.println("Unplanned " + attend.getType() + attend.getName() + attend.getUnplanned() + attend.getDate() + attend.getHours());
+        } else if (attend.getType().equals("Home DownTime")){
+            downTime+= attend.getHours();
+        } else if (attend.getType().equals("KinCare")){
+            KinCare+= attend.getHours();
+        }
+        System.out.println("Unplanned " + unplanned);
+        detailsNTFLabel.setText(String.valueOf(NTF));
+        detailsRODLabel.setText(String.valueOf(ROD));
+        detailsDowntineLabel.setText(String.valueOf(downTime));
+        detailsKincareLabel.setText(String.valueOf(KinCare));
+        detailsUnplannedLabel.setText(String.valueOf(unplanned));
+    }
+
+    public void attendLabelDefault(ObservableList<Attendance> attend) throws IOException
+    {
+        for (Attendance item : attend)
+        {
+            if (item.getDate().isBefore(today) && item.getDate().isAfter(ninety))
+            {
+                attendTypeTotals(item);
+            }
+        }
+    }
+    public void clearAttendLabel(){
+        NTF = 0;
+        ROD = 0;
+        unplanned = 0;
+        downTime = 0;
+        KinCare = 0;
+        detailsNTFLabel.setText(String.valueOf(NTF));
+        detailsRODLabel.setText(String.valueOf(ROD));
+        detailsDowntineLabel.setText(String.valueOf(downTime));
+        detailsKincareLabel.setText(String.valueOf(KinCare));
+        detailsUnplannedLabel.setText(String.valueOf(unplanned));
+    }
 
     public void onActionAdvisorDetailsAddBtn(ActionEvent actionEvent) throws IOException
     {
@@ -327,6 +466,7 @@ public class DetailsMenuController implements Initializable
     }
 
 
+
     @FXML
     private void detailsMenuAttendMouseClicked(MouseEvent mouseEvent) throws IOException
     {
@@ -373,6 +513,12 @@ public class DetailsMenuController implements Initializable
     {
         detailsAdvisorAttendanceTableView.getSelectionModel().clearSelection();
 
+    }
+
+    public void coachAttendCancel(String name) throws IOException
+    {
+        advisorDetailsAdvisorComboBox.setValue(name);
+        fillTables();
     }
 }
 

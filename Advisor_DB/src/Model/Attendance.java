@@ -12,6 +12,7 @@ public class Attendance implements Serializable {
     private String name, type, comments, completed;
     private LocalDate date;
     private double hours;
+    private boolean unplanned;
 
     private int ID;
 
@@ -24,6 +25,7 @@ public class Attendance implements Serializable {
         setHours(hours);
         setComments(comments);
         setCompleted(completed);
+        setUnplanned(type);
         Records.updateAttend(ID, this);
         System.out.println("Attendance Updated " + ID);
     }
@@ -37,6 +39,7 @@ public class Attendance implements Serializable {
         setName(name);
         setCompleted(completed);
         setHours(hours);
+        setUnplanned(type);
         Records.addAttend(name, this);
         System.out.println("Attendance Added (NEW)" + this.ID);
 
@@ -106,7 +109,14 @@ public class Attendance implements Serializable {
     public void setID(int i) {
         this.ID = i;
     }
+
+    public void setUnplanned(String type){
+        if(type.equals("Full Day Sick") || type.equals("Mid Day Sick") || type.equals("Early or Late Out") || type.equals("No Call No Show") || type.equals("Tardy or Left Early")){
+            unplanned = true;
+        }
+    }
+    public boolean getUnplanned(){
+        return unplanned;
+    }
 }
-
-
 

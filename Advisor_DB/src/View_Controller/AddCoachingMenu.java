@@ -62,11 +62,8 @@ public class AddCoachingMenu implements Initializable {
 
 
     public void onActionAddCoachingCancel(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("Details.fxml"));
-        stage.setTitle("Advisor Details Menu");
-        stage.setScene(new Scene(scene));
-        stage.show();
+        String tempName = addCoachingNameComboBox.getSelectionModel().getSelectedItem();
+        new CancelButton(actionEvent, tempName);
     }
 
 

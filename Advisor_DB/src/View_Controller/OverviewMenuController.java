@@ -29,33 +29,33 @@ import java.util.ResourceBundle;
 
 public class OverviewMenuController implements Initializable {
     @FXML
-    public TableView<Advisor> overviewAdvisorTableView;
+    private TableView<Advisor> overviewAdvisorTableView;
     @FXML
-    public TableColumn<Advisor, String> overviewNameCol;
+    private TableColumn<Advisor, String> overviewNameCol;
     @FXML
-    public TableColumn<Advisor, String> overviewStatusCol;
+    private TableColumn<Advisor, String> overviewStatusCol;
     @FXML
-    public TableColumn<Advisor, String> overviewDSIDCol;
+    private TableColumn<Advisor, String> overviewDSIDCol;
     @FXML
-    public TableColumn<Advisor, String> overviewEIDCol;
+    private TableColumn<Advisor, String> overviewEIDCol;
     @FXML
-    public TableColumn<Advisor, String> overviewShiftCol;
+    private TableColumn<Advisor, String> overviewShiftCol;
     @FXML
-    public TableColumn<Advisor, String> overviewMobileCol;
+    private TableColumn<Advisor, String> overviewMobileCol;
     @FXML
-    public TableColumn<Advisor, Date> overviewHireDateCol;
+    private TableColumn<Advisor, Date> overviewHireDateCol;
     @FXML
-    public TableColumn<Advisor, String> overviewEmailCol;
+    private TableColumn<Advisor, String> overviewEmailCol;
     @FXML
-    public TableColumn<Advisor, String> overviewBDayCol;
+    private TableColumn<Advisor, String> overviewBDayCol;
     @FXML
-    public TableColumn<Advisor, String> overviewAddressCol;
+    private TableColumn<Advisor, String> overviewAddressCol;
     @FXML
-    public ComboBox<String> overviewStatusComboBox;
+    private ComboBox<String> overviewStatusComboBox;
     @FXML
-    public TableColumn<Advisor, String> overviewTimeZoneCol;
+    private TableColumn<Advisor, String> overviewTimeZoneCol;
     @FXML
-    public TableColumn<Advisor, String> overviewShiftTypeCol;
+    private TableColumn<Advisor, String> overviewShiftTypeCol;
 
     Stage stage;
     Parent scene;
@@ -154,12 +154,13 @@ public class OverviewMenuController implements Initializable {
     }
 
     public void onActionOverviewDelete(ActionEvent actionEvent) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Advisor?");
+        String name = overviewAdvisorTableView.getSelectionModel().getSelectedItem().getName();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete " + name);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             Records.getAdvisorDB().remove(overviewAdvisorTableView.getSelectionModel().getSelectedItem());
             overviewAdvisorTableView.setItems(Records.getAdvisorDB());
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Advisor Deleted Successfully");
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION, name + " Deleted Successfully");
             alert1.showAndWait();
         }
     }
@@ -174,7 +175,8 @@ public class OverviewMenuController implements Initializable {
                         loader.load();
 
                         DetailsMenuController detailsMenuController =  loader.getController();
-                        detailsMenuController.  sendAdvisor(overviewAdvisorTableView.getSelectionModel().getSelectedItem());
+                        detailsMenuController.sendAdvisor(overviewAdvisorTableView.getSelectionModel().getSelectedItem(), overviewAdvisorTableView.getSelectionModel().getSelectedItem().getCoach(),
+                                overviewAdvisorTableView.getSelectionModel().getSelectedItem().getAttendance());
 
                         stage = (Stage) ((TableView) mouseEvent.getSource()).getScene().getWindow();
                         stage.setTitle("Advisor Details Menu");

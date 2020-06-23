@@ -80,12 +80,8 @@ public class ModifyCoachingMenu implements Initializable {
     }
 
     public void onActionModifyCoachingCancel(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("Details.fxml"));
-        stage.setTitle("Advisor Details Menu");
-
-        stage.setScene(new Scene(scene));
-        stage.show();
+        String tempName = modifyCoachingNameComboBox.getSelectionModel().getSelectedItem();
+        new CancelButton(actionEvent, tempName);
     }
 
     @Override
