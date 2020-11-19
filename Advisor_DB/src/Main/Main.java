@@ -13,7 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class
+Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -27,28 +28,28 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws IOException {
-        new Advisor("Christopher Cottrell", "519509", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF", "801-300-0056", "EST", "05/22/2017","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
-        new Advisor("Hakeem Anderson", "520814", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF",  "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
-        new Advisor("Blake Glasure", "513509", "973629301", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF",  "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
-        new Advisor("Jasmine Mayham", "540139", "973630079", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
-        new Advisor("Joseph Smith", "519209", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF", "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
-        new Advisor("Donald Trump", "520114", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
-        new Advisor("Joe Biden", "519559", "973629301", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF", "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
-        new Advisor("Mike Pence", "420139", "973630079", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
-        new Advisor("Tucker Carlson", "515509", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF", "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
-        new Advisor("Hillary Clinton", "530814", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
-        new Advisor("Barack Obama", "519209", "973629301", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF", "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
-        new Advisor("George Bush", "560139", "973630079", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
-        new Advisor("Thomas Jefferson", "519309", "973629301", "hakeem_anderson@apple.com", "LOA", "5x8", "8:30-8:00 SMRF", "801-300-0056", "EST", "5/18/2013","5/28", "4025 McGinnis Ferry Apt 208 Suwanee, GA 30024" );
-        new Advisor("Henry Ford", "560814", "973630904", "hakeem_anderson@apple.com", "Rotation", "Split", "9:30-9:30 YTWRF", "530-227-5377", "PST", "05/22/2017", "8/30", "435 Northlake blvd #2057, Altamonte Springs, FL 32701");
-        new Advisor("Elon Musk", "519509", "973629301", "bglasure@apple.com", "LOA", "4x10", "8:30-8:00 SMRF", "407-907-0738", "EST", "05/22/2017", "3/19", "2245 Tehama st, Redding CA 96001");
-        new Advisor("Nikola Tesla", "501339", "973630079", "jmayham@apple.com", "Active", "5x8", "7:30-7:30 SMTWR", "716-400-2026", "EST", "5/22/2017", "11/15", "9853 Hyde glen ct, Charlotte, NC 28262");
+        new Advisor("Sue Goodwin", "123456", "999999999", "sue_goodwin@mail.com", "Leave", "5x8", "8:30-8:00 SMRF", "801-300-0056", "EST", "05/22/2017","5/28", "425 Ferry Road Philadelphia, PA 11111" );
+        new Advisor("Hakeem Olujawon", "012345", "888888888", "hakeem_olajuwon@mail.com", "Loan", "Split", "9:30-9:30 YTWRF",  "435-578-7899", "PST", "05/22/2017", "8/30", "435 East Blvd, New Springs, FL 99999");
+        new Advisor("Michael Jordan", "234567", "777777777", "mike_jordan@mail.com", "Leave", "4x10", "8:30-8:00 SMRF",  "385-789-1234", "EST", "05/22/2017", "3/19", "245 Tehama Blvd, San Fancisco CA 00000");
+        new Advisor("Clyde Drexler", "345678", "66666666", "clyde_drexler@mail.com", "Active", "5x8", "7:30-7:30 SMTWR", "801-987-1234", "EST", "5/22/2017", "11/15", "98512 Hyde Jekyl Ln, Raleigh, NC 33333");
+        new Advisor("Joseph Smith", "456789", "555555555", "joseph_smith@mail.com", "Leave", "5x8", "8:30-8:00 SMRF", "385-254-1238", "EST", "5/18/2013","5/28", "1325 State St Apt 100 Seattla, WA 44444" );
+        new Advisor("Donald Trump", "567890", "444444444", "donald_trump@potus.com", "Loan", "Split", "9:30-9:30 YTWRF", "435-435-9012", "PST", "05/22/2017", "8/30", "435687 E Fake Road #2057, Protland, OR 55555");
+        new Advisor("Joe Biden", "678901", "333333333", "joe_biden@dementia.com", "Leave", "4x10", "8:30-8:00 SMRF", "412-854-7803", "EST", "05/22/2017", "3/19", "747 Evergreen Terrace, Springfield, MO 66666");
+        new Advisor("Mike Pence", "789012", "222222222", "mike_pence@vpotus.com", "Active", "5x8", "7:30-7:30 SMTWR", "987-952-9632", "EST", "5/22/2017", "11/15", "456 W Paper St, E Lansing, MI 77777");
+        new Advisor("Tucker Carlson", "891023", "111111111", "tucker_carlson@mail.com", "Leave", "5x8", "8:30-8:00 SMRF", "874-520-1287", "EST", "5/18/2013","5/28", "W 84th St S Lake, Witchita, KS 88888" );
+        new Advisor("Hillary Clinton", "910234", "000000000", "hillary_clinton@jail.com", "Loan", "Split", "9:30-9:30 YTWRF", "888-456-1234", "PST", "05/22/2017", "8/30", "31945 E Tree Road, Jackson, MS 01234");
+        new Advisor("Barack Obama", "312456", "000111000", "barack_obama@mail.com", "Leave", "4x10", "8:30-8:00 SMRF", "499-999-9999", "EST", "05/22/2017", "3/19", "12 N 24568 East Blvd, Colorado Springs, CO 12345");
+        new Advisor("George Bush", "987654", "111222111", "george_bush@iraqwar.com", "Active", "5x8", "7:30-7:30 SMTWR", "123-014-7890", "EST", "5/22/2017", "11/15", "1700 Pennsylvania Ave, Washington D.C. 45678");
+        new Advisor("Thomas Jefferson", "876543", "222333222", "thomas_jefferson@founders.com", "Leave", "5x8", "8:30-8:00 SMRF", "012-456-3698", "EST", "5/18/2013","5/28", "12345 E 19482 W Orange, FL 52089" );
+        new Advisor("Henry Ford", "765432", "333444333", "henry_ford@cars.com", "Loan", "Split", "9:30-9:30 YTWRF", "546-987-3210", "PST", "05/22/2017", "8/30", "West 48th St, Nashville, TN 45287");
+        new Advisor("Elon Musk", "654321", "444555444", "elon_musk@tesla.com", "Leave", "4x10", "8:30-8:00 SMRF", "111-222-3456", "EST", "05/22/2017", "3/19", "22345 East Torrential Road, Madison, WI 63584");
+        new Advisor("Nikola Tesla", "543210", "666555444", "nikola_tesla@electric.com", "Active", "5x8", "7:30-7:30 SMTWR", "987-456-0127", "EST", "5/22/2017", "11/15", "4567 W 5467 N Lake, Billings, MT 01258");
 
-        new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", "801-300-0056", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
-        new Advisor("Madison Jenkins", "123455", "553432", "maddy@maddy.com", "Active", "8x5", "SMTWF 9:00am - 6:00pm", "801-360-5225", "EST", "05/13/2013", "8/15", "3182 College Court Elko, NV 89801");
+        new Advisor("Daniel Jenkins", "123455", "553432", "dan@dan.com", "Active", "8x5", "M-F 9-5", "333-741-9630", "EST", "05/13/2013", "8/15", "5400 S 2800 E Tree, Boston, MA 22258");
+        new Advisor("Madison Jenkins", "123455", "553432", "maddy@maddy.com", "Active", "8x5", "SMTWF 9:00am - 6:00pm", "801-360-8888", "EST", "05/13/2013", "8/15", "34563 Eastern Ln, Boise, ID 47136");
         new Attendance("Madison Jenkins", "2018-04-20", "Approved", 8, "Test Model.Attendance 2", false);
         new Attendance("Madison Jenkins", "2018-04-20", "VTO", 8, "Test Model.Attendance 2", true);
-        new Attendance("Madison Jenkins", "2018-04-20", "Apple Down Time", 8, "Test Model.Attendance 2",true);
+        new Attendance("Madison Jenkins", "2018-04-20", "Comp Down Time", 8, "Test Model.Attendance 2",true);
         /*new Attendance("Madison Jenkins", "4/13/20", "Early or Late Out", 8, "Test Model.Attendance 2",true);
         new Attendance("Madison Jenkins", "4/16/20", "Personal", 8, "Test Model.Attendance 2",true);
         new Attendance("Madison Jenkins", "6/13/20", "Home DownTime", 8, "Test Model.Attendance 2",true);
