@@ -1,4 +1,4 @@
-package sample;
+package timeCalc;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         primaryStage.setResizable(false);
-        primaryStage.setTitle("TimeCard Helper");
+        primaryStage.setTitle("TimeCalc");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
