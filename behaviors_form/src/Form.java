@@ -295,8 +295,8 @@ class Form extends javax.swing.JFrame
             }
             try
             {
-                c = sql.getConnection(System.getProperty("user.home") + "/Library/Application Support/"
-                        + "Behavior_Tracker/" + uname + "_database");
+                c = sql.getConnection(System.getProperty("user.dir") + "/db/"
+                         + uname + "_database");
                 c.setAutoCommit(false);
                 String sqlCreate = "CREATE TABLE IF NOT EXISTS behavior" +
                         "(" +

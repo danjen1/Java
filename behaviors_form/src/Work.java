@@ -11,16 +11,16 @@ class Work
         String FileFolder = System.getenv("APPDATA") + "\\" + "Launcher";
         System.out.println("Searching for database file");
         String os = System.getProperty("os.name").toUpperCase();
-        /*
+
         if (os.contains("WIN")) {
             FileFolder = System.getenv("APPDATA") + "\\" + "Launcher";
             System.out.println("Found windows");
         }
                 if (os.contains("NUX")) {
-            FileFolder = System.getProperty("user.dir") + ".Launcher";
+            FileFolder = System.getProperty("user.dir") + "/db/" ;
             System.out.println("Found linux");
         }
-        */
+
         if (os.contains("MAC")) {
             FileFolder = System.getProperty("user.home") + "/Library/Application " + "Support/"
                     + "Behavior_Tracker";
