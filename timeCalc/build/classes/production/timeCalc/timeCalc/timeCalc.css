@@ -1,0 +1,10 @@
+.btn:hover{
+    -fx-text-fill: #82bf6d;
+    -fx-border-color: #82bf6d;
+}
+
+.btn:focused{
+    -fx-text-fill: #82bf6d;
+    -fx-border-color: #82bf6d;
+
+}

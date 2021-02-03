@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="473.0" prefWidth="452.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timeCalc.Main_Controller">
+   <children>
+      <GridPane layoutX="-1.0" maxHeight="473.0" maxWidth="452.0" prefHeight="473.0" prefWidth="452.0" style="-fx-background-color: black;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="211.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="241.0" />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="107.0" minHeight="7.0" prefHeight="53.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="159.0" minHeight="2.0" prefHeight="53.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="84.0" prefWidth="459.0" text="TimeCalc" textAlignment="CENTER" textFill="#4f68c9" GridPane.columnSpan="3">
+               <font>
+                  <Font name="Noteworthy Bold" size="64.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Label>
+            <Line endX="347.7573547363281" endY="-0.21320056915283203" startX="-100.0" startY="-0.9702854156494141" stroke="#aba7a7" strokeType="OUTSIDE" strokeWidth="0.5">
+               <GridPane.margin>
+                  <Insets top="70.0" />
+               </GridPane.margin>
+            </Line>
+            <Label fx:id="convertedMinsLbl" alignment="CENTER_RIGHT" contentDisplay="CENTER" focusTraversable="false" prefHeight="37.0" prefWidth="145.0" text="Minutes" textFill="#aba7a7" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="DecimalLbl" contentDisplay="CENTER" focusTraversable="false" prefHeight="29.0" prefWidth="96.0" text="Decimal" textFill="#aba7a7" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="2.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="convertedLbl" contentDisplay="CENTER" focusTraversable="false" prefHeight="29.0" prefWidth="252.0" text="0.00" textAlignment="CENTER" textFill="#82bf6d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Consolas" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="90.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="96.0" prefWidth="450.0" text="DownTime" textAlignment="CENTER" textFill="#4f68c9" GridPane.columnSpan="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Noteworthy Bold" size="42.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="2.0" />
+               </GridPane.margin>
+            </Label>
+            <Line endX="349.1716003417969" endY="3.0994415283203125E-6" startX="-100.0" stroke="#aba7a7" strokeType="OUTSIDE" strokeWidth="0.25" GridPane.columnSpan="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets top="80.0" />
+               </GridPane.margin>
+            </Line>
+            <TextField fx:id="numMinutesTextField" prefHeight="27.0" prefWidth="65.0" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="145.0" right="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" focusTraversable="false" prefHeight="44.0" prefWidth="145.0" text="Worked Hours" textFill="#aba7a7" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="hoursWorkedTextField" prefHeight="28.0" prefWidth="71.0" promptText="0.00" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="145.0" right="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" focusTraversable="false" prefHeight="33.0" prefWidth="62.0" text="Shift" textFill="#aba7a7" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="220.0" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <RadioButton fx:id="fiveByEightRbtn" alignment="CENTER_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="5x8" textAlignment="CENTER" textFill="#aba7a7">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="shiftTypeToggleGroup" />
+                     </toggleGroup>
+                     <font>
+                        <Font name="Consolas" size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="fourByTenRbtn" alignment="CENTER_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="102.0" text="4x10" textAlignment="RIGHT" textFill="#aba7a7" toggleGroup="$shiftTypeToggleGroup">
+                     <font>
+                        <Font name="Consolas" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></RadioButton>
+               </children>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </HBox>
+            <Label fx:id="paidTotalLbl" alignment="CENTER_RIGHT" contentDisplay="CENTER" focusTraversable="false" prefHeight="31.0" prefWidth="203.0" text="Paid DT Amount" textFill="#aba7a7" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Consolas Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="hrsMinsLbl" contentDisplay="CENTER" focusTraversable="false" prefHeight="29.0" prefWidth="238.0" text="0 hours/ 0 minutes" textAlignment="CENTER" textFill="#82bf6d" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Consolas" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="submitBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSubmitBtn" onKeyPressed="#submitEnter" prefHeight="60.0" prefWidth="152.0" style="-fx-border-color: aba7a7; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-color: black;" styleClass="btn" stylesheets="@timeCalc.css" text="Submit" textFill="#4f68c9" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Noteworthy Bold" size="28.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="150.0" right="150.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
